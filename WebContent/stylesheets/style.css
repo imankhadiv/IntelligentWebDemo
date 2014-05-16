@@ -1,0 +1,60 @@
+
+.hero-unit
+{
+    width: 80%;
+	/*margin-top: 3cm;*/
+	 
+	
+}
+first {
+	background-color:yellow;
+	border:solid black 10px;
+}
+
+div#main-container.container {
+	/* background-color: blue; */
+}
+.container {
+	/*background-color:red;*/
+}
+#navbar-background {
+	/*  background-color:yellow;*/
+}
+#body {
+	background-color:#ACD6FF;
+}
+#query-users{
+}
+.img-polaroid {
+  /* width: auto\9; */
+  height: auto;
+  max-width: 25%;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  margin-right:0px;
+  border-radius:0;
+}
+#profile {
+	background-color:#707070;
+}
+#profileimage{
+	display:inlie;
+}	
+	
+#venuetable {
+	width:50%;
+	background-color:gray;
+}
+.btn {
+	width:30%;
+	margin:1%;
+}
+#history-img{
+	size:10px;
+	max-width:20%;
+	margin-right:0px;
+} 
+
+
+

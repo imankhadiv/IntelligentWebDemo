@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>Search Tweets By User</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="javascripts/searchTweetsByUser.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
+
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+</head>
+<body id="body" style="background-image:url('images/Twitter_logo_blue.png');background-repeat: no-repeat">
+
+<div id="header">
+    <nav class="navbar navbar-default navbar-top">
+        <div class="navbar-inner navbar-content-center">
+        <a class="brand" href="home.jsp">Home Page</a>
+            <p class="text-muted credit"></p>
+        </div>
+    </nav>
+</div>
+	<table border="1" class="table table-borderd table-hover" id="venuetable">
+	<tr>
+ 		<td>User Screen Name(eg. userid of twitter) : </td>
+ 		<td><input id="userscreenname" type="text"></td>
+ 		</tr>
+ 		<tr>
+ 		<td>Past day range : </td>
+ 		<td> <input id="daysbefore" type="number" ></td>
+ 		</tr>
+ 		<tr>
+ 		<td colspan="2" align="right"> 
+
+ 		 		<a class="btn btn-primary btn-large" onclick="searchByUser()">Search</a>
+ 		 		<a class="btn btn-danger btn-large" onclick="stopTweetStreaming()">Stop</a> 		</td>
+ 		</tr>
+ 	</table>
+ <a>*if the day is 0, it would start streaming for 50seconds</a>
+	 <div id="listdisplay"></div>
+      <div id="streamdisplay"></div>
+      <div id="footer">
+	<nav class="navbar navbar-fixed-bottom">
+		<div class="navbar-inner navbar-content-center">
+			<p class="text-muted credit">&copy;copyright 2014</p>
+		</div>
+	</nav>
+</div>
+</body>
+</html>

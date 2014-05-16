@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<!-- [if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif] -->
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0
+}
+
+#map-canvas {
+	height: 100%
+}
+</style>
+
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="stylesheets/style.css" rel="stylesheet" />
+<script type="text/javascript"
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDo32IkFHYhUdr_ABHMTsGOCfHD4IJ4kgI&sensor=true">
+	
+</script>
+<script
+	src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places,visualization&v=3.exp"></script>
+<link href='http://fonts.googleapis.com/css?family=Istok+Web'
+	rel='stylesheet' type='text/css'>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+	
+</script>
+<script src="javascripts/foursquare.js">
+	
+</script>
+<title>Find venue information by inputting shorturl</title>
+</head>
+<body id="body"
+	style="background-image: url('images/Twitter_logo_blue.png'); background-repeat: no-repeat">
+	<div id="header">
+		<nav class="navbar navbar-default navbar-top">
+			<div class="navbar-inner navbar-content-center">
+				<a class="brand" href="home.jsp">Home
+					Page</a>
+				<p class="text-muted credit"></p>
+			</div>
+		</nav>
+	</div>
+
+	<h1 style="text-align: center">
+		Find venue information by inputting shorturl<br>
+	</h1>
+
+	Please input foursquare shorturl
+	<input id="shorturl" name="shorturl" type="text" placeholder="http://" />
+	<br /> input a type of nearby search
+	<input id="type" name="type" type="text" />
+	<br />
+	<button type="button" class="btn" onclick="loadJSON()">Search</button>
+
+
+	<!-- display all articles -->
+	<div style="width: 700px; padding: 20px;">
+		<h5 style="text-align: center">
+			<i style="color: #ccc"><small>Venue Details</small></i>
+		</h5>
+
+		<table id="table" class="table" border="1">
+			<tr>
+				<th>User Photo</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Gender</th>
+				<th>Venue Name</th>
+				<th>Country</th>
+				<th>City</th>
+				<th>Post Code</th>
+				<th>Category</th>
+				<th>Address</th>
+				<th>Latitude</th>
+				<th>Longitude</th>
+				<th>Venue pic</th>
+				<th>Venue URL</th>
+			</tr>
+			<tr>
+				<td><img id="userphoto" height="48px" width="48px"></img></td>
+				<td><div id=first_name></div></td>
+				<td><div id=last_name></div></td>
+				<td><div id=gender></div></td>
+				<td><div id=venue_name></div></td>
+				<td><div id=country></div></td>
+				<td><div id=city></div></td>
+				<td><div id=post_code></div></td>
+				<td><div id=category></div></td>
+				<td><div id=address></div></td>
+				<td><div id=latitude></div></td>
+				<td><div id=longitude></div></td>
+				<td><img id="venuepic" height="48px" width="48px"></img></td>
+				<td><div id=venueURL></div></td>
+			</tr>
+		</table>
+	</div>
+	<div id="map-canvas" />
+	<div id="footer">
+		<nav class="navbar navbar-fixed-bottom">
+			<div class="navbar-inner navbar-content-center">
+				<p class="text-muted credit">&copy;copyright 2014</p>
+			</div>
+		</nav>
+	</div>
+
+</body>
+</html>
