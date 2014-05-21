@@ -22,7 +22,7 @@ public class MyDB {
 		Statement stm = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			connection = (Connection) DriverManager.getConnection(DB);
+			connection = (Connection) DriverManager.getConnection(url);
 			if (connection != null)
 				System.out.println("Database connection established");
 			// create table
