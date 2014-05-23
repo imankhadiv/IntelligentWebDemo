@@ -88,7 +88,7 @@ public class GetTweetByLocation {
 					TwitterAccount twitterAccount = new TwitterAccount();
 					twitterAccount.saveTwitterAccount(filter(user.getName()).trim(),
 							String.valueOf(user.getId()),
-							filter(user.getDescription()), filter(user.getScreenName()),
+							 filter(user.getScreenName()),filter(user.getDescription()),
 							user.getProfileImageURL());
 					
 					model.add(twitterAccount.getModel());
