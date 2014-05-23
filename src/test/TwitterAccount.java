@@ -66,12 +66,14 @@ public class TwitterAccount {
 		modelMain.add(twitterAccount.getModel());
 		Person personrdf = new Person();
 		personrdf.savePerson("Jianyue NI", "1988-06-21", "sheffield", "male", 111,"");
+		personrdf.savePerson("Jianyue NI", "1988-06-21", "sheffield", "male", 111,"");
+		personrdf.savePerson("Jianyue NI", "1988-06-21", "sheffield", "male", 111,"");
 		modelMain.add(personrdf.getModel());
 		
 		FileWriter out = null;
 		try {
 			out = new FileWriter(fileName);
-			modelMain.write(out, "RDF/XML-ABBREV");
+			modelMain.write(out);
 			out.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

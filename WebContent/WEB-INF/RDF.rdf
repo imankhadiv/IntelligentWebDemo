@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<rdf:RDF
+    xmlns:j.0="http://somewhere/twitter#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.1="http://somewhere/person#" > 
+  <rdf:Description rdf:about="http://somewhere/twitter_account#802756806">
+    <j.0:userId>802756806</j.0:userId>
+    <j.0:sceenName>PresenteratcommunityradiostationToday'sMoreChoiceRadio(TMCR95.3fm)inDoncaster.ThesearemyownviewsandnotthoseofTMCRRadio.</j.0:sceenName>
+    <j.0:description>JoshTMCR</j.0:description>
+    <j.0:photoUrl>http://pbs.twimg.com/profile_images/458620206064369664/SExUw-67_normal.jpeg</j.0:photoUrl>
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#JoshBull-TMCRFM"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#864982249">
+    <j.0:userId>864982249</j.0:userId>
+    <j.0:sceenName>TohelppromoteeverythingthatisSHEFFIELDunderthehashtagSheffieldissuper-SheffieldBizHoureveryThurs8-9pm!Managedby@ATPrototypeaddmethere</j.0:sceenName>
+    <j.0:description>Sheffieldis</j.0:description>
+    <j.0:photoUrl>http://pbs.twimg.com/profile_images/2687347160/ffa1e6ddae4edca322cd65e124eed064_normal.jpeg</j.0:photoUrl>
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#Sheffieldissuper"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#593953089">
+    <j.0:userId>593953089</j.0:userId>
+    <j.0:sceenName>Awife,amumwithtwinboys,andworkingfulltimekeepsmebusybutIenjoylifetothefull.</j.0:sceenName>
+    <j.0:description>MelTankard</j.0:description>
+    <j.0:photoUrl>http://pbs.twimg.com/profile_images/464533280868802560/KUfE_9Fu_normal.jpeg</j.0:photoUrl>
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#MelTankard"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#586963671">
+    <j.0:userId>586963671</j.0:userId>
+    <j.0:sceenName>Theotherhalfof@deejayonexloyalmemberofteamhargreavesx</j.0:sceenName>
+    <j.0:description>RaiRaiVaj</j.0:description>
+    <j.0:photoUrl>http://pbs.twimg.com/profile_images/378800000779858942/c81dfb26fdafd49bee9ad57c0c5a05be_normal.jpeg</j.0:photoUrl>
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#Rachael"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#ILoveDoncaster">
+    <j.1:name>ILoveDoncaster</j.1:name>
+    <j.1:birthday></j.1:birthday>
+    <j.1:liveInCity>Doncaster</j.1:liveInCity>
+    <j.1:gender></j.1:gender>
+    <j.1:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#485917481"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#DJImagery">
+    <j.1:name>DJImagery</j.1:name>
+    <j.1:birthday></j.1:birthday>
+    <j.1:liveInCity>Danny Jones</j.1:liveInCity>
+    <j.1:gender></j.1:gender>
+    <j.1:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#551183395"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#TradDad">
+    <j.1:name>TradDad</j.1:name>
+    <j.1:birthday></j.1:birthday>
+    <j.1:liveInCity>Sheffield, South Yorkshire</j.1:liveInCity>
+    <j.1:gender></j.1:gender>
+    <j.1:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#1058382302"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#SamDyson">
+    <j.1:name>SamDyson</j.1:name>
+    <j.1:birthday></j.1:birthday>
+    <j.1:liveInCity>Retford</j.1:liveInCity>
+    <j.1:gender></j.1:gender>
+    <j.1:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#24364109"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#JoshBull-TMCRFM">
+    <j.1:name>JoshBull-TMCRFM</j.1:name>
+    <j.1:birthday></j.1:birthday>
+    <j.1:liveInCity>Doncaster</j.1:liveInCity>
+    <j.1:gender></j.1:gender>
+    <j.1:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#802756806"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#293489010">
+    <j.0:userId>293489010</j.0:userId>
+    <j.0:sceenName></j.0:sceenName>
+    <j.0:description>Torlot</j.0:description>
+    <j.0:photoUrl>http://pbs.twimg.com/profile_images/469500245030625281/3EY7TvdJ_normal.jpeg</j.0:photoUrl>
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#JamesTorlot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#1058382302">
+    <j.0:userId>1058382302</j.0:userId>
+    <j.0:sceenName>tradstuff,dadstuff,food,bicyclesandasprinklingofthingsIberian</j.0:sceenName>
+    <j.0:description>trad_dad</j.0:description>
+    <j.0:photoUrl>http://pbs.twimg.com/profile_images/412748322596982785/wLyHsePT_normal.jpeg</j.0:photoUrl>
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#TradDad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#24364109">
+    <j.0:userId>24364109</j.0:userId>
+    <j.0:sceenName>Sam.21.Fitnessfinatic.Gymaddict.OnamissiontogetabikinibodayforSummer'14</j.0:sceenName>
+    <j.0:description>Sammie_D</j.0:description>
+    <j.0:photoUrl>http://pbs.twimg.com/profile_images/378800000682399386/d87e3d69c73ed70bf212ed231142ead2_normal.jpeg</j.0:photoUrl>
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#SamDyson"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#MelTankard">
+    <j.1:name>MelTankard</j.1:name>
+    <j.1:birthday></j.1:birthday>
+    <j.1:liveInCity>sheffield</j.1:liveInCity>
+    <j.1:gender></j.1:gender>
+    <j.1:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#593953089"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#Sheffieldissuper">
+    <j.1:name>Sheffieldissuper</j.1:name>
+    <j.1:birthday></j.1:birthday>
+    <j.1:liveInCity>Sheffield</j.1:liveInCity>
+    <j.1:gender></j.1:gender>
+    <j.1:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#864982249"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#JamesTorlot">
+    <j.1:name>JamesTorlot</j.1:name>
+    <j.1:birthday></j.1:birthday>
+    <j.1:liveInCity>Kettering</j.1:liveInCity>
+    <j.1:gender></j.1:gender>
+    <j.1:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#293489010"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#608181252">
+    <j.0:userId>608181252</j.0:userId>
+    <j.0:sceenName>Forlegendaryprices,search&amp;compareflightsandholidaysfromRobinHoodAirportDoncasterSheffield-OfficialPartnertoRobinHoodAirport.</j.0:sceenName>
+    <j.0:description>flyrobinhood</j.0:description>
+    <j.0:photoUrl>http://pbs.twimg.com/profile_images/454605102175621120/M4f_ZyFw_normal.png</j.0:photoUrl>
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#RobinHoodFlights"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#551183395">
+    <j.0:userId>551183395</j.0:userId>
+    <j.0:sceenName>ImaPhotographerbasedinRetford,coveringallaspectsofphotographye.g.Concerts,Weddings,modellingshootsetc.Pleasevisitmysitebelow..djimagery</j.0:sceenName>
+    <j.0:description>djimageryuk</j.0:description>
+    <j.0:photoUrl>http://pbs.twimg.com/profile_images/2095534605/DJ_IMAGERY1ffff_normal.jpg</j.0:photoUrl>
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#DJImagery"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#Rachael">
+    <j.1:name>Rachael</j.1:name>
+    <j.1:birthday></j.1:birthday>
+    <j.1:liveInCity></j.1:liveInCity>
+    <j.1:gender></j.1:gender>
+    <j.1:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#586963671"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#485917481">
+    <j.0:userId>485917481</j.0:userId>
+    <j.0:sceenName>Tweeting&amp;RTingallthings'Doncaster'iLoveDN-Readallaboutitin@MODEmagazineDN</j.0:sceenName>
+    <j.0:description>iLoveDN_</j.0:description>
+    <j.0:photoUrl>http://pbs.twimg.com/profile_images/1857743195/ILoveDN_normal.png</j.0:photoUrl>
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#ILoveDoncaster"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#RobinHoodFlights">
+    <j.1:name>RobinHoodFlights</j.1:name>
+    <j.1:birthday></j.1:birthday>
+    <j.1:liveInCity>Doncaster</j.1:liveInCity>
+    <j.1:gender></j.1:gender>
+    <j.1:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#608181252"/>
+  </rdf:Description>
+</rdf:RDF>
