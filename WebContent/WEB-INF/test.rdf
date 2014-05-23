@@ -1,12 +1,20 @@
+<?xml version="1.0" encoding="US-ASCII"?>
 <rdf:RDF
+    xmlns:j.0="http://somewhere/twitter#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#" > 
-  <rdf:Description rdf:nodeID="A0">
-    <vcard:Family>Smith</vcard:Family>
-    <vcard:Given>John</vcard:Given>
+    xmlns:j.1="http://somewhere/person#">
+  <rdf:Description rdf:about="http://somewhere/twitter_account#111">
+    <j.0:userId>111</j.0:userId>
+    <j.0:sceenName>njjy0612</j.0:sceenName>
+    <j.0:description></j.0:description>
+    <j.0:photoUrl>xxxx</j.0:photoUrl>
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#Jianyue Ni"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/JohnSmith">
-    <vcard:N rdf:nodeID="A0"/>
-    <vcard:FN>John Smith</vcard:FN>
+  <rdf:Description rdf:about="http://somewhere/person#Jianyue NI">
+    <j.1:name>Jianyue NI</j.1:name>
+    <j.1:birthday>1988-06-21</j.1:birthday>
+    <j.1:liveInCity>sheffield</j.1:liveInCity>
+    <j.1:gender>male</j.1:gender>
+    <j.1:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
   </rdf:Description>
 </rdf:RDF>

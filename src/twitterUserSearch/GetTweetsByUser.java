@@ -125,11 +125,6 @@ public class GetTweetsByUser {
 			twitterConnection = tt.init();
 			tweetsList = tt.getSimpleTimeLine(twitterConnection, "njy0612",
 					5);
-//			for(int i=0;i<tweetsList.size();i++)
-//			{
-//				System.out.println(tweetsList.get(i).getText());
-//			}
-
 		} catch (Exception e) {
 			System.out.println("Cannot initialise Twitter");
 			e.printStackTrace();
