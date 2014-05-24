@@ -45,26 +45,10 @@ public class Query {
 		try {
 			// simple select
 			if(results.hasNext()){
-//				results.next();
-				ResultSetFormatter.out(System.out, results, query);
-//				results.next();
-//				 List<QuerySolution> solnntest = ResultSetFormatter.toList(results);
-//				
-//	    		 RDFNode id_name = solnntest.get(0).get("?sceenname");
-//	    		 System.out.println(id_name.toString());
-//	    		 RDFNode ID = solnntest.get("userId");
-//	    		 System.out.println(ID.toString());
-//	    		 RDFNode photoURL = solnntest.get("photoUrl");
-//	    		 System.out.println(photoURL.toString());
-	    		
-				// column name
-				List<String> rsList = results.getResultVars();
-				for (int i = 0; i < rsList.size(); i++) {
-					System.out.println(rsList.get(i));
-				}
-				
-				
-//				System.out.println(results.next().get("NAME").toString());
+				QuerySolution qs = results.next();
+				System.out.println(qs.getLiteral("?sceenName"));
+				System.out.println(qs.getLiteral("?userId"));
+				System.out.println(qs.getLiteral("?photoUrl"));
 			}
 		} finally {
 			qe.close();
