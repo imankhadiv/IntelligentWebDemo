@@ -22,7 +22,7 @@ public class TwitterAccount {
 	
 	public TwitterAccount(){
 		
-		String twitterAccountURI =URI+"/twitter#";
+		String twitterAccountURI =URI+"/twitterAccount#";
 		model = ModelFactory.createDefaultModel();
 		
 		//create schema
@@ -35,9 +35,10 @@ public class TwitterAccount {
 	}
 	
 	public void saveTwitterAccount(String name, String userId, String ScreenName, String description, String userPhotoUrl){
-		String twitterAccountURL =  URI+"/twitter_account#" + userId;
-		String personURI = URI+"/person#";
-		Resource person = model.createResource(personURI + name);
+		String twitterAccountURL =  URI+"/twitterAccount#" + userId;
+		// get source for person
+		String personURI = URI+"/person#" + name;
+		Resource person = model.createResource(personURI);
 		model.createResource(twitterAccountURL)
 				.addProperty(propUserId, userId)
 				.addProperty(propScreenName, ScreenName)

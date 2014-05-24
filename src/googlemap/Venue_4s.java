@@ -11,7 +11,6 @@ public class Venue_4s {
 	private String city;
 	private Double latitude;
 	private Double longitude;
-	private String URL;
 	private String photoURL;
 	
 	
@@ -24,13 +23,6 @@ public class Venue_4s {
 		this.photoURL = photoURL;
 	}
 
-	public String getURL() {
-		return URL;
-	}
-
-	public void setURL(String uRL) {
-		URL = uRL;
-	}
 
 	public Venue_4s(CompactVenue _venue)
 	{
@@ -41,7 +33,6 @@ public class Venue_4s {
 		this.setLongitude(_venue.getLocation().getLng());
 		this.setPostcode(_venue.getLocation().getPostalCode());
 		this.setVenue_name(_venue.getName());
-		this.setURL(_venue.getUrl());
 	}
 	
 	public String getCategoryString(Category[] venueCategory) 
