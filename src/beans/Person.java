@@ -10,6 +10,7 @@ public class Person {
 	private String profilePicture;
 	private String description;
 	private String twittText;
+	private long twitterId;
 	private int twittCount;
 	
 	private Map<String, Integer> map;
@@ -77,6 +78,21 @@ public class Person {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public long getTwitterId() {
+		return twitterId;
+	}
+
+	public void setTwitterId(long twitterId) {
+		this.twitterId = twitterId;
+	}
 
 }

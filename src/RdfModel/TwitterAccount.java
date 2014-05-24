@@ -51,6 +51,7 @@ public class TwitterAccount {
 	public static void main(String[] args)
 	{
 		String workingDir = System.getProperty("user.dir");
+		System.out.println(workingDir);
 		String fileName = workingDir + "/WebContent/WEB-INF/test.rdf";
 		InputStream in = FileManager.get().open(fileName);
 		Model modelMain = ModelFactory.createDefaultModel();
@@ -65,6 +66,7 @@ public class TwitterAccount {
 		personrdf.savePerson("Jianyue NI2", "1988-06-21", "sheffield", "male", 111,"");
 		personrdf.savePerson("Jianyue NI3", "1988-06-21", "sheffield", "male", 111,"");
 		personrdf.savePerson("Jianyue NI4", "1988-06-21", "sheffield", "male", 111,"");
+		personrdf.savePerson("Iman", "111", "sheffield", "male", 111,"");
 		modelMain.add(personrdf.getModel());
 		
 		FileWriter out = null;
