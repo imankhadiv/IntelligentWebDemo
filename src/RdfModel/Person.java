@@ -5,7 +5,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 
-public class Person {
+public class Person extends BaseModel {
 	private final String URI = "http://somewhere";
 	private Model model;
 	private Property Name;
@@ -48,6 +48,7 @@ public class Person {
 	public Model getModel() {
 		return model;
 	}
+	
 
 	public static void main(String[] args) {
 		Model modelMain = ModelFactory.createDefaultModel();

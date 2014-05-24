@@ -4,7 +4,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 
-public class Tweet {
+public class Tweet extends BaseModel{
 
 	
 		private final String URI = "http://somewhere";
@@ -48,5 +48,5 @@ public class Tweet {
 		public Model getModel(){
 			return model;
 		}
-
+		
 }

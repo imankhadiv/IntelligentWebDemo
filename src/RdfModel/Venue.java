@@ -1,5 +1,5 @@
 package RdfModel;
 
-public class Venue {
+public class Venue extends BaseModel{
 
 }

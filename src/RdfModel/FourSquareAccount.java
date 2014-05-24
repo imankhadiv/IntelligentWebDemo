@@ -1,5 +1,5 @@
 package RdfModel;
 
-public class FourSquareAccount {
+public class FourSquareAccount extends BaseModel {
 
 }

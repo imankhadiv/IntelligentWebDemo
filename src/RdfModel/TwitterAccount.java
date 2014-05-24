@@ -10,7 +10,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.util.FileManager;
 
-public class TwitterAccount {
+public class TwitterAccount extends BaseModel{
 	private final String URI = "http://somewhere";
 	private Model model;
 	private Property propUserId;
@@ -53,40 +53,46 @@ public class TwitterAccount {
 		String workingDir = System.getProperty("user.dir");
 		System.out.println(workingDir);
 		String fileName = workingDir + "/WebContent/WEB-INF/test.rdf";
-		InputStream in = FileManager.get().open(fileName);
-		Model modelMain = ModelFactory.createDefaultModel();
-		// comment this line for the first time
-		modelMain.read(in, null);
+		//InputStream in = FileManager.get().open(fileName);
+//		Model modelMain = ModelFactory.createDefaultModel();
+//		// comment this line for the first time
+//		modelMain.read(in, null);
+//		modelMain.write(System.out);
+		TwitterAccount twitterAccount = new TwitterAccount();
+		
+		Model modelMain = twitterAccount.getModelFromFile(fileName);
+		System.out.println("..............///////");
 		modelMain.write(System.out);
 		
-		TwitterAccount twitterAccount = new TwitterAccount();
 		twitterAccount.saveTwitterAccount("Jianyue Ni", "111", "njjy0612", "", "xxxx");
 		modelMain.add(twitterAccount.getModel());
 		Person personrdf = new Person();
 		personrdf.savePerson("Jianyue NI2", "1988-06-21", "sheffield", "male", 111,"");
 		personrdf.savePerson("Jianyue NI3", "1988-06-21", "sheffield", "male", 111,"");
 		personrdf.savePerson("Jianyue NI4", "1988-06-21", "sheffield", "male", 111,"");
-		personrdf.savePerson("Iman", "111", "sheffield", "male", 111,"");
+		personrdf.savePerson("Amir", "111", "sheffield", "male", 111,"");
 		modelMain.add(personrdf.getModel());
 		
-		FileWriter out = null;
-		try {
-			out = new FileWriter(fileName);
-			modelMain.write(out);
-			out.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-			if(out!=null)
-				try {
-					out.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		}
+		twitterAccount.saveModel(fileName, modelMain);
 		
+//		FileWriter out = null;
+//		try {
+//			out = new FileWriter(fileName);
+//			modelMain.write(out);
+//			out.close();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}finally{
+//			if(out!=null)
+//				try {
+//					out.close();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//		}
+//		
 		
 	}
 }

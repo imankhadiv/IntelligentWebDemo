@@ -34,6 +34,13 @@
     <j.3:gender>male</j.3:gender>
     <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#Amir">
+    <j.3:name>Amir</j.3:name>
+    <j.3:birthday>111</j.3:birthday>
+    <j.3:liveInCity>sheffield</j.3:liveInCity>
+    <j.3:gender>male</j.3:gender>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/person#Jianyue NI4">
     <j.3:name>Jianyue NI4</j.3:name>
     <j.3:birthday>1988-06-21</j.3:birthday>
