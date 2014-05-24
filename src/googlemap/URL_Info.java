@@ -5,6 +5,9 @@ import fi.foyt.foursquare.api.entities.CompactVenue;
 
 public class URL_Info {
 	private User_4s user;
+	private Venue_4s venue;
+	
+	
 	public User_4s getUser() {
 		return user;
 	}
@@ -21,7 +24,7 @@ public class URL_Info {
 		this.venue = venue;
 	}
 
-	private Venue_4s venue;
+	
 	
 	public URL_Info(CompactUser _user,CompactVenue _venue)
 	{

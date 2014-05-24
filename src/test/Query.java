@@ -29,12 +29,16 @@ public class Query {
 		in.close();
 		
 		String queryString = "PREFIX twitter: <http://somewhere/twitter#> "+
-				"SELECT ?twitter ?userId ?sceenName ?photoUrl "+
+				"PREFIX person: <http://somewhere/person#> "+
+				"SELECT ?name ?userId ?sceenName ?photoUrl  "+
 				"WHERE { ?twitter twitter:userId \""+userId+"\" ."+
 				"?twitter twitter:sceenName \""+screenname+"\" . "+
 				"?twitter twitter:sceenName ?sceenName . "+
 				"?twitter twitter:userId ?userId . " +
-				"?twitter twitter:photoUrl ?photoUrl .}";
+				"?twitter twitter:photoUrl ?photoUrl . " +
+				"?twitter twitter:ownedByPerson ?person . " +
+				"?person person:name ?name . " +
+				"}";
 		
 		 com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
 	    	
@@ -49,6 +53,8 @@ public class Query {
 				System.out.println(qs.getLiteral("?sceenName"));
 				System.out.println(qs.getLiteral("?userId"));
 				System.out.println(qs.getLiteral("?photoUrl"));
+				System.out.println(qs.getLiteral("?name"));
+				
 			}
 		} finally {
 			qe.close();

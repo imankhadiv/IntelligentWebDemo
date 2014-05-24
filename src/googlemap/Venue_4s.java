@@ -5,14 +5,12 @@ import fi.foyt.foursquare.api.entities.CompactVenue;
 
 public class Venue_4s {
 	private String venue_name;
-	private Category[] categories;
 	private String address;
 	private String postcode;
 	private String country;
 	private String city;
 	private Double latitude;
 	private Double longitude;
-	private String category;
 	private String URL;
 	private String photoURL;
 	
@@ -37,17 +35,13 @@ public class Venue_4s {
 	public Venue_4s(CompactVenue _venue)
 	{
 		this.setAddress(_venue.getLocation().getAddress());
-		this.setCategories(_venue.getCategories());
 		this.setCity(_venue.getLocation().getCity());
 		this.setCountry(_venue.getLocation().getCity());
 		this.setLatitude(_venue.getLocation().getLat());
 		this.setLongitude(_venue.getLocation().getLng());
 		this.setPostcode(_venue.getLocation().getPostalCode());
 		this.setVenue_name(_venue.getName());
-		Category[] venueCategory = _venue.getCategories();	
-		this.setCategory(getCategoryString(venueCategory));
 		this.setURL(_venue.getUrl());
-		
 	}
 	
 	public String getCategoryString(Category[] venueCategory) 
@@ -72,12 +66,6 @@ public class Venue_4s {
 	}
 	public void setVenue_name(String venue_name) {
 		this.venue_name = venue_name;
-	}
-	public Category[] getCategories() {
-		return categories;
-	}
-	public void setCategories(Category[] categories2) {
-		this.categories = categories2;
 	}
 	public String getAddress() {
 		return address;
@@ -114,11 +102,5 @@ public class Venue_4s {
 	}
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
 	}
 }

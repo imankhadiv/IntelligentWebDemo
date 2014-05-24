@@ -1,36 +1,42 @@
-<?xml version="1.0" encoding="MacRoman"?>
+<?xml version="1.0" encoding="US-ASCII"?>
 <rdf:RDF
+    xmlns:j.0="http://somewhere/twitter#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:j.0="http://somewhere/" > 
-  <rdf:Description rdf:nodeID="A0">
-    <j.0:twitteruserId>MyraSyazana</j.0:twitteruserId>
-    <j.0:twittersceenName>oOSyaza</j.0:twittersceenName>
-    <j.0:twitterdescription>My page</j.0:twitterdescription>
-    <j.0:twitterphotoUrl> </j.0:twitterphotoUrl>
-    <j.0:twitterownedByPerson> </j.0:twitterownedByPerson>
+    xmlns:j.1="http://somewhere/"
+    xmlns:j.2="http://somewhere/person#" > 
+  <rdf:Description rdf:about="http://somewhere/person#Jianyue NI2">
+    <j.2:name>Jianyue NI2</j.2:name>
+    <j.2:birthday>1988-06-21</j.2:birthday>
+    <j.2:liveInCity>sheffield</j.2:liveInCity>
+    <j.2:gender>male</j.2:gender>
+    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A1">
-    <j.0:foursquareuserId>MyraSyazana</j.0:foursquareuserId>
-    <j.0:foursquareuserPhotoUrl>http://amirah/img</j.0:foursquareuserPhotoUrl>
-    <j.0:foursquaredescription>hello</j.0:foursquaredescription>
-    <j.0:foursquareownedByPerson>MyraSyazana</j.0:foursquareownedByPerson>
+  <rdf:Description rdf:about="http://somewhere/person#Jianyue NI3">
+    <j.2:name>Jianyue NI3</j.2:name>
+    <j.2:birthday>1988-06-21</j.2:birthday>
+    <j.2:liveInCity>sheffield</j.2:liveInCity>
+    <j.2:gender>male</j.2:gender>
+    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A2">
-    <j.0:personfirstName>Amirah2</j.0:personfirstName>
-    <j.0:personsecondName>Ibrahim</j.0:personsecondName>
-    <j.0:personbirthday>19.03.1990</j.0:personbirthday>
-    <j.0:personliveInCity>KL</j.0:personliveInCity>
-    <j.0:persongender>female</j.0:persongender>
-    <j.0:persontwitterAccount>ooSyaza</j.0:persontwitterAccount>
-    <j.0:personfoursquareAccout>Myrasyazana</j.0:personfoursquareAccout>
+  <rdf:Description rdf:about="http://somewhere/person#Jianyue NI4">
+    <j.2:name>Jianyue NI4</j.2:name>
+    <j.2:birthday>1988-06-21</j.2:birthday>
+    <j.2:liveInCity>sheffield</j.2:liveInCity>
+    <j.2:gender>male</j.2:gender>
+    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A3">
-    <j.0:personfirstName>Amirah1213</j.0:personfirstName>
-    <j.0:personsecondName>Ibrahim</j.0:personsecondName>
-    <j.0:personbirthday>19.03.1990</j.0:personbirthday>
-    <j.0:personliveInCity>KL</j.0:personliveInCity>
-    <j.0:persongender>female</j.0:persongender>
-    <j.0:persontwitterAccount>ooSyaza</j.0:persontwitterAccount>
-    <j.0:personfoursquareAccout>Myrasyazana</j.0:personfoursquareAccout>
+  <rdf:Description rdf:about="http://somewhere/person#Jianyue NI">
+    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
+    <j.2:gender>male</j.2:gender>
+    <j.2:liveInCity>sheffield</j.2:liveInCity>
+    <j.2:birthday>1988-06-21</j.2:birthday>
+    <j.2:name>Jianyue NI</j.2:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#111">
+    <j.0:ownedByPerson rdf:resource="http://somewhere/person#Jianyue Ni"/>
+    <j.0:photoUrl>xxxx</j.0:photoUrl>
+    <j.0:description></j.0:description>
+    <j.0:sceenName>njjy0612</j.0:sceenName>
+    <j.0:userId>111</j.0:userId>
   </rdf:Description>
 </rdf:RDF>

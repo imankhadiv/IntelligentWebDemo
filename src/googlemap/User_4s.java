@@ -3,8 +3,15 @@ package googlemap;
 import fi.foyt.foursquare.api.entities.CompactUser;
 
 public class User_4s {
+	private String photoURL;
+	private String firstName;
+	private String lastName;
+	private String gender;
+	private String homeCity;
+	private String id;
 	
 	public User_4s(CompactUser _user) {
+		this.setId(_user.getId().toString());
 		this.setFirstName(_user.getFirstName());
 		this.setLastName(_user.getLastName());
 		this.setPhotoURL(_user.getPhoto());
@@ -12,6 +19,14 @@ public class User_4s {
 		this.setHomeCity(_user.getHomeCity());
 	}
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getPhotoURL() {
 		return photoURL;
 	}
@@ -42,9 +57,5 @@ public class User_4s {
 	public void setHomeCity(String homeCity) {
 		this.homeCity = homeCity;
 	}
-	private String photoURL;
-	private String firstName;
-	private String lastName;
-	private String gender;
-	private String homeCity;
+	
 }
