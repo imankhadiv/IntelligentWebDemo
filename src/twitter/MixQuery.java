@@ -134,6 +134,7 @@ public class MixQuery {
 //		}
 //		return result;
 //	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static Map<String, Integer> sortByValue(Map<String, Integer> map) {
 		LinkedList<Entry<String,Integer>> list = new LinkedList<Entry<String,Integer>>();
 		for(Entry<String, Integer> item:map.entrySet()){

@@ -1,5 +1,5 @@
 package RdfModel;
 
-public class CheckIn {
+public class CheckIn extends BaseModel{
 
 }

@@ -1,42 +1,65 @@
-<?xml version="1.0" encoding="US-ASCII"?>
+<?xml version="1.0" encoding="MacRoman"?>
 <rdf:RDF
-    xmlns:j.0="http://somewhere/twitter#"
+    xmlns:j.1="http://somewhere/twitter#"
+    xmlns:j.0="http://somewhere/tweet#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:j.1="http://somewhere/"
-    xmlns:j.2="http://somewhere/person#" > 
+    xmlns:j.2="http://somewhere/"
+    xmlns:j.3="http://somewhere/person#" > 
   <rdf:Description rdf:about="http://somewhere/person#Jianyue NI2">
-    <j.2:name>Jianyue NI2</j.2:name>
-    <j.2:birthday>1988-06-21</j.2:birthday>
-    <j.2:liveInCity>sheffield</j.2:liveInCity>
-    <j.2:gender>male</j.2:gender>
-    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
+    <j.3:name>Jianyue NI2</j.3:name>
+    <j.3:birthday>1988-06-21</j.3:birthday>
+    <j.3:liveInCity>sheffield</j.3:liveInCity>
+    <j.3:gender>male</j.3:gender>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/tweet#111">
+    <j.0:tweetID>111</j.0:tweetID>
+    <j.0:text>ddd</j.0:text>
+    <j.0:date>eeee</j.0:date>
+    <j.0:hasVenue>eee</j.0:hasVenue>
+    <j.0:shortURL>wwww</j.0:shortURL>
+    <j.0:ownByTwitterAccount>http://somewhere/twitter_account#</j.0:ownByTwitterAccount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#Iman">
+    <j.3:name>Iman</j.3:name>
+    <j.3:birthday>111</j.3:birthday>
+    <j.3:liveInCity>sheffield</j.3:liveInCity>
+    <j.3:gender>male</j.3:gender>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/person#Jianyue NI3">
-    <j.2:name>Jianyue NI3</j.2:name>
-    <j.2:birthday>1988-06-21</j.2:birthday>
-    <j.2:liveInCity>sheffield</j.2:liveInCity>
-    <j.2:gender>male</j.2:gender>
-    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
+    <j.3:name>Jianyue NI3</j.3:name>
+    <j.3:birthday>1988-06-21</j.3:birthday>
+    <j.3:liveInCity>sheffield</j.3:liveInCity>
+    <j.3:gender>male</j.3:gender>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#Amir">
+    <j.3:name>Amir</j.3:name>
+    <j.3:birthday>111</j.3:birthday>
+    <j.3:liveInCity>sheffield</j.3:liveInCity>
+    <j.3:gender>male</j.3:gender>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/person#Jianyue NI4">
-    <j.2:name>Jianyue NI4</j.2:name>
-    <j.2:birthday>1988-06-21</j.2:birthday>
-    <j.2:liveInCity>sheffield</j.2:liveInCity>
-    <j.2:gender>male</j.2:gender>
-    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
+    <j.3:name>Jianyue NI4</j.3:name>
+    <j.3:birthday>1988-06-21</j.3:birthday>
+    <j.3:liveInCity>sheffield</j.3:liveInCity>
+    <j.3:gender>male</j.3:gender>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/person#Jianyue NI">
-    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
-    <j.2:gender>male</j.2:gender>
-    <j.2:liveInCity>sheffield</j.2:liveInCity>
-    <j.2:birthday>1988-06-21</j.2:birthday>
-    <j.2:name>Jianyue NI</j.2:name>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#111"/>
+    <j.3:gender>male</j.3:gender>
+    <j.3:liveInCity>sheffield</j.3:liveInCity>
+    <j.3:birthday>1988-06-21</j.3:birthday>
+    <j.3:name>Jianyue NI</j.3:name>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/twitter_account#111">
-    <j.0:ownedByPerson rdf:resource="http://somewhere/person#Jianyue Ni"/>
-    <j.0:photoUrl>xxxx</j.0:photoUrl>
-    <j.0:description></j.0:description>
-    <j.0:sceenName>njjy0612</j.0:sceenName>
-    <j.0:userId>111</j.0:userId>
+    <j.1:ownedByPerson rdf:resource="http://somewhere/person#Jianyue Ni"/>
+    <j.1:photoUrl>xxxx</j.1:photoUrl>
+    <j.1:description></j.1:description>
+    <j.1:sceenName>njjy0612</j.1:sceenName>
+    <j.1:userId>111</j.1:userId>
   </rdf:Description>
 </rdf:RDF>

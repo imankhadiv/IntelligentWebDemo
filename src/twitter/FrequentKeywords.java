@@ -54,6 +54,7 @@ public class FrequentKeywords {
 			for (User user : usersList) {
 
 				Person person = new Person();
+				person.setTwitterId(user.getId());
 				person.setScreenName(user.getScreenName());
 				person.setName(user.getName());
 				person.setProfilePicture(user.getOriginalProfileImageURL());
