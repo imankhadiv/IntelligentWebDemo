@@ -1,12 +1,11 @@
 package RdfModel;
 
-<<<<<<< HEAD
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 
-public class FourSquareAccount {
+public class FourSquareAccount extends BaseModel {
 	private final String URI = "http://somewhere";
 	private Model model;
 	private Property userId;
@@ -35,8 +34,6 @@ public class FourSquareAccount {
 	public Model getModel() {
 		return model;
 	}
-=======
-public class FourSquareAccount extends BaseModel {
->>>>>>> FETCH_HEAD
+
 
 }
