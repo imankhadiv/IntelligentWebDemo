@@ -79,14 +79,5 @@
     <servlet-name>SearchTweetsByUserServlet</servlet-name>
     <url-pattern>/SearchTweetsByUserServlet</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>MixedQueries</display-name>
-    <servlet-name>MixedQueries</servlet-name>
-    <servlet-class>controller.MixedQueries</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>MixedQueries</servlet-name>
-    <url-pattern>/MixedQueries</url-pattern>
-  </servlet-mapping>
+ 
 </web-app>

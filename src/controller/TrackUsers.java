@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import twitter.FrequentKeywords;
+import twitter.MixQuery;
+import twitter4j.GeoLocation;
 import beans.Person;
 
 /**
@@ -48,6 +50,40 @@ public class TrackUsers extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String mix = request.getParameter("mixed");
+		
+		if(mix != null && mix.equals("mixed")){
+			
+			String longitude = request.getParameter("longitude");
+			String latitude = request.getParameter("latitude");
+			String daysAgo = request.getParameter("daysAgo");
+			String radius = request.getParameter("radius");
+			String check = request.getParameter("checkbox");
+			String number = request.getParameter("number");
+			MixQuery mixQ;
+			
+			if ((latitude.equals("") || longitude.equals("")) && (check == null)) {
+
+				mixQ = new MixQuery(Integer.valueOf(daysAgo));
+				mixQ.setDefaultLocation(true);
+				
+			} else if (latitude.equals("") || longitude.equals("")) {
+				mixQ = new MixQuery(Integer.valueOf(daysAgo));
+				mixQ.setDefaultLocation(false);
+			} else {
+				mixQ = new MixQuery(new GeoLocation(Double.valueOf(latitude),
+						Double.valueOf(longitude)),Integer.valueOf(daysAgo));
+			}
+			if(!radius.equals("")){
+				mixQ.setRadius(Integer.valueOf(radius));
+			}
+			mixQ.go();
+			request.setAttribute("number", Integer.valueOf(number));
+			request.setAttribute("words", mixQ.getWords());
+			request.getRequestDispatcher("/Tracking/mixqueries.jsp").forward(request, response);
+			
+			
+		}else{
 	
 		String userIds = request.getParameter("userIds");
 		String[] ids = userIds.split(",");
@@ -68,7 +104,7 @@ public class TrackUsers extends HttpServlet {
 			System.out.println("...."+item.getMap());
 		}
 		
-	
+		}
 	
 	}
 

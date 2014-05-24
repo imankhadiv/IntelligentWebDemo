@@ -10,8 +10,9 @@
 <div class="hero-unit">
 	<h2>Mixed Queries</h2>
 	<form class="" name="mixed-queries" method="post"
-		action="${pageContext.request.contextPath}/MixedQueries"
+		action="${pageContext.request.contextPath}/TrackUsers"
 		onsubmit="return validateMixForm()">
+		<input type="hidden" name="mixed" value="mixed"/>
 
 
 		<label>Longitude:</label><input type="text" name="longitude"
