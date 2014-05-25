@@ -83,9 +83,6 @@ public class GetTweetsByUser {
 						tweetsList.add(tweetWithURL);
 					}
 				}
-//				System.out.println(tweet.getText());
-				// create model and add to list
-				
 			}
 		} catch (Exception te) {
 			te.printStackTrace();

@@ -79,7 +79,7 @@ public class GetTweetByLocation {
 							+ " not found");
 				} else {
 					model.read(in, null);
-
+					
 					Person person = new Person();
 					person.savePerson(filter(user.getName()).trim(), "", user.getLocation(),
 							"", user.getId(), "");
@@ -92,9 +92,6 @@ public class GetTweetByLocation {
 							user.getProfileImageURL());
 					
 					model.add(twitterAccount.getModel());
-					
-				
-					
 					
 					FileWriter out = null;
 					try {
@@ -109,6 +106,13 @@ public class GetTweetByLocation {
 						if (out != null)
 							try {
 								out.close();
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						if (in != null)
+							try {
+								in.close();
 							} catch (IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
