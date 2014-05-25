@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="US-ASCII"?>
+<?xml version="1.0" encoding="MacRoman"?>
 <rdf:RDF
-    xmlns:j.0="http://somewhere/twitter#"
+    xmlns:j.1="http://somewhere/twitter#"
+    xmlns:j.0="http://somewhere/tweet#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+<<<<<<< Updated upstream
     xmlns:j.1="http://somewhere/person#" > 
   <rdf:Description rdf:about="http://somewhere/person#AdamTaylor">
     <j.1:name>AdamTaylor</j.1:name>
@@ -130,5 +132,151 @@ E:lesley.draper@jpress.co.uk</j.0:description>
     <j.0:description>IncludeSouthYorkshireHoureveryThurs8-9PMtodiscusseverything&amp;anythinginSouthyorkshireincludinglocalbusiness.</j.0:description>
     <j.0:photoUrl>http://pbs.twimg.com/profile_images/3756198701/eb90fd80e522818bb7aaf8daf098d8dc_normal.png</j.0:photoUrl>
     <j.0:ownedByPerson rdf:resource="http://somewhere/person#SouthYorkshireHour"/>
+=======
+    xmlns:j.2="http://somewhere/"
+    xmlns:j.3="http://somewhere/person#" > 
+  <rdf:Description rdf:about="http://somewhere/twitter_account#246264888">
+    <j.1:ownedByPerson rdf:resource="http://somewhere/person#TerryDenness"/>
+    <j.1:photoUrl>http://pbs.twimg.com/profile_images/3442714640/0a86a2db8cf4ff0219dbd82a2720e844_normal.jpeg</j.1:photoUrl>
+    <j.1:description>FulltimeRegulator,AfrikitCo-Founder,UniversityofSheffieldGraduate,andReadingFCEnthusiast.</j.1:description>
+    <j.1:sceenName>Terry_Denness89</j.1:sceenName>
+    <j.1:userId>246264888</j.1:userId>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#RememberMe_RT">
+    <j.3:name>RememberMe_RT</j.3:name>
+    <j.3:birthday></j.3:birthday>
+    <j.3:liveInCity>Virtually Everywhere</j.3:liveInCity>
+    <j.3:gender></j.3:gender>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#2437740134"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#CandypantsSheffield">
+    <j.3:name>CandypantsSheffield</j.3:name>
+    <j.3:birthday></j.3:birthday>
+    <j.3:liveInCity>Sheffield</j.3:liveInCity>
+    <j.3:gender></j.3:gender>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#2244437324"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#TerryDenness">
+    <j.3:name>TerryDenness</j.3:name>
+    <j.3:birthday></j.3:birthday>
+    <j.3:liveInCity>London</j.3:liveInCity>
+    <j.3:gender></j.3:gender>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#246264888"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#LadyDawnCane">
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#592425305"/>
+    <j.3:gender></j.3:gender>
+    <j.3:liveInCity>Bracknell &amp; Sheffield</j.3:liveInCity>
+    <j.3:birthday></j.3:birthday>
+    <j.3:name>LadyDawnCane</j.3:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#637466457">
+    <j.1:ownedByPerson rdf:resource="http://somewhere/person#Simon"/>
+    <j.1:photoUrl>http://pbs.twimg.com/profile_images/412904244539576320/_eCVZ9Cc_normal.jpeg</j.1:photoUrl>
+    <j.1:description></j.1:description>
+    <j.1:sceenName>SiPeterChang</j.1:sceenName>
+    <j.1:userId>637466457</j.1:userId>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#592425305">
+    <j.1:ownedByPerson rdf:resource="http://somewhere/person#LadyDawnCane"/>
+    <j.1:photoUrl>http://pbs.twimg.com/profile_images/2610383003/dicjzausdxbl3xfntbmt_normal.jpeg</j.1:photoUrl>
+    <j.1:description>MatureproDommewholoveswhatSHEdoes&amp;doeswhatSHEloves.CPCBTSmokingFootworship,
+Thereissomuchmoretodominationthanjustpain-explore</j.1:description>
+    <j.1:sceenName>LadyDawnCane</j.1:sceenName>
+    <j.1:userId>592425305</j.1:userId>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#234400294">
+    <j.1:ownedByPerson rdf:resource="http://somewhere/person#CheeseOnBread"/>
+    <j.1:photoUrl>http://pbs.twimg.com/profile_images/2854082434/c941967cbb579ab305cc1d42f62373a4_normal.jpeg</j.1:photoUrl>
+    <j.1:description>Goodmusic,GoodVibes...CheeseOnBread
+COBPresentsBabyGotBack
+Gram'it:yocheeseonbread</j.1:description>
+    <j.1:sceenName>YoCheeseOnBread</j.1:sceenName>
+    <j.1:userId>234400294</j.1:userId>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#607944098">
+    <j.1:userId>607944098</j.1:userId>
+    <j.1:sceenName>Hollie_Farren</j.1:sceenName>
+    <j.1:description>LiveLifeToTheMax:)</j.1:description>
+    <j.1:photoUrl>http://pbs.twimg.com/profile_images/440261063733673985/XVDrKsCE_normal.jpeg</j.1:photoUrl>
+    <j.1:ownedByPerson rdf:resource="http://somewhere/person#HollieFarren"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#115513358">
+    <j.1:ownedByPerson rdf:resource="http://somewhere/person#ChiaraAlbrizio"/>
+    <j.1:photoUrl>http://pbs.twimg.com/profile_images/465930210685509632/7r_cipZ1_normal.jpeg</j.1:photoUrl>
+    <j.1:description>Foodie|Tattoo|Music|JapaneseCulture&amp;Anime|Gym|MakestheSoundTheSeaMakesDeepintheNorthinstagram:kikipio</j.1:description>
+    <j.1:sceenName>KikiAlbryChan</j.1:sceenName>
+    <j.1:userId>115513358</j.1:userId>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#2437740134">
+    <j.1:userId>2437740134</j.1:userId>
+    <j.1:sceenName>RememberMe_RT</j.1:sceenName>
+    <j.1:description>IRETWEETaboutFamilyHistoryGenealogy&amp;Ancestry.Wanttoberetweeted?TweettomeRTme_RM.Don'twanttoberetweeted?TweettomeDontRTme_RM.</j.1:description>
+    <j.1:photoUrl>http://pbs.twimg.com/profile_images/454641272645382144/rDPa4yuE_normal.jpeg</j.1:photoUrl>
+    <j.1:ownedByPerson rdf:resource="http://somewhere/person#RememberMe_RT"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#Simon">
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#637466457"/>
+    <j.3:gender></j.3:gender>
+    <j.3:liveInCity></j.3:liveInCity>
+    <j.3:birthday></j.3:birthday>
+    <j.3:name>Simon</j.3:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#CheeseOnBread">
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#234400294"/>
+    <j.3:gender></j.3:gender>
+    <j.3:liveInCity>SHF / LDN</j.3:liveInCity>
+    <j.3:birthday></j.3:birthday>
+    <j.3:name>CheeseOnBread</j.3:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#HollieFarren">
+    <j.3:name>HollieFarren</j.3:name>
+    <j.3:birthday></j.3:birthday>
+    <j.3:liveInCity>Pickering, North Yorkshire</j.3:liveInCity>
+    <j.3:gender></j.3:gender>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#607944098"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#ChiaraAlbrizio">
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#115513358"/>
+    <j.3:gender></j.3:gender>
+    <j.3:liveInCity>Sheffield - Jesolo lido </j.3:liveInCity>
+    <j.3:birthday></j.3:birthday>
+    <j.3:name>ChiaraAlbrizio</j.3:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#2244437324">
+    <j.1:userId>2244437324</j.1:userId>
+    <j.1:sceenName>CandypantsSheff</j.1:sceenName>
+    <j.1:description>@candypantsevent-EverySatatSheffieldsnewestVIPvenue@House_Of_Hugo-DMfortableenquiriesorGlist</j.1:description>
+    <j.1:photoUrl>http://pbs.twimg.com/profile_images/411839286741192704/H4Sf09V7_normal.jpeg</j.1:photoUrl>
+    <j.1:ownedByPerson rdf:resource="http://somewhere/person#CandypantsSheffield"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#UKWeatherReadings">
+    <j.3:name>UKWeatherReadings</j.3:name>
+    <j.3:birthday></j.3:birthday>
+    <j.3:liveInCity></j.3:liveInCity>
+    <j.3:gender></j.3:gender>
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#2159310260"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#2159310260">
+    <j.1:userId>2159310260</j.1:userId>
+    <j.1:sceenName>UK_Storms</j.1:sceenName>
+    <j.1:description>KeeptrackoftheUKStormviaweatherstationreadingsthroughouttheUnitedKingdom</j.1:description>
+    <j.1:photoUrl>http://pbs.twimg.com/profile_images/378800000656466859/5a91a84c847d43a97df13cb71635f6ac_normal.png</j.1:photoUrl>
+    <j.1:ownedByPerson rdf:resource="http://somewhere/person#UKWeatherReadings"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/twitter_account#1468757701">
+    <j.1:ownedByPerson rdf:resource="http://somewhere/person#ZipSuit"/>
+    <j.1:photoUrl>http://pbs.twimg.com/profile_images/469272784049172480/SD6LL0fT_normal.jpeg</j.1:photoUrl>
+    <j.1:description>Australiasbestlookingonesie.There'saZipSuitforeveryone!</j.1:description>
+    <j.1:sceenName>ZipSuit_onesie</j.1:sceenName>
+    <j.1:userId>1468757701</j.1:userId>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/person#ZipSuit">
+    <j.3:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#1468757701"/>
+    <j.3:gender></j.3:gender>
+    <j.3:liveInCity>Australia</j.3:liveInCity>
+    <j.3:birthday></j.3:birthday>
+    <j.3:name>ZipSuit</j.3:name>
+>>>>>>> Stashed changes
   </rdf:Description>
 </rdf:RDF>

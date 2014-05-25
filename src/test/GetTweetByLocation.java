@@ -1,22 +1,7 @@
 package test;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.util.FileManager;
-
-import twitter4j.GeoLocation;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -24,6 +9,8 @@ import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
 import twitter4j.User;
 import twitter4j.conf.ConfigurationBuilder;
+
+import com.hp.hpl.jena.rdf.model.Model;
 
 public class GetTweetByLocation {
 	public String getSimpleTimeLine(Twitter twitter) {
@@ -50,7 +37,7 @@ public class GetTweetByLocation {
 
 			String workingDir = System.getProperty("user.dir");
 			String fileName = workingDir + "/WebContent/WEB-INF/RDF.rdf";
-			Model model = ModelFactory.createDefaultModel();
+			//////Model model = ModelFactory.createDefaultModel();
 			
 			
 			// TODO query if the file exist
@@ -72,15 +59,20 @@ public class GetTweetByLocation {
 				User user = tweet.getUser();
 				resultString += "@" + user.getScreenName() + " name" + user.getName() + "\n";
 				System.out.println(resultString);
-				InputStream in = FileManager.get().open(fileName);
+				///////////////////InputStream in = FileManager.get().open(fileName);
 				// model.read(in, null);
-				if (in == null) {
-					throw new IllegalArgumentException("File: " + fileName
-							+ " not found");
-				} else {
-					model.read(in, null);
+
 					
+
+				//////////////////if (in == null) {
+					/////////////////throw new IllegalArgumentException("File: " + fileName
+							/////////////+ " not found");
+				////////////} else {
+					//////////model.read(in, null);
+
+
 					Person person = new Person();
+					Model model = person.getModelFromFile(fileName);
 					person.savePerson(filter(user.getName()).trim(), "", user.getLocation(),
 							"", user.getId(), "");
 					model.add(person.getModel());
@@ -93,33 +85,38 @@ public class GetTweetByLocation {
 					
 					model.add(twitterAccount.getModel());
 					
-					FileWriter out = null;
-					try {
-						out = new FileWriter(fileName);
-						model.write(out);
-						out.close();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} 
-					finally {
-						if (out != null)
-							try {
-								out.close();
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						if (in != null)
-							try {
-								in.close();
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-					}
+//					FileWriter out = null;
+//					try {
+//						out = new FileWriter(fileName);
+//						model.write(out);
+//						out.close();
+//					} catch (IOException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					} 
+//					finally {
+//						if (out != null)
+//							try {
+//								out.close();
+//							} catch (IOException e) {
+//								// TODO Auto-generated catch block
+//								e.printStackTrace();
+//							}
+//						if (in != null)
+//							try {
+//								in.close();
+//							} catch (IOException e) {
+//								// TODO Auto-generated catch block
+//								e.printStackTrace();
+//							}
+//					}
+//=======
+					
+			person.saveModel(fileName, model);//// you can see the result is the same but this way you do not need to hard code reading and writing to rdf file in each class
+					
+
 				}
-			}
+			//}
 		} catch (Exception te) {
 			te.printStackTrace();
 			System.out.println("Failed to search tweets:" + te.getMessage());

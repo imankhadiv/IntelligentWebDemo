@@ -1,11 +1,13 @@
 package test;
 
+import RdfModel.BaseModel;
+
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 
-public class Person {
+public class Person extends BaseModel {
 	 Model model;
 	 Property Name;
 	 Property Birthday;
