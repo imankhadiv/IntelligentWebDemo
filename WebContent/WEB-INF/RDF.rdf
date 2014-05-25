@@ -5,233 +5,106 @@
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:j.2="http://somewhere/person#"
     xmlns:j.3="http://somewhere/twitterAccount#" > 
-  <rdf:Description rdf:about="http://somewhere/tweet#451717320243937280">
-    <j.1:tweetId>451717320243937280</j.1:tweetId>
-    <j.1:content>Test</j.1:content>
-    <j.1:date>Thu Apr 03 14:46:16 BST 2014</j.1:date>
+  <rdf:Description rdf:about="http://somewhere/tweet#470618518166454272">
+    <j.1:tweetId>470618518166454272</j.1:tweetId>
+    <j.1:content>going sheffield on tuesday, what can i do in sheffield?</j.1:content>
+    <j.1:date>Sun May 25 18:32:53 BST 2014</j.1:date>
     <j.1:shortUrl></j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#234347094</j.1:postedByTwitterAccount>
+    <j.1:retweetPeople></j.1:retweetPeople>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#279908883525410817">
-    <j.1:tweetId>279908883525410817</j.1:tweetId>
-    <j.1:content>?????? ???? ???? ?? ?????? </j.1:content>
-    <j.1:date>Sat Dec 15 11:20:52 GMT 2012</j.1:date>
-    <j.1:shortUrl>http://t.co/6ITYv0iD</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+  <rdf:Description rdf:about="http://somewhere/tweet#470618391531638784">
+    <j.1:tweetId>470618391531638784</j.1:tweetId>
+    <j.1:content>Priority Points: So now we know Toytown are up and there will no doubt be a scramble for tick...  #SWFC #sheffield</j.1:content>
+    <j.1:date>Sun May 25 18:32:22 BST 2014</j.1:date>
+    <j.1:shortUrl>http://t.co/Ci0BBTDDPL</j.1:shortUrl>
+    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#16951875</j.1:postedByTwitterAccount>
+    <j.1:retweetPeople></j.1:retweetPeople>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#351633559502589954">
-    <j.1:tweetId>351633559502589954</j.1:tweetId>
-    <j.1:content>Analyst: Nokia must adopt Android before it's too late | CNET UK  via @cnetuk</j.1:content>
-    <j.1:date>Mon Jul 01 10:29:08 BST 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/EZ3aSGBvGb</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+  <rdf:Description rdf:about="http://somewhere/twitterAccount#158046336">
+    <j.3:userId>158046336</j.3:userId>
+    <j.3:sceenName>snarla94</j.3:sceenName>
+    <j.3:description>power to the people</j.3:description>
+    <j.3:photoUrl>http://pbs.twimg.com/profile_images/1736213276/309737_10150410350562486_566647485_8443381_1495373743_n.jpg</j.3:photoUrl>
+    <j.3:ownedByPerson rdf:resource="http://somewhere/person#Joe Kinsella"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#442631078910894080">
-    <j.1:tweetId>442631078910894080</j.1:tweetId>
-    <j.1:content>RT @Rastkhadiv: What would a computer cook for dinner? </j.1:content>
-    <j.1:date>Sun Mar 09 12:00:47 GMT 2014</j.1:date>
-    <j.1:shortUrl>http://t.co/1VOtUqxVCZ</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+  <rdf:Description rdf:about="http://somewhere/twitterAccount#234347094">
+    <j.3:userId>234347094</j.3:userId>
+    <j.3:sceenName>FV_BEN</j.3:sceenName>
+    <j.3:description>my instagram is way more interesting @from_virginia_ben // info@fromvirginia.co.uk</j.3:description>
+    <j.3:photoUrl>http://pbs.twimg.com/profile_images/469200639407689729/Rhcd6FrY.jpeg</j.3:photoUrl>
+    <j.3:ownedByPerson rdf:resource="http://somewhere/person#fromvirginiaben"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#280070564712960000">
-    <j.1:tweetId>280070564712960000</j.1:tweetId>
-    <j.1:content>Windows 8: tips, tweaks and secrets  via @msntech</j.1:content>
-    <j.1:date>Sat Dec 15 22:03:20 GMT 2012</j.1:date>
-    <j.1:shortUrl>http://t.co/FU1O9okt</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+  <rdf:Description rdf:about="http://somewhere/person#Sheffield Telegraph">
+    <j.2:name>Sheffield Telegraph</j.2:name>
+    <j.2:liveInCity>N/A</j.2:liveInCity>
+    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#20588667"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#327808263771021313">
-    <j.1:tweetId>327808263771021313</j.1:tweetId>
-    <j.1:content>??????? ??????? ?????? ?????????? ?????? ??? ?? ?? ??? ???????? ??????? </j.1:content>
-    <j.1:date>Fri Apr 26 16:35:55 BST 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/LDUUs5yR0y</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+  <rdf:Description rdf:about="http://somewhere/person#Wayne Chadburn">
+    <j.2:name>Wayne Chadburn</j.2:name>
+    <j.2:liveInCity>N/A</j.2:liveInCity>
+    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#31714483"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#443889555335553024">
-    <j.1:tweetId>443889555335553024</j.1:tweetId>
-    <j.1:content>RT @pluralsight: 5 reasons to use Xamarin for cross-platform development by Pluralsight author @HedgehogJim ==&gt;  http…</j.1:content>
-    <j.1:date>Wed Mar 12 23:21:31 GMT 2014</j.1:date>
-    <j.1:shortUrl>http://t.co/2w757W9SXn</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+  <rdf:Description rdf:about="http://somewhere/person#fromvirginiaben">
+    <j.2:name>fromvirginiaben</j.2:name>
+    <j.2:liveInCity>N/A</j.2:liveInCity>
+    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#234347094"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#447340637193768960">
-    <j.1:tweetId>447340637193768960</j.1:tweetId>
-    <j.1:content>RT @Rastkhadiv: Happy Persian new year :) so happy !!#Persian #new year #7sin #eyd </j.1:content>
-    <j.1:date>Sat Mar 22 11:54:53 GMT 2014</j.1:date>
-    <j.1:shortUrl>http://t.co/R9Z4tXXFzv</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+  <rdf:Description rdf:about="http://somewhere/person#Joe Kinsella">
+    <j.2:name>Joe Kinsella</j.2:name>
+    <j.2:liveInCity>N/A</j.2:liveInCity>
+    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#158046336"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/person#Iman">
-    <j.2:name>Iman</j.2:name>
-    <j.2:liveInCity>Sheffield</j.2:liveInCity>
-    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#1013000588"/>
+  <rdf:Description rdf:about="http://somewhere/tweet#470618326142447616">
+    <j.1:tweetId>470618326142447616</j.1:tweetId>
+    <j.1:content>Boy, 15, arrested over Sheffield street fight: Police investigating a mass brawl in Page, Hall, Sheffield, hav... </j.1:content>
+    <j.1:date>Sun May 25 18:32:07 BST 2014</j.1:date>
+    <j.1:shortUrl>http://t.co/z1X6pASF1u</j.1:shortUrl>
+    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#20588667</j.1:postedByTwitterAccount>
+    <j.1:retweetPeople></j.1:retweetPeople>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#440523713440542720">
-    <j.1:tweetId>440523713440542720</j.1:tweetId>
-    <j.1:content>Open up your wallets - CNET Reviews  via @CNET</j.1:content>
-    <j.1:date>Mon Mar 03 16:26:52 GMT 2014</j.1:date>
-    <j.1:shortUrl>http://t.co/nEkNkIJCp3</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#325939201323454465">
-    <j.1:tweetId>325939201323454465</j.1:tweetId>
-    <j.1:content>Rumor Has It: Is Apple set to 'invent' the hybrid laptop?  via @CNET</j.1:content>
-    <j.1:date>Sun Apr 21 12:48:55 BST 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/fztahigqrO</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#457821034981232641">
-    <j.1:tweetId>457821034981232641</j.1:tweetId>
-    <j.1:content>@samsheffer</j.1:content>
-    <j.1:date>Sun Apr 20 11:00:15 BST 2014</j.1:date>
+  <rdf:Description rdf:about="http://somewhere/tweet#470619549952647168">
+    <j.1:tweetId>470619549952647168</j.1:tweetId>
+    <j.1:content>The arrogance of Tories saying they should have pact with #UKIP - UKIP didn't pick up Tory votes in Rotherham/Sheffield - there aren't many!</j.1:content>
+    <j.1:date>Sun May 25 18:36:59 BST 2014</j.1:date>
     <j.1:shortUrl></j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#31714483</j.1:postedByTwitterAccount>
+    <j.1:retweetPeople></j.1:retweetPeople>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#290155652624564224">
-    <j.1:tweetId>290155652624564224</j.1:tweetId>
-    <j.1:content>????????? ?????? ????? ?????? </j.1:content>
-    <j.1:date>Sat Jan 12 17:57:53 GMT 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/EUVFm2AC</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+  <rdf:Description rdf:about="http://somewhere/twitterAccount#16951875">
+    <j.3:userId>16951875</j.3:userId>
+    <j.3:sceenName>Owlstalk</j.3:sceenName>
+    <j.3:description>Sheffield Wednesday news and views forum for SWFC fans all over the world.&#xD;
+&#xD;
+We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j.3:description>
+    <j.3:photoUrl>http://pbs.twimg.com/profile_images/3415204651/06924244ed010fa0d5f14fc29001d74a.jpeg</j.3:photoUrl>
+    <j.3:ownedByPerson rdf:resource="http://somewhere/person#Owlstalk.co.uk"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#469894691379752960">
-    <j.1:tweetId>469894691379752960</j.1:tweetId>
-    <j.1:content>APITEST&amp;</j.1:content>
-    <j.1:date>Fri May 23 18:36:39 BST 2014</j.1:date>
+  <rdf:Description rdf:about="http://somewhere/person#Owlstalk.co.uk">
+    <j.2:name>Owlstalk.co.uk</j.2:name>
+    <j.2:liveInCity>N/A</j.2:liveInCity>
+    <j.2:has_twitterAccount rdf:resource="http://somewhere/twitterAccount#16951875"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://somewhere/tweet#470619211757547520">
+    <j.1:tweetId>470619211757547520</j.1:tweetId>
+    <j.1:content>Sheffield is a no go tonight, 2/3rds of all jakamo customers are out tonight</j.1:content>
+    <j.1:date>Sun May 25 18:35:38 BST 2014</j.1:date>
     <j.1:shortUrl></j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#158046336</j.1:postedByTwitterAccount>
+    <j.1:retweetPeople></j.1:retweetPeople>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#447551175744061440">
-    <j.1:tweetId>447551175744061440</j.1:tweetId>
-    <j.1:content>Check out Sheffield Tap (Sheffield Railway Station, Sheaf St., Sheffield) on @foursquare: </j.1:content>
-    <j.1:date>Sun Mar 23 01:51:30 GMT 2014</j.1:date>
-    <j.1:shortUrl>http://t.co/ipVwHXnQ7R</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
+  <rdf:Description rdf:about="http://somewhere/twitterAccount#20588667">
+    <j.3:userId>20588667</j.3:userId>
+    <j.3:sceenName>shftelegraph</j.3:sceenName>
+    <j.3:description>Sheffield Telegraph - weekly newspaper in Sheffield</j.3:description>
+    <j.3:photoUrl>http://pbs.twimg.com/profile_images/378800000370015726/d26360766ba71baf6c536b04d87de6ee.jpeg</j.3:photoUrl>
+    <j.3:ownedByPerson rdf:resource="http://somewhere/person#Sheffield Telegraph"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#290529992968925186">
-    <j.1:tweetId>290529992968925186</j.1:tweetId>
-    <j.1:content>U.S. tells computer users to disable Java software  via @CBSNews</j.1:content>
-    <j.1:date>Sun Jan 13 18:45:22 GMT 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/6CbDueSx</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#444854331691786240">
-    <j.1:tweetId>444854331691786240</j.1:tweetId>
-    <j.1:content>RT @chelseafc: Some pre-match thoughts from Jose Mourinho...  #CFC</j.1:content>
-    <j.1:date>Sat Mar 15 15:15:12 GMT 2014</j.1:date>
-    <j.1:shortUrl>http://t.co/15DW26qkUq</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#332615568463110145">
-    <j.1:tweetId>332615568463110145</j.1:tweetId>
-    <j.1:content>Swimming game :Catch a sinker  via @Rastkhadiv</j.1:content>
-    <j.1:date>Thu May 09 22:58:25 BST 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/K8ahkfF5dK</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#450632919036342273">
-    <j.1:tweetId>450632919036342273</j.1:tweetId>
-    <j.1:content>10 Ways You're Using Gmail Wrong  via @mashable</j.1:content>
-    <j.1:date>Mon Mar 31 14:57:14 BST 2014</j.1:date>
-    <j.1:shortUrl>http://t.co/6KZuKpPzs2</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#340460804249882624">
-    <j.1:tweetId>340460804249882624</j.1:tweetId>
-    <j.1:content>Servlets and JSPs: Creating Web Applications With Java by John Purcell  via @udemy</j.1:content>
-    <j.1:date>Fri May 31 14:32:35 BST 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/7Bd4CrBYFK</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#318805327359389696">
-    <j.1:tweetId>318805327359389696</j.1:tweetId>
-    <j.1:content>Fizz Buzz TDD code Kata  via @Rastkhadiv</j.1:content>
-    <j.1:date>Mon Apr 01 20:21:27 BST 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/OQrya8KgtA</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#443873354538549248">
-    <j.1:tweetId>443873354538549248</j.1:tweetId>
-    <j.1:content>RT @CNET: The Google Wallet app now tracks your online buys </j.1:content>
-    <j.1:date>Wed Mar 12 22:17:09 GMT 2014</j.1:date>
-    <j.1:shortUrl>http://t.co/yXPcG1WjBR</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#447411926294069248">
-    <j.1:tweetId>447411926294069248</j.1:tweetId>
-    <j.1:content>API</j.1:content>
-    <j.1:date>Sat Mar 22 16:38:10 GMT 2014</j.1:date>
-    <j.1:shortUrl></j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#442431540010958848">
-    <j.1:tweetId>442431540010958848</j.1:tweetId>
-    <j.1:content>#T2</j.1:content>
-    <j.1:date>Sat Mar 08 22:47:53 GMT 2014</j.1:date>
-    <j.1:shortUrl></j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#447808861047885824">
-    <j.1:tweetId>447808861047885824</j.1:tweetId>
-    <j.1:content>Ccf (@ The University of Sheffield: Information Commons - @shefinfocommons w/ @njy0612) </j.1:content>
-    <j.1:date>Sun Mar 23 18:55:27 GMT 2014</j.1:date>
-    <j.1:shortUrl>http://t.co/qhy41P3F4L</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#351455712934756354">
-    <j.1:tweetId>351455712934756354</j.1:tweetId>
-    <j.1:content>Introducing Project Loon:  via @youtube</j.1:content>
-    <j.1:date>Sun Jun 30 22:42:26 BST 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/NN24ZIC788</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#329936486973702146">
-    <j.1:tweetId>329936486973702146</j.1:tweetId>
-    <j.1:content>Single Responsibility Principle  via @Rastkhadiv</j.1:content>
-    <j.1:date>Thu May 02 13:32:43 BST 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/9gzZDKqqAc</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#378086768752336896">
-    <j.1:tweetId>378086768752336896</j.1:tweetId>
-    <j.1:content>Storm chaser's remarkable pictures show terrifying cloud formations </j.1:content>
-    <j.1:date>Thu Sep 12 10:24:44 BST 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/pxMziZzxKm</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#444854240549548033">
-    <j.1:tweetId>444854240549548033</j.1:tweetId>
-    <j.1:content>RT @CNET: Aaron Levie &amp; his childhood friends built a $2B business. They're still a team (from our sister site @TechRepublic) </j.1:content>
-    <j.1:date>Sat Mar 15 15:14:50 GMT 2014</j.1:date>
-    <j.1:shortUrl>http://t.co/z…</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#440147808683712512">
-    <j.1:tweetId>440147808683712512</j.1:tweetId>
-    <j.1:content>#APITEST</j.1:content>
-    <j.1:date>Sun Mar 02 15:33:09 GMT 2014</j.1:date>
-    <j.1:shortUrl></j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#294204073509523457">
-    <j.1:tweetId>294204073509523457</j.1:tweetId>
-    <j.1:content>» Hello world! - Elrast </j.1:content>
-    <j.1:date>Wed Jan 23 22:04:51 GMT 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/ZPxpiNZz</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/tweet#279910518414790656">
-    <j.1:tweetId>279910518414790656</j.1:tweetId>
-    <j.1:content>Google Maps  via @CNET</j.1:content>
-    <j.1:date>Sat Dec 15 11:27:22 GMT 2012</j.1:date>
-    <j.1:shortUrl>http://t.co/prNF4wFf</j.1:shortUrl>
-    <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#1013000588</j.1:postedByTwitterAccount>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://somewhere/twitterAccount#1013000588">
-    <j.3:userId>1013000588</j.3:userId>
-    <j.3:sceenName>ImanKhadiv</j.3:sceenName>
-    <j.3:description></j.3:description>
-    <j.3:photoUrl>http://pbs.twimg.com/profile_images/3550336467/405aeddf59a98587e54835b146a48325.jpeg</j.3:photoUrl>
-    <j.3:ownedByPerson rdf:resource="http://somewhere/person#Iman"/>
+  <rdf:Description rdf:about="http://somewhere/twitterAccount#31714483">
+    <j.3:userId>31714483</j.3:userId>
+    <j.3:sceenName>waynechadburn</j.3:sceenName>
+    <j.3:description>Mathematics teacher. Lover of Sheffield United and my adopted town of Penistone.  Politics anorak, red wine and real ale drinker. Hater of arrogance &amp; bigotry</j.3:description>
+    <j.3:photoUrl>http://pbs.twimg.com/profile_images/2198315513/DSC00292.JPG</j.3:photoUrl>
+    <j.3:ownedByPerson rdf:resource="http://somewhere/person#Wayne Chadburn"/>
   </rdf:Description>
 </rdf:RDF>

@@ -1,14 +1,11 @@
 package twitter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import twitter4j.GeoLocation;
 import twitter4j.Query;
 import twitter4j.QueryResult;
-import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
@@ -60,12 +57,17 @@ public class Tracking {
 				person.setName(user.getName());
 				person.setScreenName(user.getScreenName());
 				person.setProfilePicture(user.getOriginalProfileImageURL());
+				person.setTwitterId(user.getId());
+				person.setTweetId(tweet.getId());
+				person.setDate(String.valueOf(tweet.getCreatedAt()));
+				person.setDescription(user.getDescription());
 
 				person.setTwittCount(tweet.getRetweetCount());
 
 				Status status = (user.isGeoEnabled()) ? user.getStatus() : null;
 				if (status == null) {
 					person.setTwittText(tweet.getText());
+					person.setLocation("N/A");
 
 				} else {
 					person.setTwittText(tweet.getText());
@@ -132,6 +134,32 @@ public class Tracking {
 
 	public void setDefaultLocation(boolean defaultLocation) {
 		this.defaultLocation = defaultLocation;
+	}
+	/**
+	 * This method is implemented to extract shorturl from tweet text
+	 * @param txt
+	 * @return
+	 */
+	public String getShortURL(String txt) {
+		int index = txt.indexOf("http://");
+		if(index == -1)
+			return "";
+		String shortURL = txt.substring(index);
+		String s[] = shortURL.split(" ");
+		return s[0];
+
+	}
+	/**
+	 * This method is implemented to get tweet text
+	 * @param txt
+	 * @return
+	 */
+	public String getTweetText(String txt){
+		int index = txt.indexOf("http://");
+		if(index == -1)
+			return txt;
+		return txt.replaceAll(getShortURL(txt), "");
+		
 	}
 
 }

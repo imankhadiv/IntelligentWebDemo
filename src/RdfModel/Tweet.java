@@ -16,6 +16,7 @@ public class Tweet extends BaseModel {
 	private Property hasVenue;
 	private Property postedByTwitterAccount;
 	private Property hasOriginTweet;
+	private Property retweetPeople;
 
 	public Tweet() {
 		String tweetURI = URI + "/tweet#";
@@ -29,6 +30,7 @@ public class Tweet extends BaseModel {
 		postedByTwitterAccount = model.createProperty(tweetURI,
 				"postedByTwitterAccount");
 		hasOriginTweet = model.createProperty(tweetURI, "hasOriginTweet");
+		retweetPeople = model.createProperty(tweetURI,"retweetPeople");
 	}
 
 	public void saveTweet(String tweetIdStr, String contentStr,
@@ -73,6 +75,18 @@ public class Tweet extends BaseModel {
 				.addProperty(this.date, date)
 				.addProperty(this.shortUrl, shortURL)
 				.addProperty(this.postedByTwitterAccount, twitterAccountURI);
+	}
+	public void saveTweet(String accountId, String tweetId, String text,
+			String date,String shortURL,String retweetPeople) {
+		String tweetURI = URI + "/tweet#" + tweetId;
+		String twitterAccountURI = URI + "/twitterAaccount#"+accountId;
+		model.createResource(tweetURI)
+		.addProperty(this.tweetId, tweetId)
+		.addProperty(this.content, text)
+		.addProperty(this.date, date)
+		.addProperty(this.shortUrl, shortURL)
+		.addProperty(this.postedByTwitterAccount, twitterAccountURI)
+		.addProperty(this.retweetPeople,retweetPeople);
 	}
 
 	public Model getModel() {

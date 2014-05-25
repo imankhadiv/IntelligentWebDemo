@@ -70,10 +70,7 @@ public class TrackUsers extends HttpServlet {
 			model.add(account.getModel());
 			Tweet tweet = new Tweet();
 			tweet.saveTweet(String.valueOf(item.getUser().getId()), String.valueOf(item.getId()), fr.getTweetText(item.getText()), String.valueOf(item.getCreatedAt()),fr.getShortURL(item.getText()));
-			
-//			tweet.saveTweet(String.valueOf(item.getId()), item.getText(), "",
-//					String.valueOf(item.getCreatedAt()), "", "",
-//					String.valueOf(item.getUser().getId()));
+
 			model.add(tweet.getModel());
 
 
@@ -81,11 +78,7 @@ public class TrackUsers extends HttpServlet {
 		person.saveModel(rdfFile, model);
 
 		request.setAttribute("status", statuses);
-		// System.out.println(fr.getUserTimeline());
-
-		// if(fr.getUserTimeline().size() == 0 || fr.getUserTimeline() == null){
-		// request.setAttribute("error", "Nobody Found");
-		// }
+	
 		request.getRequestDispatcher("/Tracking/profile.jsp").forward(request,
 				response);
 	}
