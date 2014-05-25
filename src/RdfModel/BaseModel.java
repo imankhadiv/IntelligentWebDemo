@@ -20,6 +20,7 @@ public class BaseModel {
 	public Model getModelFromFile(String fileName) {
 		InputStream in = FileManager.get().open(fileName);
 		if (in == null) {
+			System.out.println("inside file");
 			throw new IllegalArgumentException("File: " + fileName
 					+ "Not found");
 		} else {
