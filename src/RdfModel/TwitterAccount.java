@@ -1,14 +1,9 @@
 package RdfModel;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.util.FileManager;
 
 public class TwitterAccount extends BaseModel{
 	private final String URI = "http://somewhere";
@@ -39,6 +34,7 @@ public class TwitterAccount extends BaseModel{
 		// get source for person
 		String personURI = URI+"/person#" + name;
 		Resource person = model.createResource(personURI);
+<<<<<<< HEAD
 		if(model.getResource(personURI)!=null)
 		{
 			System.out.println("exist");
@@ -55,6 +51,14 @@ public class TwitterAccount extends BaseModel{
 			.addProperty(propDescription, description).addProperty(propUserPhotoUrl, userPhotoUrl).addProperty(propOwnedByPerson, person);
 		}
 		
+=======
+		model.createResource(twitterAccountURL)
+				.addProperty(propUserId, userId)
+				.addProperty(propScreenName, ScreenName)
+				.addProperty(propDescription, description)
+				.addProperty(propUserPhotoUrl, userPhotoUrl)
+				.addProperty(propOwnedByPerson, person);
+>>>>>>> FETCH_HEAD
 	}
 	
 	public Model getModel(){

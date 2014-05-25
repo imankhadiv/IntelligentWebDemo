@@ -12,11 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import database.Data;
-
 import twitter.Tracking;
 import twitter4j.GeoLocation;
+import RdfModel.Tweet;
+import RdfModel.TwitterAccount;
 import beans.Person;
+
+import com.hp.hpl.jena.rdf.model.Model;
+
+import database.Data;
 
 /**
  * Servlet implementation class TrackDiscussions
@@ -80,8 +84,7 @@ public class TrackDiscussions extends HttpServlet {
 		String longitude = request.getParameter("longitude");
 		String check = request.getParameter("checkbox");
 		String radius = request.getParameter("radius");
-		
-			
+
 		Tracking track;
 		String key = "";
 		if (keyword.length() > 0 && hashtag.length() > 0)
@@ -101,44 +104,56 @@ public class TrackDiscussions extends HttpServlet {
 			track = new Tracking(key, new GeoLocation(Double.valueOf(latitude),
 					Double.valueOf(longitude)));
 		}
-		if(!radius.equals("")){
+		if (!radius.equals("")) {
 			track.setRadious(Integer.valueOf(radius));
 		}
 		List<Person> people = track.getUsers();
 		List<Person> retwittPeople = track.getRetwittPeople();
-		System.out.println(retwittPeople+"///////////////");
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String DB = "jdbc:mysql://stusql.dcs.shef.ac.uk/team019?user=team019&password=077cea79";
-			Connection con = DriverManager.getConnection(DB);
-			Data data = new Data(con);
-			for (Person p : people) {
-				data.storeUser(p);
-				System.out.println("inserted into database");
-			}
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			if (con != null)
-				try {
-					con.close();
-				} catch (SQLException e) {
-					System.out.println(e.getMessage());
+		// String rdfFile = getServletContext().getRealPath("") + File.separator
+		// + "WEB-INF" + File.separator + "RDF.rdf";
+		String rdfFile = "/Users/Iman/Documents/workspace/web2014/IntelligentWebDemo/WebContent/WEB-INF/RDF.rdf";
+		// this file path is temporary because we run the program in eclipse
+		// we can not see the real file if we use getRealPath
+		// for deploying the above rdfFile should be uncommented.
+		RdfModel.Person person = new RdfModel.Person();
+		Model model = person.getModelFromFile(rdfFile);
+		// person.savePerson(people, liveInCity, twitterAccountId,
+		// foursquareAccout)
+		for (beans.Person p : people) {
+			if (p.getLocation() == null)
+				p.setLocation("N/A");
+			person.savePerson(p.getName(), p.getLocation(), p.getTwitterId(),
+					"N/A");
+			model.add(person.getModel());
+			TwitterAccount account = new TwitterAccount();
+			if (p.getDescription() == null)
+				p.setDescription("N/A");
+			account.saveTwitterAccount(p.getName(),
+					String.valueOf(p.getTwitterId()), p.getScreenName(),
+					p.getDescription(), p.getProfilePicture());
+			model.add(account.getModel());
+			String rtpeople = "";
+			for (beans.Person rp : retwittPeople) {
+				if (rp.getTwittText().contains(p.getTwittText())) {
+					rtpeople += rp.getScreenName() + ",";
 				}
-
-			HttpSession session = request.getSession();
-			session.setAttribute("retwittPeople", retwittPeople);
-			System.out.println("...............................................................retweet");
-
-			request.setAttribute("people", people);
-			request.getRequestDispatcher("/Tracking/tracking-discussions.jsp")
-					.forward(request, response);
-
+			}
+			Tweet tweet = new Tweet();
+			tweet.saveTweet(String.valueOf(p.getTwitterId()),
+					String.valueOf(p.getTweetId()),
+					track.getTweetText(p.getTwittText()), p.getDate(),
+					track.getShortURL(p.getTwittText()), rtpeople);
+			model.add(tweet.getModel());
 		}
+		person.saveModel(rdfFile, model);
+
+		HttpSession session = request.getSession();
+		session.setAttribute("retwittPeople", retwittPeople);
+
+		request.setAttribute("people", people);
+		request.getRequestDispatcher("/Tracking/tracking-discussions.jsp")
+				.forward(request, response);
+
 	}
 }

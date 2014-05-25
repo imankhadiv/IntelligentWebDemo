@@ -38,9 +38,8 @@ public class GetTweetByLocation {
 
 			String workingDir = System.getProperty("user.dir");
 			String fileName = workingDir + "/WebContent/WEB-INF/RDF.rdf";
-			//////Model model = ModelFactory.createDefaultModel();
-			
-			
+			// ////Model model = ModelFactory.createDefaultModel();
+
 			// TODO query if the file exist
 
 			// String queryString = "PREFIX j.0:<http://intelligentweb/topic/> "
@@ -58,11 +57,14 @@ public class GetTweetByLocation {
 
 			for (Status tweet : tweets) { // /gets the user
 				User user = tweet.getUser();
-				resultString += "@" + user.getScreenName() + " name" + user.getName() + "\n";
+				resultString += "@" + user.getScreenName() + " name"
+						+ user.getName() + "\n";
 				System.out.println(resultString);
-				///////////////////InputStream in = FileManager.get().open(fileName);
+				// /////////////////InputStream in =
+				// FileManager.get().open(fileName);
 				// model.read(in, null);
 
+<<<<<<< HEAD
 					
 
 				//////////////////if (in == null) {
@@ -117,6 +119,66 @@ public class GetTweetByLocation {
 
 				}
 			//}
+=======
+				// ////////////////if (in == null) {
+				// ///////////////throw new IllegalArgumentException("File: " +
+				// fileName
+				// ///////////+ " not found");
+				// //////////} else {
+				// ////////model.read(in, null);
+
+				Person person = new Person();
+				Model model = person.getModelFromFile(fileName);
+				person.savePerson(filter(user.getName()).trim(), "",
+						user.getLocation(), "", user.getId(), "");
+				model.add(person.getModel());
+
+				TwitterAccount twitterAccount = new TwitterAccount();
+				twitterAccount.saveTwitterAccount(
+						filter(user.getName()).trim(),
+						String.valueOf(user.getId()),
+						filter(user.getScreenName()),
+						filter(user.getDescription()),
+						user.getProfileImageURL());
+
+				model.add(twitterAccount.getModel());
+
+				// FileWriter out = null;
+				// try {
+				// out = new FileWriter(fileName);
+				// model.write(out);
+				// out.close();
+				// } catch (IOException e) {
+				// // TODO Auto-generated catch block
+				// e.printStackTrace();
+				// }
+				// finally {
+				// if (out != null)
+				// try {
+				// out.close();
+				// } catch (IOException e) {
+				// // TODO Auto-generated catch block
+				// e.printStackTrace();
+				// }
+				// if (in != null)
+				// try {
+				// in.close();
+				// } catch (IOException e) {
+				// // TODO Auto-generated catch block
+				// e.printStackTrace();
+				// }
+				// }
+				// =======
+
+				person.saveModel(fileName, model);// // you can see the result
+													// is the same but this way
+													// you do not need to hard
+													// code reading and writing
+													// to rdf file in each class
+
+			}
+			// }
+>>>>>>> FETCH_HEAD
 		} catch (Exception te) {
 			te.printStackTrace();
 			System.out.println("Failed to search tweets:" + te.getMessage());
@@ -124,9 +186,8 @@ public class GetTweetByLocation {
 		}
 		return resultString;
 	}
-	
-	private String filter(String str)
-	{
+
+	private String filter(String str) {
 		return (str.replace("#", "")).replace(" ", "");
 	}
 
@@ -163,7 +224,6 @@ public class GetTweetByLocation {
 			e.printStackTrace();
 
 		}
-		
 
 	}
 }

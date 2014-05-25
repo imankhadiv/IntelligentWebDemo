@@ -12,6 +12,8 @@ public class Person {
 	private String twittText;
 	private long twitterId;
 	private int twittCount;
+	private long tweetId;
+	private String date;
 	
 	private Map<String, Integer> map;
 
@@ -94,5 +96,23 @@ public class Person {
 	public void setTwitterId(long twitterId) {
 		this.twitterId = twitterId;
 	}
+
+	public long getTweetId() {
+		return tweetId;
+	}
+
+	public void setTweetId(long tweetId) {
+		this.tweetId = tweetId;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
+	
 
 }
