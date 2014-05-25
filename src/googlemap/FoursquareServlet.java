@@ -30,6 +30,15 @@ public class FoursquareServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws FoursquareApiException
+     * @throws JSONException
+     */
     protected void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException,
 			FoursquareApiException, JSONException{

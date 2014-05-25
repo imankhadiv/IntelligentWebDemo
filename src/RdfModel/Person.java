@@ -43,6 +43,19 @@ public class Person extends BaseModel {
 				.addProperty(hasTwitterAccount, twitterAccount);// addProperty(propFoursquareAccout,
 																// foursquareAccout);
 	}
+	public void savePerson(String name,String liveInCity, long twitterAccountId) {
+		// create instance
+		String twitterAccountURI =URI+"/twitterAccount#";
+		Resource twitterAccount = model.createResource(twitterAccountURI
+				+ twitterAccountId);
+		String personalURI = URI+"/person#" + name;
+		model.createResource(personalURI).addProperty(Name, name)
+				//.addProperty(Birthday, birthday)
+				.addProperty(LiveInCity, liveInCity)
+				//.addProperty(Gender, gender)
+				.addProperty(hasTwitterAccount, twitterAccount);// addProperty(propFoursquareAccout,
+																// foursquareAccout);
+	}
 
 	public Model getModel() {
 		return model;

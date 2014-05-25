@@ -39,10 +39,22 @@ public class TwitterAccount extends BaseModel{
 		// get source for person
 		String personURI = URI+"/person#" + name;
 		Resource person = model.createResource(personURI);
-		model.createResource(twitterAccountURL)
-				.addProperty(propUserId, userId)
-				.addProperty(propScreenName, ScreenName)
-				.addProperty(propDescription, description).addProperty(propUserPhotoUrl, userPhotoUrl).addProperty(propOwnedByPerson, person);
+		if(model.getResource(personURI)!=null)
+		{
+			System.out.println("exist");
+			model.getResource(personURI).addProperty(propUserId, userId)
+			.addProperty(propScreenName, ScreenName)
+			.addProperty(propDescription, description).addProperty(propUserPhotoUrl, userPhotoUrl).addProperty(propOwnedByPerson, person);
+
+		}
+		else{
+			System.out.println("not exist");
+			model.createResource(twitterAccountURL)
+			.addProperty(propUserId, userId)
+			.addProperty(propScreenName, ScreenName)
+			.addProperty(propDescription, description).addProperty(propUserPhotoUrl, userPhotoUrl).addProperty(propOwnedByPerson, person);
+		}
+		
 	}
 	
 	public Model getModel(){
@@ -76,24 +88,6 @@ public class TwitterAccount extends BaseModel{
 		
 		twitterAccount.saveModel(fileName, modelMain);
 		
-//		FileWriter out = null;
-//		try {
-//			out = new FileWriter(fileName);
-//			modelMain.write(out);
-//			out.close();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}finally{
-//			if(out!=null)
-//				try {
-//					out.close();
-//				} catch (IOException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//		}
-//		
 		
 	}
 }

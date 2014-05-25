@@ -46,7 +46,7 @@ public class Venue extends BaseModel{
 				.addProperty(country, countryStr).addProperty(city, cityStr)
 				.addProperty(latitude, latStr).addProperty(longitude, longStr)
 				.addProperty(photoURL, photoURLStr)
-				.addProperty(fromTweet, tweetIdStr);
+				.addProperty(fromTweet, tweet);
 
 	}
 

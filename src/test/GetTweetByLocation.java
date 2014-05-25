@@ -9,6 +9,7 @@ import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
 import twitter4j.User;
 import twitter4j.conf.ConfigurationBuilder;
+import RdfModel.*;
 
 import com.hp.hpl.jena.rdf.model.Model;
 
@@ -71,10 +72,9 @@ public class GetTweetByLocation {
 					//////////model.read(in, null);
 
 
-					Person person = new Person();
+					RdfModel.Person person = new RdfModel.Person();
 					Model model = person.getModelFromFile(fileName);
-					person.savePerson(filter(user.getName()).trim(), "", user.getLocation(),
-							"", user.getId(), "");
+					person.savePerson(filter(user.getName()).trim(), "", user.getId(), "");
 					model.add(person.getModel());
 
 					TwitterAccount twitterAccount = new TwitterAccount();

@@ -66,8 +66,8 @@ public class TwitterAccount extends BaseModel {
 		modelMain.add(twitterAccount.getModel());
 		Person personrdf = new Person();
 		personrdf.savePerson("Jianyue NI", "1988-06-21", "sheffield", "male", 111,"");
-		personrdf.savePerson("Jianyue NI", "1988-06-21", "sheffield", "male", 111,"");
-		personrdf.savePerson("Jianyue NI", "1988-06-21", "sheffield", "male", 111,"");
+		personrdf.savePerson("Jianyue NI", "", "sheffield", "male", 111,"");
+//		personrdf.savePerson("Jianyue NI", "1988-06-21", "sheffield", "male", 111,"");
 		modelMain.add(personrdf.getModel());
 		
 		FileWriter out = null;

@@ -1,5 +1,8 @@
 package twitterUserSearch;
 
+import googlemap.FourSquare;
+import googlemap.URL_Info;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -7,7 +10,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hp.hpl.jena.rdf.model.Model;
+
 import Models.TweetWithURL;
+import RdfModel.FourSquareAccount;
+import RdfModel.Person;
+import RdfModel.Tweet;
+import RdfModel.TwitterAccount;
+import RdfModel.Venue;
 import twitter4j.FilterQuery;
 import twitter4j.StallWarning;
 import twitter4j.Status;
@@ -82,12 +92,13 @@ public class TwitterStreamingForUser {
 		 }
 		 
 		 
-		 TwitterStream getTwitterStream( ) throws Exception {
+		 TwitterStream getTwitterStream(final String filePath) throws Exception {
 			final TwitterStream twitterStream = initTwitterStream(consumerkey,
 					consumersecret, accesstoken, accesstokensecret);
 			StatusListener listener = new StatusListener() {
 				@Override
 				public void onStatus(Status status) {
+					User user = status.getUser();
 					URLEntity[] urls = status.getURLEntities();
 					List<String> URLlist = new ArrayList<String>();
 					List<String> expandedURLlist = new ArrayList<String>();
@@ -97,6 +108,67 @@ public class TwitterStreamingForUser {
 								&& (shortURL.contains("checkin")) && (shortURL.contains("s=")))||shortURL == null) {
 							URLlist.add(url.getURL());
 							expandedURLlist.add(url.getExpandedURL());
+							
+							FourSquare fs = new FourSquare();
+							URL_Info currentInfo = fs.getLocationInformation(url
+									.getURL());
+							
+							// save tweet to rdf
+							Tweet tweetRDF = new Tweet();
+							Model modelMain = tweetRDF.getModelFromFile(filePath);
+							if(status.getRetweetedStatus()!=null)
+							{
+								tweetRDF.saveTweet(String.valueOf(status.getId()), status
+										.getText(), url.getDisplayURL(), status
+										.getCreatedAt().toString(), String
+										.valueOf(status.getRetweetedStatus().getId()),
+										String.valueOf(status.getUser().getId()));
+							}
+							else {
+								tweetRDF.saveTweet(String.valueOf(status.getId()), status
+										.getText(), url.getDisplayURL(), status
+										.getCreatedAt().toString(), null,
+										String.valueOf(status.getUser().getId()));
+							}
+							modelMain.add(tweetRDF.getModel());
+							// save twitter user to rdf
+							TwitterAccount twitterAccount = new TwitterAccount();
+							twitterAccount.saveTwitterAccount(user.getName(),
+									String.valueOf(user.getId()),
+									user.getScreenName(), user.getDescription(),
+									user.getProfileImageURL());
+							modelMain.add(twitterAccount.getModel());
+							// save person to rdf
+							Person person = new Person();
+							person.savePerson(user.getName(), user.getLocation(),
+									user.getId(), currentInfo.getUser().getId());
+							modelMain.add(person.getModel());
+							// save foursquare account
+							FourSquareAccount fourSquareAccount = new FourSquareAccount();
+							fourSquareAccount.saveFourSquareAccount(currentInfo
+									.getUser().getId(), currentInfo.getUser()
+									.getPhotoURL(), currentInfo.getUser()
+									.getFirstName()
+									+ currentInfo.getUser().getLastName());
+							modelMain.add(fourSquareAccount.getModel());
+							// save venue
+							Venue venue = new Venue();
+							venue.saveVenue(currentInfo.getVenue().getVenue_name(),
+									currentInfo.getVenue().getAddress(),
+									currentInfo.getVenue().getPostcode(),
+									currentInfo.getVenue().getCountry(),
+									currentInfo.getVenue().getCity(), String
+											.valueOf(currentInfo.getVenue()
+													.getLatitude()), String
+											.valueOf(currentInfo.getVenue()
+													.getLongitude()), currentInfo
+											.getVenue().getPhotoURL(), String
+											.valueOf(status.getId()));
+							modelMain.add(venue.getModel());
+							modelMain.write(System.out);
+							System.out.println(filePath);
+							tweetRDF.saveModel(filePath, modelMain);
+							
 						}
 					}
 					if(expandedURLlist !=null && expandedURLlist.size()!=0)
@@ -175,7 +247,9 @@ public class TwitterStreamingForUser {
 		}
 		TwitterStreamingForUser tt = new TwitterStreamingForUser();
 		try {
-			TwitterStream tws = tt.getTwitterStream();
+			String workingDir = System.getProperty("user.dir");
+			String fileName = workingDir + "/WebContent/WEB-INF/test.rdf";
+			TwitterStream tws = tt.getTwitterStream(fileName);
 			int count = 0;
 			//from user
 			long[] idToFollow = new long[1];

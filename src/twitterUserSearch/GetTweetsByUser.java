@@ -1,5 +1,8 @@
 package twitterUserSearch;
 
+import googlemap.FourSquare;
+import googlemap.URL_Info;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -7,7 +10,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import com.hp.hpl.jena.rdf.model.Model;
+
 import Models.TweetWithURL;
+import RdfModel.FourSquareAccount;
+import RdfModel.Person;
+import RdfModel.Tweet;
+import RdfModel.TwitterAccount;
+import RdfModel.Venue;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -17,11 +28,11 @@ import twitter4j.URLEntity;
 import twitter4j.conf.ConfigurationBuilder;
 
 public class GetTweetsByUser {
-	static String CLIENT_ID="KBG4IHZCCEPFXDBBRGS5NZAE45VHUBVXY1K22W2F1C3CCH3Y";
-	static String CLIENT_SECRET="EJSGG20AKXFOUAJO1A0RTLMPLX1SZUC3NBJZKWECROT221HX";
-	static String URI="http://www.yourapp.com";
-	static String tokenString="LJIXSK34YNUO54OZKLB2XNMLQOOK32XEDEXVFMPDN4QRAJIX";
-	
+	static String CLIENT_ID = "KBG4IHZCCEPFXDBBRGS5NZAE45VHUBVXY1K22W2F1C3CCH3Y";
+	static String CLIENT_SECRET = "EJSGG20AKXFOUAJO1A0RTLMPLX1SZUC3NBJZKWECROT221HX";
+	static String URI = "http://www.yourapp.com";
+	static String tokenString = "LJIXSK34YNUO54OZKLB2XNMLQOOK32XEDEXVFMPDN4QRAJIX";
+
 	private String getFullURL(String shortURLs) throws IOException {
 		URL shortUrl = new URL(shortURLs);
 		final HttpURLConnection httpURLConnection = (HttpURLConnection) shortUrl
@@ -51,14 +62,15 @@ public class GetTweetsByUser {
 		}
 		return url;
 	}
-	
+
 	public List<TweetWithURL> getSimpleTimeLine(Twitter twitter,
-			String username, int daysbefore) {
+			String username, int daysbefore, String filePath) {
 		List<TweetWithURL> tweetsList = new ArrayList<TweetWithURL>();
 		try {
 			int pastdays = daysbefore;
-			Query query = new Query("from:" + username + " filter:links 4sq.com");
-
+//			Query query = new Query(username);
+			Query query = new Query("from:" + username
+					+ " filter:links 4sq.com");
 			Calendar since = Calendar.getInstance();
 			since.add(Calendar.DATE, (-1) * pastdays);
 			SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
@@ -69,17 +81,85 @@ public class GetTweetsByUser {
 			QueryResult result = twitter.search(query);
 			// it cycles on the tweets
 			List<Status> tweets = result.getTweets();
+//			System.out.println(tweets.size());
 			for (Status tweet : tweets) { // /gets the user
+				System.out.println(tweet.getText());
+				twitter4j.User user = tweet.getUser();
 				URLEntity[] urls = tweet.getURLEntities();
 				List<String> URLlist = new ArrayList<String>();
 				List<String> expandedURLlist = new ArrayList<String>();
 				for (URLEntity url : urls) {
-					String shortURL = expandUrl(url.getExpandedURL());
-					if (((shortURL.startsWith("https://foursquare.com/"))
-							&& (shortURL.contains("checkin")) && (shortURL.contains("s=")))||shortURL == null) {
+					System.out.println("1123@"+url.getDisplayURL()+"/////"+url.getExpandedURL());
+					String expandURL = expandUrl(url.getExpandedURL());
+					if (((expandURL.startsWith("https://foursquare.com/"))
+							&& (expandURL.contains("checkin")) && (expandURL
+								.contains("s="))) || expandURL == null) {
 						URLlist.add(url.getURL());
 						expandedURLlist.add(url.getExpandedURL());
-						TweetWithURL tweetWithURL = new TweetWithURL(tweet.getText(), URLlist, expandedURLlist, tweet.getCreatedAt());
+
+						FourSquare fs = new FourSquare();
+						URL_Info currentInfo = fs.getLocationInformation(url
+								.getURL());
+						
+						// save tweet to rdf
+						Tweet tweetRDF = new Tweet();
+						Model modelMain = tweetRDF.getModelFromFile(filePath);
+						if(tweet.getRetweetedStatus()!=null)
+						{
+							tweetRDF.saveTweet(String.valueOf(tweet.getId()), tweet
+									.getText(), url.getDisplayURL(), tweet
+									.getCreatedAt().toString(), String
+									.valueOf(tweet.getRetweetedStatus().getId()),
+									String.valueOf(tweet.getUser().getId()));
+						}
+						else {
+							tweetRDF.saveTweet(String.valueOf(tweet.getId()), tweet
+									.getText(), url.getDisplayURL(), tweet
+									.getCreatedAt().toString(), null,
+									String.valueOf(tweet.getUser().getId()));
+						}
+						modelMain.add(tweetRDF.getModel());
+						// save twitter user to rdf
+						TwitterAccount twitterAccount = new TwitterAccount();
+						twitterAccount.saveTwitterAccount(user.getName(),
+								String.valueOf(user.getId()),
+								user.getScreenName(), user.getDescription(),
+								user.getProfileImageURL());
+						modelMain.add(twitterAccount.getModel());
+						// save person to rdf
+						Person person = new Person();
+						person.savePerson(user.getName(), user.getLocation(),
+								user.getId(), currentInfo.getUser().getId());
+						modelMain.add(person.getModel());
+						// save foursquare account
+						FourSquareAccount fourSquareAccount = new FourSquareAccount();
+						fourSquareAccount.saveFourSquareAccount(currentInfo
+								.getUser().getId(), currentInfo.getUser()
+								.getPhotoURL(), currentInfo.getUser()
+								.getFirstName()
+								+ currentInfo.getUser().getLastName());
+						modelMain.add(fourSquareAccount.getModel());
+						// save venue
+						Venue venue = new Venue();
+						venue.saveVenue(currentInfo.getVenue().getVenue_name(),
+								currentInfo.getVenue().getAddress(),
+								currentInfo.getVenue().getPostcode(),
+								currentInfo.getVenue().getCountry(),
+								currentInfo.getVenue().getCity(), String
+										.valueOf(currentInfo.getVenue()
+												.getLatitude()), String
+										.valueOf(currentInfo.getVenue()
+												.getLongitude()), currentInfo
+										.getVenue().getPhotoURL(), String
+										.valueOf(tweet.getId()));
+						modelMain.add(venue.getModel());
+						modelMain.write(System.out);
+						System.out.println(filePath);
+						tweetRDF.saveModel(filePath, modelMain);
+						
+						TweetWithURL tweetWithURL = new TweetWithURL(
+								tweet.getText(), URLlist, expandedURLlist,
+								tweet.getCreatedAt());
 						tweetsList.add(tweetWithURL);
 					}
 				}
@@ -114,14 +194,17 @@ public class GetTweetsByUser {
 	}
 
 	public static void main(String[] args) {
+
+		String workingDir = System.getProperty("user.dir");
+		String fileName = workingDir + "/WebContent/WEB-INF/RDF.rdf";
 		GetTweetsByUser tt = new GetTweetsByUser();
 		List<TweetWithURL> tweetsList = new ArrayList<TweetWithURL>();
-		
+
 		Twitter twitterConnection = null;
 		try {
 			twitterConnection = tt.init();
-			tweetsList = tt.getSimpleTimeLine(twitterConnection, "njy0612",
-					5);
+			tweetsList = tt.getSimpleTimeLine(twitterConnection, "njy0612", 5,
+					fileName);
 		} catch (Exception e) {
 			System.out.println("Cannot initialise Twitter");
 			e.printStackTrace();

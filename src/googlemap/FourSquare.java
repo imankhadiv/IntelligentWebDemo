@@ -79,6 +79,7 @@ public class FourSquare {
 				CompactUser user = cc.getUser();
 				CompactVenue venue = cc.getVenue();
 				System.out.println(venue.getId());
+				
 				completeCheck = myApi.venue(venue.getId());
 				System.out.println(completeCheck.getResult().getName()+completeCheck.getResult().getDescription());
 				//get photo url
@@ -86,6 +87,7 @@ public class FourSquare {
 				PhotoGroup mPhoto = photoResult.getResult();
 				Photo[] photoarray=mPhoto.getItems();
 			
+				// TODO save four square account and venue to RDF
 				
 				
 				currentInfo = new URL_Info(user, venue);

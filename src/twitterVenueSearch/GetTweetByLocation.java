@@ -3,7 +3,11 @@ package twitterVenueSearch;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+
 import com.google.gson.Gson;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+
 import twitter4j.GeoLocation;
 import twitter4j.Query;
 import twitter4j.QueryResult;

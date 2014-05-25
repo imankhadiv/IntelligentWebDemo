@@ -24,7 +24,7 @@ public class SearchTweetsByUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	TwitterStreamingForUser tForUser;
 	TwitterStream tws;
-       
+	private final String workingDir =getServletContext().getRealPath("/WEB-INF/RDF.rdf");
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -103,6 +103,7 @@ public class SearchTweetsByUserServlet extends HttpServlet {
 	
 	public String normalSearch(String username, int daysbefore, int status)
 	{
+		
 		System.out.println(username+daysbefore);
 		String jsonString = "";
 		GetTweetsByUser tt = new GetTweetsByUser();
@@ -111,7 +112,7 @@ public class SearchTweetsByUserServlet extends HttpServlet {
 		try {
 			twitterConnection = tt.init();
 			tweetsList = tt.getSimpleTimeLine(twitterConnection,username,
-					daysbefore);
+					daysbefore,workingDir);
 			Gson gson = new Gson();
 			String json = gson.toJson(tweetsList);
 			System.out.println(json);
@@ -141,7 +142,7 @@ public class SearchTweetsByUserServlet extends HttpServlet {
 		}
 		TwitterStreamingForUser tt = new TwitterStreamingForUser();
 		try {
-			tws = tt.getTwitterStream();
+			tws = tt.getTwitterStream(workingDir);
 			int count = 0;
 			//from user
 			long[] idToFollow = new long[1];
