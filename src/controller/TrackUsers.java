@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -9,9 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.hp.hpl.jena.rdf.model.Model;
+
 import twitter.FrequentKeywords;
 import twitter.MixQuery;
 import twitter4j.GeoLocation;
+import twitter4j.ResponseList;
+import twitter4j.Status;
+import RdfModel.Tweet;
+import RdfModel.TwitterAccount;
 import beans.Person;
 
 /**
@@ -36,9 +43,33 @@ public class TrackUsers extends HttpServlet {
 		String userId = request.getParameter("userId");
 		 FrequentKeywords fr = new FrequentKeywords(userId);
 		 fr.getUsers();
+		 String rdfFile = getServletContext().getRealPath("") + File.separator
+					+ "WEB-INF" + File.separator + "RDF.rdf";
+		 System.out.println(rdfFile);
+		 ResponseList<Status> statuses = fr.getUserTimeline();
+		for(Status item:statuses){
+			
+			RdfModel.Person person = new RdfModel.Person();
+			Model model = person.getModelFromFile(rdfFile);
+			person.savePerson(item.getUser().getName(), item.getUser().getLocation(), item.getUser().getId(), "");
+			model.add(person.getModel());
+			TwitterAccount account = new TwitterAccount();
+			account.saveTwitterAccount(item.getUser().getName(), String.valueOf(item.getUser().getId()), item.getUser().getScreenName(), item.getUser().getDescription(), item.getUser().getOriginalProfileImageURL());
+			model.add(account.getModel());
+			Tweet tweet = new Tweet();
+			//tweet.saveTweet(String.valueOf(77), item.getText(),"", String.valueOf(item.getCreatedAt()), "", "", String.valueOf(item.getUser().getId()));
+//			tweet.saveTweet(String.valueOf(item.getId()), item.getText(),"", String.valueOf(item.getCreatedAt()), "", "", String.valueOf(item.getUser().getId()));
+			//model.add(tweet.getModel());
+		//	person.saveModel(rdfFile, model);
+			//model.write(System.out);
+
+		//	person.savePerson(item.getUser().getName(), item.getUser().get, twitterAccountId, foursquareAccout)
+			
+			
+		}
 		 
-		request.setAttribute("status", fr.getUserTimeline());
-		System.out.println(fr.getUserTimeline());
+		request.setAttribute("status", statuses);
+		//System.out.println(fr.getUserTimeline());
 		
 //		if(fr.getUserTimeline().size() == 0 || fr.getUserTimeline() == null){
 //			request.setAttribute("error", "Nobody Found");

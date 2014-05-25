@@ -9,26 +9,36 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.util.FileManager;
 
 public class BaseModel {
-	
+
 	/**
-	 * This method is implemented for getting the model from rdf file inside servlet
+	 * This method is implemented for getting the model from rdf file inside
+	 * servlet
+	 * 
 	 * @param fileName
 	 * @return
 	 */
 	public Model getModelFromFile(String fileName) {
 		InputStream in = FileManager.get().open(fileName);
-		Model model = ModelFactory.createDefaultModel();
-		model.read(in, null);
-		model.write(System.out);
-		return model;
+		if (in == null) {
+			throw new IllegalArgumentException("File: " + fileName
+					+ "Not found");
+		} else {
+			Model model = ModelFactory.createDefaultModel();
+			model.read(in, null);
+			model.write(System.out);
+			return model;
+		}
 	}
+
 	/**
-	 * This method is implemented for saving the model in rdf file inside servlet
+	 * This method is implemented for saving the model in rdf file inside
+	 * servlet
+	 * 
 	 * @param fileName
 	 * @param model
 	 */
-	public void saveModel(String fileName,Model model) {
-		
+	public void saveModel(String fileName, Model model) {
+
 		FileWriter out = null;
 		try {
 			out = new FileWriter(fileName);
@@ -37,8 +47,8 @@ public class BaseModel {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			if(out!=null)
+		} finally {
+			if (out != null)
 				try {
 					out.close();
 				} catch (IOException e) {
@@ -46,7 +56,7 @@ public class BaseModel {
 					e.printStackTrace();
 				}
 		}
-		
+
 	}
 
 }

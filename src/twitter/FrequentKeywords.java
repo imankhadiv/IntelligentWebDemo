@@ -139,7 +139,7 @@ public class FrequentKeywords {
 //		}
 //		return result;
 //	}
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static Map<String, Integer> sortByValue(Map<String, Integer> map) {
 		LinkedList<Entry<String,Integer>> list = new LinkedList<Entry<String,Integer>>();
 		for(Entry<String, Integer> item:map.entrySet()){
@@ -147,6 +147,7 @@ public class FrequentKeywords {
 			list.add(item);
 		}
 		Collections.sort(list, new Comparator() {
+			@SuppressWarnings({ "rawtypes" })
 			public int compare(Object o1, Object o2) {
 				return -((Comparable) ((Map.Entry) (o1)).getValue())
 						.compareTo(((Map.Entry) (o2)).getValue());
