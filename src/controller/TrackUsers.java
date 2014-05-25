@@ -65,7 +65,7 @@ public class TrackUsers extends HttpServlet {
 					.getUser().getOriginalProfileImageURL());
 			model.add(account.getModel());
 			Tweet tweet = new Tweet();
-			tweet.saveTweet(String.valueOf(item.getUser().getId()),
+			tweet.saveTweet2(String.valueOf(item.getUser().getId()),
 					String.valueOf(item.getId()),
 					fr.getTweetText(item.getText()),
 					String.valueOf(item.getCreatedAt()),
