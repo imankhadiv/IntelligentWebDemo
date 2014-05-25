@@ -4,6 +4,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.hp.hpl.jena.query.QueryExecution;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.util.FileManager;
@@ -26,7 +30,7 @@ public class BaseModel {
 		} else {
 			Model model = ModelFactory.createDefaultModel();
 			model.read(in, null);
-			model.write(System.out);
+			//model.write(System.out);
 			return model;
 		}
 	}
@@ -57,6 +61,66 @@ public class BaseModel {
 					e.printStackTrace();
 				}
 		}
+
+	}
+	/**
+	 * 
+	 * @param sreenName
+	 * @param fileName
+	 * @return
+	 */
+	public ResultSet getRecordsByScreenName(String screenName, String fileName) {
+
+		Model model = getModelFromFile(fileName);
+
+		String queryString = "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "
+				+ "PREFIX person: <http://somewhere/person#> "
+				+ "SELECT ?name ?userId ?sceenName ?photoUrl  "
+				+ "WHERE { ?twitterAccount twitterAccount:sceenName \""
+				+ screenName
+				+ "\" ."
+				+ "?twitterAccount twitterAccount:sceenName ?sceenName . "
+				+ "?twitterAccount twitterAccount:userId ?userId . "
+				+ "?twitterAccount twitterAccount:photoUrl ?photoUrl . "
+				+ "?twitterAccount twitterAccount:ownedByPerson ?person . "
+				+ "?person person:name ?name . " + "}";
+
+		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
+		// Execute the query and obtain results
+		QueryExecution qe = QueryExecutionFactory.create(query, model);
+		return qe.execSelect();
+
+	}
+	/**
+	 * 
+	 * @param userId
+	 * @param fileName
+	 * @return
+	 */
+
+	public ResultSet getRecordsByAccountId(String userId,String fileName) {
+		Model model = getModelFromFile(fileName);
+
+		String queryString = "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "+
+				"PREFIX person: <http://somewhere/person#> "+
+				"SELECT ?name ?userId ?sceenName ?photoUrl  "+
+				"WHERE { ?twitterAccount twitterAccount:userId \""+userId+"\" ."+
+				"?twitterAccount twitterAccount:sceenName ?sceenName . "+
+				"?twitterAccount twitterAccount:userId ?userId . " +
+				"?twitterAccount twitterAccount:photoUrl ?photoUrl . " +
+				"?twitterAccount twitterAccount:ownedByPerson ?person . " +
+				"?person person:name ?name . " +
+				"}";
+
+		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
+		// Execute the query and obtain results
+		QueryExecution qe = QueryExecutionFactory.create(query, model);
+		return qe.execSelect();
+
+	}
+
+	public ResultSet getTweetsByAccountId(String sreenName) {
+		return null;
 
 	}
 

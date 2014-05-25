@@ -135,31 +135,35 @@ public class Tracking {
 	public void setDefaultLocation(boolean defaultLocation) {
 		this.defaultLocation = defaultLocation;
 	}
+
 	/**
 	 * This method is implemented to extract shorturl from tweet text
+	 * 
 	 * @param txt
 	 * @return
 	 */
 	public String getShortURL(String txt) {
 		int index = txt.indexOf("http://");
-		if(index == -1)
+		if (index == -1)
 			return "";
 		String shortURL = txt.substring(index);
 		String s[] = shortURL.split(" ");
 		return s[0];
 
 	}
+
 	/**
 	 * This method is implemented to get tweet text
+	 * 
 	 * @param txt
 	 * @return
 	 */
-	public String getTweetText(String txt){
+	public String getTweetText(String txt) {
 		int index = txt.indexOf("http://");
-		if(index == -1)
+		if (index == -1)
 			return txt;
 		return txt.replaceAll(getShortURL(txt), "");
-		
+
 	}
 
 }

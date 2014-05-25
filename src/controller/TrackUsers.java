@@ -1,17 +1,12 @@
 package controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.hp.hpl.jena.rdf.model.Model;
-
 import twitter.FrequentKeywords;
 import twitter.MixQuery;
 import twitter4j.GeoLocation;
@@ -20,6 +15,8 @@ import twitter4j.Status;
 import RdfModel.Tweet;
 import RdfModel.TwitterAccount;
 import beans.Person;
+
+import com.hp.hpl.jena.rdf.model.Model;
 
 /**
  * Servlet implementation class TrackUsers
@@ -53,14 +50,13 @@ public class TrackUsers extends HttpServlet {
 		// for deploying the above rdfFile should be uncommented.
 		System.out.println(rdfFile);
 		ResponseList<Status> statuses = fr.getUserTimeline();
-		
+
 		RdfModel.Person person = new RdfModel.Person();
 		Model model = person.getModelFromFile(rdfFile);
-		person.savePerson(statuses.get(0).getUser().getName(), statuses.get(0).getUser()
-				.getLocation(), statuses.get(0).getUser().getId(), "");
+		person.savePerson(statuses.get(0).getUser().getName(), statuses.get(0)
+				.getUser().getLocation(), statuses.get(0).getUser().getId(), "");
 		model.add(person.getModel());
 		for (Status item : statuses) {
-			
 
 			TwitterAccount account = new TwitterAccount();
 			account.saveTwitterAccount(item.getUser().getName(), String
@@ -69,16 +65,19 @@ public class TrackUsers extends HttpServlet {
 					.getUser().getOriginalProfileImageURL());
 			model.add(account.getModel());
 			Tweet tweet = new Tweet();
-			tweet.saveTweet(String.valueOf(item.getUser().getId()), String.valueOf(item.getId()), fr.getTweetText(item.getText()), String.valueOf(item.getCreatedAt()),fr.getShortURL(item.getText()));
+			tweet.saveTweet(String.valueOf(item.getUser().getId()),
+					String.valueOf(item.getId()),
+					fr.getTweetText(item.getText()),
+					String.valueOf(item.getCreatedAt()),
+					fr.getShortURL(item.getText()));
 
 			model.add(tweet.getModel());
-
 
 		}
 		person.saveModel(rdfFile, model);
 
 		request.setAttribute("status", statuses);
-	
+
 		request.getRequestDispatcher("/Tracking/profile.jsp").forward(request,
 				response);
 	}

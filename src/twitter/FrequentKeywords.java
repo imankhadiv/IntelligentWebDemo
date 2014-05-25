@@ -227,5 +227,9 @@ public class FrequentKeywords {
 		return txt.replaceAll(getShortURL(txt), "");
 		
 	}
+//	public static void main(String[] args) {
+//		String s = "hello world from iman rastkhadiv masouleh hello world";
+//		System.out.println(FrequentKeywords.getKeywords(s));
+//	}
 
 }
