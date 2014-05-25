@@ -16,10 +16,7 @@ public class Tweet extends BaseModel {
 	private Property hasVenue;
 	private Property postedByTwitterAccount;
 	private Property hasOriginTweet;
-<<<<<<< HEAD
-=======
 	private Property retweetPeople;
->>>>>>> FETCH_HEAD
 
 	public Tweet() {
 		String tweetURI = URI + "/tweet#";
@@ -51,7 +48,6 @@ public class Tweet extends BaseModel {
 		String originTweetURL = URI + "/tweet#" + retweetId;
 		Resource originTweet = model.createResource(originTweetURL);
 
-<<<<<<< HEAD
 		if (model.getResource(tweetURL) != null) {
 			model.getResource(tweetURL).addProperty(tweetId, tweetIdStr)
 					.addProperty(content, contentStr)
@@ -135,52 +131,6 @@ public class Tweet extends BaseModel {
 					.addProperty(postedByTwitterAccount, twitterAccount)
 					.addProperty(hasOriginTweet, originTweet);
 		}
-
-=======
-		model.createResource(tweetURL).addProperty(tweetId, tweetIdStr)
-				.addProperty(content, contentStr)
-				.addProperty(shortUrl, shortUrlStr).addProperty(date, dateStr)
-				.addProperty(hasVenue, venue)
-				.addProperty(postedByTwitterAccount, twitterAccount)
-				.addProperty(hasOriginTweet, originTweet);
-	}
-	/**
-	 * 
-	 * @param accountId
-	 * @param tweetId
-	 * @param text
-	 * @param date
-	 * @param venue
-	 * @param shortURL
-	 */
-
-	public void saveTweet(String accountId, String tweetId, String text,
-			String date,String shortURL) {
-		String tweetURI = URI + "/tweet#" + tweetId;
-		String twitterAccountURI = URI + "/twitterAaccount#"+accountId;
-		model.createResource(tweetURI)
-				.addProperty(this.tweetId, tweetId)
-				.addProperty(this.content, text)
-				.addProperty(this.date, date)
-				.addProperty(this.shortUrl, shortURL)
-				.addProperty(this.postedByTwitterAccount, twitterAccountURI);
-	}
-	public void saveTweet(String accountId, String tweetId, String text,
-			String date,String shortURL,String retweetPeople) {
-		String tweetURI = URI + "/tweet#" + tweetId;
-		String twitterAccountURI = URI + "/twitterAaccount#"+accountId;
-		model.createResource(tweetURI)
-		.addProperty(this.tweetId, tweetId)
-		.addProperty(this.content, text)
-		.addProperty(this.date, date)
-		.addProperty(this.shortUrl, shortURL)
-		.addProperty(this.postedByTwitterAccount, twitterAccountURI)
-		.addProperty(this.retweetPeople,retweetPeople);
->>>>>>> FETCH_HEAD
-	}
-
-	public Model getModel() {
-		return model;
 	}
 
 	public Model getModel() {

@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <rdf:RDF
-<<<<<<< HEAD
     xmlns:j.0="http://somewhere/tweet#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:j.1="http://somewhere/4sqAccount#"
     xmlns:j.2="http://somewhere/person#"
     xmlns:j.3="http://somewhere/venue#"
     xmlns:j.4="http://somewhere/twitterAccount#" > 
-</rdf:RDF>
-=======
-    xmlns:j.1="http://somewhere/tweet#"
-    xmlns:j.0="http://somewhere/twitter#"
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:j.2="http://somewhere/person#"
-    xmlns:j.3="http://somewhere/twitterAccount#" > 
   <rdf:Description rdf:about="http://somewhere/tweet#446690152686321664">
     <j.1:tweetId>446690152686321664</j.1:tweetId>
     <j.1:content>Happy Persian new year :) so happy !!#Persian #new year #7sin #eyd </j.1:content>
@@ -44,7 +36,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#348791727043260416">
     <j.1:tweetId>348791727043260416</j.1:tweetId>
-    <j.1:content>Looking forward to WebVisions 2013 Ñ Barcelona:)  @webvisions #wvbcn</j.1:content>
+    <j.1:content>Looking forward to WebVisions 2013 ï¿½ Barcelona:)  @webvisions #wvbcn</j.1:content>
     <j.1:date>Sun Jun 23 14:16:42 BST 2013</j.1:date>
     <j.1:shortUrl>http://t.co/S5ZxCQlfFM</j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
@@ -336,7 +328,7 @@ We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j
     <j.1:tweetId>386081897551372288</j.1:tweetId>
     <j.1:content>RT @resonantsilence: .@ThoughtWorks team ready for @ByteNight: sleeping bags, rain gear, warm clothes: ready! do sponsor us: </j.1:content>
     <j.1:date>Fri Oct 04 11:54:32 BST 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/PRÉ</j.1:shortUrl>
+    <j.1:shortUrl>http://t.co/PRï¿½</j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#369557050445291521">
@@ -390,7 +382,7 @@ We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#367278958296838144">
     <j.1:tweetId>367278958296838144</j.1:tweetId>
-    <j.1:content>RT @resonantsilence: #Manchester #Geeknight w/ Rebecca Parsons on Techniques of Evolutionary Architecture  #twuknorthÉ</j.1:content>
+    <j.1:content>RT @resonantsilence: #Manchester #Geeknight w/ Rebecca Parsons on Techniques of Evolutionary Architecture  #twuknorthï¿½</j.1:content>
     <j.1:date>Tue Aug 13 14:38:22 BST 2013</j.1:date>
     <j.1:shortUrl>http://t.co/XsrHG1Dcln</j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
@@ -404,7 +396,7 @@ We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#462323752559464448">
     <j.1:tweetId>462323752559464448</j.1:tweetId>
-    <j.1:content>My #5day dinner, thanks everyone for supporting #ThoughtWorks team and me  #BelowtheLineÉ </j.1:content>
+    <j.1:content>My #5day dinner, thanks everyone for supporting #ThoughtWorks team and me  #BelowtheLineï¿½ </j.1:content>
     <j.1:date>Fri May 02 21:12:26 BST 2014</j.1:date>
     <j.1:shortUrl>http://t.co/sJG2RUSPp9</j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
@@ -500,12 +492,12 @@ We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j
     <j.1:tweetId>420248203993554944</j.1:tweetId>
     <j.1:content>RT @Amy_Lynch: I LOVE #twuknorth graffiti wall by @yohammohammo Note the references to @tramchester and our friends @themustardtree </j.1:content>
     <j.1:date>Mon Jan 06 17:39:14 GMT 2014</j.1:date>
-    <j.1:shortUrl>http://É</j.1:shortUrl>
+    <j.1:shortUrl>http://ï¿½</j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#445159626871676928">
     <j.1:tweetId>445159626871676928</j.1:tweetId>
-    <j.1:content>RT @FeministPics: Protest in Newcastle yesterday after Emily Slough was called a ÒtrampÓ on Facebook for feeding her baby in public. http:/É</j.1:content>
+    <j.1:content>RT @FeministPics: Protest in Newcastle yesterday after Emily Slough was called a ï¿½trampï¿½ on Facebook for feeding her baby in public. http:/ï¿½</j.1:content>
     <j.1:date>Sun Mar 16 11:28:20 GMT 2014</j.1:date>
     <j.1:shortUrl></j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
@@ -576,7 +568,7 @@ We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#381437642069798912">
     <j.1:tweetId>381437642069798912</j.1:tweetId>
-    <j.1:content>RT @resonantsilence: Proud to present @ndawards for community organisation: gender diversity on behalf of #thoughtworks to @WEWGC in NewcasÉ</j.1:content>
+    <j.1:content>RT @resonantsilence: Proud to present @ndawards for community organisation: gender diversity on behalf of #thoughtworks to @WEWGC in Newcasï¿½</j.1:content>
     <j.1:date>Sat Sep 21 16:19:55 BST 2013</j.1:date>
     <j.1:shortUrl></j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
@@ -588,7 +580,7 @@ We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#460152909989416960">
     <j.1:tweetId>460152909989416960</j.1:tweetId>
-    <j.1:content>Done my  budget food shopping for #BelowtheLine , just £1 of food per day , for 5 days! </j.1:content>
+    <j.1:content>Done my  budget food shopping for #BelowtheLine , just ï¿½1 of food per day , for 5 days! </j.1:content>
     <j.1:date>Sat Apr 26 21:26:17 BST 2014</j.1:date>
     <j.1:shortUrl>http://t.co/Bmmj3aLXzM</j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
@@ -597,7 +589,7 @@ We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j
     <j.1:tweetId>381157041307275265</j.1:tweetId>
     <j.1:content>RT @VOAIran: ????? ?????? Shabahang ?? ?????? ?? ???? ?????? ???? ?? ??? ?? ???????? ???? ?????? ??? ????????? ?????? ? ?????... </j.1:content>
     <j.1:date>Fri Sep 20 21:44:54 BST 2013</j.1:date>
-    <j.1:shortUrl>http://t.cÉ</j.1:shortUrl>
+    <j.1:shortUrl>http://t.cï¿½</j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#463270564237680640">
@@ -642,7 +634,7 @@ We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j
     <j.1:tweetId>400570910425776128</j.1:tweetId>
     <j.1:content>RT @SarahVKiefer: Most depressing @BritishVogue headline. WAGs? What about female CEOs and businesswomen? #everydaysexism </j.1:content>
     <j.1:date>Wed Nov 13 10:28:41 GMT 2013</j.1:date>
-    <j.1:shortUrl>http://t.co/7nh05É</j.1:shortUrl>
+    <j.1:shortUrl>http://t.co/7nh05ï¿½</j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#442272697201197056">
@@ -724,7 +716,7 @@ We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#407466610153496576">
     <j.1:tweetId>407466610153496576</j.1:tweetId>
-    <j.1:content>RT @danrough: Hire people for the person theyÕll become - </j.1:content>
+    <j.1:content>RT @danrough: Hire people for the person theyï¿½ll become - </j.1:content>
     <j.1:date>Mon Dec 02 11:09:44 GMT 2013</j.1:date>
     <j.1:shortUrl>http://t.co/W7Ia15wVGp</j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
@@ -760,7 +752,7 @@ We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#364383813616418816">
     <j.1:tweetId>364383813616418816</j.1:tweetId>
-    <j.1:content>RT @Amy_Lynch: RT @MrLinnegar: @Witterator and the view...  #MoveNorthUK #twuknorth #thoughtworks #relocate #London tÉ</j.1:content>
+    <j.1:content>RT @Amy_Lynch: RT @MrLinnegar: @Witterator and the view...  #MoveNorthUK #twuknorth #thoughtworks #relocate #London tï¿½</j.1:content>
     <j.1:date>Mon Aug 05 14:54:05 BST 2013</j.1:date>
     <j.1:shortUrl>http://t.co/sgGBzBxe7R</j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
@@ -774,7 +766,7 @@ We are the biggest, busiest and best Sheffield Wednesday forum on the net :-)</j
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#395250893823959040">
     <j.1:tweetId>395250893823959040</j.1:tweetId>
-    <j.1:content>RT @shawty_ds: Dev Tip 1) an easy way to give your self a cardio vascular workout. - Accidently delete one of your clients full production É</j.1:content>
+    <j.1:content>RT @shawty_ds: Dev Tip 1) an easy way to give your self a cardio vascular workout. - Accidently delete one of your clients full production ï¿½</j.1:content>
     <j.1:date>Tue Oct 29 18:08:51 GMT 2013</j.1:date>
     <j.1:shortUrl></j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
@@ -803,7 +795,7 @@ Excited But Not Ready :)</j.1:content>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#385134153508728832">
     <j.1:tweetId>385134153508728832</j.1:tweetId>
-    <j.1:content>RT @resonantsilence: Three days to the new #ThoughtWorks #Manchester office! New conference room, assembled! #telephonebox #twuknorth http:É</j.1:content>
+    <j.1:content>RT @resonantsilence: Three days to the new #ThoughtWorks #Manchester office! New conference room, assembled! #telephonebox #twuknorth http:ï¿½</j.1:content>
     <j.1:date>Tue Oct 01 21:08:32 BST 2013</j.1:date>
     <j.1:shortUrl></j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
@@ -824,10 +816,10 @@ Excited But Not Ready :)</j.1:content>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#461607708740055041">
     <j.1:tweetId>461607708740055041</j.1:tweetId>
-    <j.1:content>#BelowtheLine #day2 #day3 #lunch , beans on toast , ginger biscuits,hot chocolate  #twuknorthÉ </j.1:content>
+    <j.1:content>#BelowtheLine #day2 #day3 #lunch , beans on toast , ginger biscuits,hot chocolate  #twuknorthï¿½ </j.1:content>
     <j.1:date>Wed Apr 30 21:47:08 BST 2014</j.1:date>
     <j.1:shortUrl>http://t.co/qLKu6Fej4I</j.1:shortUrl>
     <j.1:postedByTwitterAccount>http://somewhere/twitterAaccount#21203769</j.1:postedByTwitterAccount>
   </rdf:Description>
 </rdf:RDF>
->>>>>>> FETCH_HEAD
+
