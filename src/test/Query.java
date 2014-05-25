@@ -19,8 +19,8 @@ public class Query {
 	
 	public static void main(String[] args) throws IOException
 	{
-		String userId = "2425363501";
-		String screenname = "Petsliker";
+		String userId = "864982249";
+		String screenname = "Sheffieldis";
 		String workingDir = System.getProperty("user.dir");
 		String fileName = workingDir + "/WebContent/WEB-INF/RDF.rdf";
 		InputStream in = FileManager.get().open(fileName);
