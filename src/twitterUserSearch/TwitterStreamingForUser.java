@@ -6,31 +6,24 @@ import googlemap.URL_Info;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.hp.hpl.jena.rdf.model.Model;
-
 import Models.TweetWithURL;
 import RdfModel.FourSquareAccount;
 import RdfModel.Person;
 import RdfModel.Tweet;
 import RdfModel.TwitterAccount;
 import RdfModel.Venue;
-import twitter4j.FilterQuery;
 import twitter4j.StallWarning;
 import twitter4j.Status;
 import twitter4j.StatusDeletionNotice;
 import twitter4j.StatusListener;
-import twitter4j.Twitter;
 import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
 import twitter4j.URLEntity;
 import twitter4j.User;
 import twitter4j.conf.ConfigurationBuilder;
-import twitterVenueSearch.MyDB;
-import twitterVenueSearch.TwitterStreaming;
 
 public class TwitterStreamingForUser {
 		 private String consumerkey = "5aUFVk9PfsdKQusWkwiOOQ";	
@@ -174,7 +167,7 @@ public class TwitterStreamingForUser {
 					else {
 						System.out.println("text "+status.getText());
 					}
-					TweetWithURL tweetWithURL = new TweetWithURL(status.getText(), URLlist, expandedURLlist, status.getCreatedAt());
+					TweetWithURL tweetWithURL = new TweetWithURL(status.getText(), URLlist, expandedURLlist, status.getCreatedAt().toString(),String.valueOf(status.getId()));
 					uRLList.add(tweetWithURL);
 					System.out.println("list:");
 					for(int j = 0;j<uRLList.size();j++)
@@ -229,40 +222,4 @@ public class TwitterStreamingForUser {
 				 return (new TwitterStreamFactory(cb.build()).getInstance());
 		}
 	
-	
-	public static void main(String[] args) throws Exception {
-		long id = 0;
-		String username = "njy0612";
-		//TODO get user long id
-		GetTweetID tt_id = new GetTweetID();
-		Twitter twitterConnection = null;
-		try {
-			twitterConnection = tt_id.init();
-			id = tt_id.getUserID(twitterConnection, username);
-		} catch (Exception e) {
-			System.out.println("Cannot initialise Twitter");
-			e.printStackTrace();
-		}
-		TwitterStreamingForUser tt = new TwitterStreamingForUser();
-		try {
-			String workingDir = System.getProperty("user.dir");
-			String fileName = workingDir + "/WebContent/WEB-INF/test.rdf";
-			TwitterStream tws = tt.getTwitterStream(fileName);
-			int count = 0;
-			//from user
-			long[] idToFollow = new long[1];
-			idToFollow[0] = id;
-			//query
-			String[] stringsToTrack = new String[1];
-			stringsToTrack[0] = "bababa";//"from:"+"njy0612" ;//+ " filter:links ";
-			double[][] locationsToTrack = new double[0][0];
-			FilterQuery myFilterQuery = new FilterQuery(count, idToFollow, stringsToTrack,
-					locationsToTrack);
-			myFilterQuery.track(stringsToTrack);
-			tws.filter(myFilterQuery);
-		} catch (Exception e) {
-			System.out.println("Cannot initialise Twitter");
-			e.printStackTrace();
-		}
-	}
 }

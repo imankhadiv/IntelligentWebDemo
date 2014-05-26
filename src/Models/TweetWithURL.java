@@ -4,19 +4,29 @@ import java.util.Date;
 import java.util.List;
 
 public class TweetWithURL {
+	private String idString;
 	private String text;
 	private List<String> displayURL;
 	private List<String> expandedURL;
-	private Date createdAt;
+	private String createdAt;
 	
-	public TweetWithURL(String _text,List<String> _displayURL, List<String> _expandedURL, Date _createdAt)
+	public TweetWithURL(String _text,List<String> _displayURL, List<String> _expandedURL, String _createdAt,String id)
 	{
+		this.idString = id;
 		this.text = _text;
 		this.displayURL = _displayURL;
 		this.expandedURL = _expandedURL;
 		this.createdAt = _createdAt;
 	}
 	
+	public String getIdString() {
+		return idString;
+	}
+
+	public void setIdString(String idString) {
+		this.idString = idString;
+	}
+
 	public String getText() {
 		return text;
 	}
@@ -41,11 +51,11 @@ public class TweetWithURL {
 		this.expandedURL = expandedURL;
 	}
 
-	public Date getCreatedAt() {
+	public String getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
 

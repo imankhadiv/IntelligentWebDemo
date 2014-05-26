@@ -170,18 +170,19 @@ function codeAddress() {
 }
 
 function displayTable(jsonArray, divIndex) {
-	var html = '<table width="100%" border="1" ><tr>' + '<th>Photo</th>'
+	var html = '<div xmlns:twitterAccount="http://somewhere/tweetAccount#"><table class="table table-striped table-hover"  ><tr>' + '<th>Photo</th>'
 			+ '<th>TwitterID</th>' + '<th>Name</th>' + '<th>location</th>'
 			+ '<th>description</th>' + '</tr>';
+	
 	$.each(jsonArray, function(i, user) {
-		html += '<tr align="center">' + '<td><img src="' + user.photoURL
-				+ '"/></td>' + '<td><a href="TrackUsers?userId=' + user.id
-				+ '">' + user.id + '</a></td>' + '<td>' + user.name + '</td>'
-				+ '<td>' + user.location + '</td>' + '<td>' + user.description
+		html += '<tr about="http://somewhere/twitterAccount#'+ user.id+'">' + '<td><img property="twitterAccount:photoUrl" src="' + user.photoURL
+				+ '"/></td>' + '<td><a property="twitterAccount:sceenName" href="TrackUsers?userId='  +user.screenName
+				+ '">' +user.screenName + '</a></td>' + '<td ><div xmlns:person="http://somewhere/person#"><div <div about="http://somewhere/person#'+user.name+'"> <a property="person:name">' + user.name + '</a></div></div></td>'
+				+ '<td>' + user.location + '</td>' + '<td property="twitterAccount:description">' + user.description
 				+ '</td>' + '</tr>';
 	});
 
-	html += '</table>';
+	html += '</table></div>';
 	if (divIndex == 1) {
 		document.getElementById("listdisplay").innerHTML = html;
 		document.getElementById("streamdisplay").innerHTML = "";

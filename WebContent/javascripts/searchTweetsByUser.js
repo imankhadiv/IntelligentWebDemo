@@ -140,15 +140,15 @@ function searchRequest(){
 }
 
 function displayTable(jsonArray, divIndex) {
-	var html = '<table width="100%" border="1"  ><tr>' + '<th>Twitter Content</th>'
+	var html = '<div xmlns:j.0="http://somewhere/tweet#"><table class="table table-striped table-hover" ><tr>' + '<th>Twitter Content</th>'
 			+ '<th>URL</th>' + '<th>Create Date</th>' + '</tr>';
 	$.each(jsonArray, function(i, tweet) {
-		html += '<tr align="center">' + '<td>' + tweet.text + '</td><td>';
-		html += '<a href="foursquareIndex.html?shorturl=' + tweet.expandedURL
-				+ '">' + tweet.expandedURL + '</a>';
-		html += '</td><td>' + tweet.createdAt + '</td>' + '</tr>';
+		html += '<tr about="http://somewhere/tweet#'+tweet.idString+'">' + '<td property="tweet:content">' + tweet.text + '</td><td>';
+		html += '<a target="_blank" href="foursquareIndex.html?shorturl=' + tweet.expandedURL
+				+ '" property="tweet:shortUrl">' + tweet.expandedURL + '</a>';
+		html += '</td><td property="tweet:date">' + tweet.createdAt + '</td>' + ' </tr>';
 	});
-	html += '</table>';
+	html += '</table></div>';
 	if (divIndex == 1) {
 		document.getElementById("listdisplay").innerHTML = html;
 		document.getElementById("streamdisplay").innerHTML = "";

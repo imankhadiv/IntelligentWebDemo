@@ -139,23 +139,4 @@ public class GetTweetByLocation {
 		return (new TwitterFactory(cb.build()).getInstance());
 	}
 
-	// public static void main(String[] args) {
-	// GetTweetByLocation tt = new GetTweetByLocation();
-	// Twitter twitterConnection = null;
-	// try {
-	// twitterConnection = tt.init();
-	//
-	// List<Models.User> myuserList = new ArrayList<Models.User>();
-	// myuserList =
-	// tt.getSimpleTimeLine(twitterConnection,53.38112899999999,-1.47008500000004,2,"2014-03-12");
-	// Gson gson = new Gson();
-	// String json = gson.toJson(myuserList);
-	//
-	// } catch (Exception e) {
-	// System.out.println("Cannot initialise Twitter");
-	// e.printStackTrace();
-	//
-	// }
-	//
-	// }
 }

@@ -9,9 +9,7 @@ public class Person extends BaseModel {
 	private final String URI = "http://somewhere";
 	private Model model;
 	private Property Name;
-	// private Property Birthday;
 	private Property LiveInCity;
-	// private Property Gender;
 	private Property hasTwitterAccount;
 
 	// Resource propFoursquareAccout;
@@ -52,10 +50,9 @@ public class Person extends BaseModel {
 				+ twitterAccountId);
 
 		String personalURI = URI+"/person#" + this.filter(name);
+		System.out.println("person url "+personalURI);
 		model.createResource(personalURI).addProperty(Name, name)
-		// .addProperty(Birthday, birthday)
 				.addProperty(LiveInCity, liveInCity)
-				// .addProperty(Gender, gender)
 				.addProperty(hasTwitterAccount, twitterAccount);// addProperty(propFoursquareAccout,
 																// foursquareAccout);
 	}
@@ -64,12 +61,4 @@ public class Person extends BaseModel {
 		return model;
 	}
 
-	public static void main(String[] args) {
-		Model modelMain = ModelFactory.createDefaultModel();
-		Person personrdf = new Person();
-		// personrdf.savePerson("Ni Jianyue", "1988-06-21", "sheffield", "male",
-		// 111, "");
-		modelMain.add(personrdf.getModel());
-		modelMain.write(System.out);
-	}
 }

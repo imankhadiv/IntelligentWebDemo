@@ -61,6 +61,7 @@ public class Tweet extends BaseModel {
 			model.getResource(tweetURL).addProperty(tweetId, tweetIdStr)
 					.addProperty(content, contentStr)
 					.addProperty(shortUrl, shortUrlStr)
+					.addProperty(date, dateStr)
 					.addProperty(hasVenue, venue)
 					.addProperty(postedByTwitterAccount, twitterAccount)
 					.addProperty(hasOriginTweet, originTweet);
@@ -68,6 +69,7 @@ public class Tweet extends BaseModel {
 			model.createResource(tweetURL).addProperty(tweetId, tweetIdStr)
 					.addProperty(content, contentStr)
 					.addProperty(shortUrl, shortUrlStr)
+					.addProperty(date, dateStr)
 					.addProperty(hasVenue, venue)
 					.addProperty(postedByTwitterAccount, twitterAccount)
 					.addProperty(hasOriginTweet, originTweet);
@@ -99,23 +101,27 @@ public class Tweet extends BaseModel {
 				model.getResource(tweetURL).addProperty(tweetId, tweetIdStr)
 						.addProperty(content, contentStr)
 						.addProperty(shortUrl, shortUrlStr)
+						.addProperty(date, dateStr)
 						.addProperty(postedByTwitterAccount, twitterAccount)
 						.addProperty(hasOriginTweet, originTweet);
 			} else {
 				model.createResource(tweetURL).addProperty(tweetId, tweetIdStr)
 						.addProperty(content, contentStr)
 						.addProperty(shortUrl, shortUrlStr)
+						.addProperty(date, dateStr)
 						.addProperty(postedByTwitterAccount, twitterAccount)
 						.addProperty(hasOriginTweet, originTweet);
 			}
-		} else {
+		} 
+//		else if()
+		else {
 			if (model.getResource(tweetURL) != null) {
 				model.getResource(tweetURL).
 						addProperty(tweetId, tweetIdStr)
 						.addProperty(content, contentStr)
 						.addProperty(shortUrl, shortUrlStr)
 						.addProperty(postedByTwitterAccount, twitterAccount)
-						.addProperty(this.date, "N/A")
+						.addProperty(this.date, dateStr)
 						.addProperty(this.hasOriginTweet, "N/A")
 						.addProperty(this.retweetPeople, "N/A")
 						.addProperty(this.hasVenue, "N/A");
@@ -125,7 +131,7 @@ public class Tweet extends BaseModel {
 						.addProperty(content, contentStr)
 						.addProperty(shortUrl, shortUrlStr)
 						.addProperty(postedByTwitterAccount, twitterAccount)
-						.addProperty(this.date, "N/A")
+						.addProperty(this.date, dateStr)
 						.addProperty(this.hasOriginTweet, "N/A")
 						.addProperty(this.retweetPeople, "N/A")
 						.addProperty(this.hasVenue, "N/A");

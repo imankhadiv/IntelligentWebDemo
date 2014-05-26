@@ -2,7 +2,6 @@ package twitterUserSearch;
 
 import googlemap.FourSquare;
 import googlemap.URL_Info;
-
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -10,10 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
 import com.hp.hpl.jena.rdf.model.Model;
-import com.sun.xml.internal.rngom.parse.host.Base;
-
 import Models.TweetWithURL;
 import RdfModel.BaseModel;
 import RdfModel.FourSquareAccount;
@@ -45,6 +41,12 @@ public class GetTweetsByUser {
 		return header;
 	}
 
+	/**
+	 * expand url
+	 * 
+	 * @param shortURLs
+	 * @return
+	 */
 	private String expandUrl(String shortURLs) {
 		String url = shortURLs;
 		// String initialUrl = url;
@@ -65,6 +67,15 @@ public class GetTweetsByUser {
 		return url;
 	}
 
+	/**
+	 * return list of models
+	 * 
+	 * @param twitter
+	 * @param username
+	 * @param daysbefore
+	 * @param filePath
+	 * @return
+	 */
 	public List<TweetWithURL> getSimpleTimeLine(Twitter twitter,
 			String username, int daysbefore, String filePath) {
 		List<TweetWithURL> tweetsList = new ArrayList<TweetWithURL>();
@@ -95,8 +106,6 @@ public class GetTweetsByUser {
 					List<String> URLlist = new ArrayList<String>();
 					List<String> expandedURLlist = new ArrayList<String>();
 					for (URLEntity url : urls) {
-						System.out.println("1123@" + url.getDisplayURL()
-								+ "/////" + url.getExpandedURL());
 						String expandURL = expandUrl(url.getExpandedURL());
 						if (((expandURL.startsWith("https://foursquare.com/"))
 								&& (expandURL.contains("checkin")) && (expandURL
@@ -112,20 +121,27 @@ public class GetTweetsByUser {
 							Tweet tweetRDF = new Tweet();
 							Model modelMain = tweetRDF
 									.getModelFromFile(filePath);
+							System.out.println("string value"
+									+ String.valueOf(tweet.getCreatedAt()));
+							System.out.println("to string"
+									+ tweet.getCreatedAt().toString());
+							System.out.println("to string2"
+									+ tweet.getCreatedAt().toGMTString());
 							if (tweet.getRetweetedStatus() != null) {
 								tweetRDF.saveTweet(
 										String.valueOf(tweet.getId()), tweet
-												.getText(),
-										url.getDisplayURL(), tweet
-												.getCreatedAt().toString(),
+												.getText(), url
+												.getExpandedURL(), String
+												.valueOf(tweet.getCreatedAt()),
 										String.valueOf(tweet
 												.getRetweetedStatus().getId()),
 										String.valueOf(tweet.getUser().getId()));
 							} else {
 								tweetRDF.saveTweet(
 										String.valueOf(tweet.getId()),
-										tweet.getText(), url.getDisplayURL(),
-										tweet.getCreatedAt().toString(), null,
+										tweet.getText(), url.getExpandedURL(),
+										String.valueOf(tweet.getCreatedAt()),
+										null,
 										String.valueOf(tweet.getUser().getId()));
 							}
 							modelMain.add(tweetRDF.getModel());
@@ -171,18 +187,34 @@ public class GetTweetsByUser {
 
 							TweetWithURL tweetWithURL = new TweetWithURL(
 									tweet.getText(), URLlist, expandedURLlist,
-									tweet.getCreatedAt());
+									tweet.getCreatedAt().toString(),
+									String.valueOf(tweet.getId()));
 							tweetsList.add(tweetWithURL);
 						}
 					}
 				} else {
 					// TODO read from rdf
-					List<String> URLlist = new ArrayList<String>();
-					List<String> expandedURLlist = new ArrayList<String>();
-					TweetWithURL tweetWithURL = new TweetWithURL(
-							tweet.getText(), URLlist, expandedURLlist,
-							tweet.getCreatedAt());
-					tweetsList.add(tweetWithURL);
+					List<TweetWithURL> list = baseModel
+							.getTweetWithURLRecordsByScreenName(username,
+									filePath);
+					System.out.println("size is : " + list.size());
+					System.out.println("url is : "
+							+ list.get(0).getDisplayURL());
+					for (TweetWithURL tweetWithURL2 : list) {
+						String shortString = tweetWithURL2.getDisplayURL().get(
+								0);
+						System.out.println(shortString);
+						String expandURL = expandUrl(shortString);
+						System.out.println("expandURL is " + expandURL);
+						if (((expandURL.startsWith("https://foursquare.com/"))
+								&& (expandURL.contains("checkin")) && (expandURL
+									.contains("s="))) && expandURL != null) {
+							tweetsList.add(tweetWithURL2);
+						} else {
+							System.out.println(expandURL);
+						}
+					}
+					System.out.println("successfully read from rdf");
 				}
 			}
 		} catch (Exception te) {
@@ -214,23 +246,4 @@ public class GetTweetsByUser {
 		return (new TwitterFactory(cb.build()).getInstance());
 	}
 
-	public static void main(String[] args) {
-
-		String workingDir = System.getProperty("user.dir");
-		String fileName = workingDir + "/WebContent/WEB-INF/RDF.rdf";
-		GetTweetsByUser tt = new GetTweetsByUser();
-		List<TweetWithURL> tweetsList = new ArrayList<TweetWithURL>();
-
-		Twitter twitterConnection = null;
-		try {
-			twitterConnection = tt.init();
-			tweetsList = tt.getSimpleTimeLine(twitterConnection, "njy0612", 5,
-					fileName);
-		} catch (Exception e) {
-			System.out.println("Cannot initialise Twitter");
-			e.printStackTrace();
-
-		}
-
-	}
 }
