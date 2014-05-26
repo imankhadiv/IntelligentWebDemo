@@ -98,7 +98,12 @@ public class GetTweetByLocation {
 					}
 				} else {
 					// TODO read from RDF file
-//					Models.User currentUser = new Models.User(name, id, location, description, photoURL, userId)
+					Models.User currentUser = baseModel.getUserFromRecordsByTweetId(String.valueOf(tweet.getId()), filePath);
+					if (!idSet.contains(currentUser.getId())) {
+						idSet.add(currentUser.getId());
+						userlist.add(currentUser);
+					}
+					System.out.println("successfully read from rdf");
 				}
 			}
 		} catch (Exception te) {
