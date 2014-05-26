@@ -30,7 +30,7 @@ public class BaseModel {
 		} else {
 			Model model = ModelFactory.createDefaultModel();
 			model.read(in, null);
-			//model.write(System.out);
+			// model.write(System.out);
 			return model;
 		}
 	}
@@ -63,6 +63,7 @@ public class BaseModel {
 		}
 
 	}
+
 	/**
 	 * 
 	 * @param sreenName
@@ -91,6 +92,7 @@ public class BaseModel {
 		return qe.execSelect();
 
 	}
+
 	/**
 	 * 
 	 * @param userId
@@ -98,19 +100,20 @@ public class BaseModel {
 	 * @return
 	 */
 
-	public ResultSet getRecordsByAccountId(String userId,String fileName) {
+	public ResultSet getRecordsByAccountId(String userId, String fileName) {
 		Model model = getModelFromFile(fileName);
 
-		String queryString = "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "+
-				"PREFIX person: <http://somewhere/person#> "+
-				"SELECT ?name ?userId ?sceenName ?photoUrl  "+
-				"WHERE { ?twitterAccount twitterAccount:userId \""+userId+"\" ."+
-				"?twitterAccount twitterAccount:sceenName ?sceenName . "+
-				"?twitterAccount twitterAccount:userId ?userId . " +
-				"?twitterAccount twitterAccount:photoUrl ?photoUrl . " +
-				"?twitterAccount twitterAccount:ownedByPerson ?person . " +
-				"?person person:name ?name . " +
-				"}";
+		String queryString = "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "
+				+ "PREFIX person: <http://somewhere/person#> "
+				+ "SELECT ?name ?userId ?sceenName ?photoUrl  "
+				+ "WHERE { ?twitterAccount twitterAccount:userId \""
+				+ userId
+				+ "\" ."
+				+ "?twitterAccount twitterAccount:sceenName ?sceenName . "
+				+ "?twitterAccount twitterAccount:userId ?userId . "
+				+ "?twitterAccount twitterAccount:photoUrl ?photoUrl . "
+				+ "?twitterAccount twitterAccount:ownedByPerson ?person . "
+				+ "?person person:name ?name . " + "}";
 
 		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
 		// Execute the query and obtain results
@@ -119,31 +122,58 @@ public class BaseModel {
 
 	}
 
-//	public ResultSet getTweetsByAccountId(String userId,String fileName) {
-//		Model model = getModelFromFile(fileName);
-//		String postedByTwitterAccount = "http://somewhere/twitterAaccount#"+userId;
-//		System.out.println(postedByTwitterAccount);
-//		String queryString = "PREFIX tweet: <http://somewhere/tweet#> "+
-//				"PREFIX person: <http://somewhere/person#> "+
-//				"PREFIX twitterAccount: <http://somewhere/twitterAccount#> "+
-//				"SELECT ?tweetId ?content ?shortURL ?hasOriginTweet ?date ?hasVenue ?postedByTwitterAccount ?retweetPeople  "+
-//				//"WHERE { ?tweet tweet:postedByTwitterAccount \""+postedByTwitterAccount+"\" ."+
-//				"WHERE { ?tweet tweet:date \""+"Sat Mar 08 22:47:53 GMT 2014"+"\" ."+
-//				"?tweet tweet:tweetId ?tweetId . "+
-//				"?tweet tweet:content ?content . " +
-//				"?tweet tweet:shortURL ?shortURL . " +
-//				"?tweet tweet:hasOriginTweet ?hasOriginTweet . " +
-//				"?tweet tweet:date ?date . " +
-//				"?tweet tweet:hasVenue ?hasVenue . " +
-//				"?tweet tweet:postedByTwitterAccount ?postedByTwitterAccount . " +
-//				"?tweet tweet:retweetPeople ?retweetPeople . " +
-//				"?person person:name ?name . " +
-//				"}";
-//		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
-//		// Execute the query and obtain results
-//		QueryExecution qe = QueryExecutionFactory.create(query, model);
-//		return qe.execSelect();
+	// public ResultSet getTweetsByAccountId(String userId,String fileName) {
+	// Model model = getModelFromFile(fileName);
+	// String postedByTwitterAccount =
+	// "http://somewhere/twitterAaccount#"+userId;
+	// System.out.println(postedByTwitterAccount);
+	// String queryString = "PREFIX tweet: <http://somewhere/tweet#> "+
+	// "PREFIX person: <http://somewhere/person#> "+
+	// "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "+
+	// "SELECT ?tweetId ?content ?shortURL ?hasOriginTweet ?date ?hasVenue ?postedByTwitterAccount ?retweetPeople  "+
+	// //"WHERE { ?tweet tweet:postedByTwitterAccount \""+postedByTwitterAccount+"\" ."+
+	// "WHERE { ?tweet tweet:date \""+"Sat Mar 08 22:47:53 GMT 2014"+"\" ."+
+	// "?tweet tweet:tweetId ?tweetId . "+
+	// "?tweet tweet:content ?content . " +
+	// "?tweet tweet:shortURL ?shortURL . " +
+	// "?tweet tweet:hasOriginTweet ?hasOriginTweet . " +
+	// "?tweet tweet:date ?date . " +
+	// "?tweet tweet:hasVenue ?hasVenue . " +
+	// "?tweet tweet:postedByTwitterAccount ?postedByTwitterAccount . " +
+	// "?tweet tweet:retweetPeople ?retweetPeople . " +
+	// "?person person:name ?name . " +
+	// "}";
+	// com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
+	// // Execute the query and obtain results
+	// QueryExecution qe = QueryExecutionFactory.create(query, model);
+	// return qe.execSelect();
 
-	//}
+	// }
+
+	public ResultSet getTweetsByAccountId(String userId, String fileName) {
+		Model model = getModelFromFile(fileName);
+		 String postedByTwitterAccount =
+	 "http://somewhere/twitterAaccount#"+userId;
+
+		String queryString = "PREFIX tweet: <http://somewhere/tweet#> "
+				//+ "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "
+				+ "SELECT ?tweetId ?content ?shortURL ?hasOriginTweet ?date ?hasVenue ?postedByTwitterAccount ?retweetPeople  "
+				+
+
+				"WHERE { ?tweet tweet:tweetId ?tweetId . "
+				+ "?tweet tweet:content ?content . "
+				+ "?tweet tweet:shortURL ?shortURL . "
+				+ "?tweet tweet:hasOriginTweet ?hasOriginTweet . "
+				+ "?tweet tweet:date ?date . "
+				+ "?tweet tweet:hasVenue ?hasVenue . "
+				+ "?tweet tweet:retweetPeople ?retweetPeople . "
+				+ "?tweet tweet:postedByTwitterAccount ?postedByTwitterAccount . "
+				+ "}";
+		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
+		// Execute the query and obtain results
+		QueryExecution qe = QueryExecutionFactory.create(query, model);
+		return qe.execSelect();
+
+	}
 
 }
