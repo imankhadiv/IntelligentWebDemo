@@ -20,7 +20,6 @@ public class TwitterStreaming {
 	 private String consumersecret = "17Ze1q8mYSRFPgFGV6sBJrybYUrjpMYR6JmP29xvNKE";	
 	 private String accesstoken = "2365765400-PzPlz6uUcHZsDdDwbozJpvfl4CxkC4mKSzyfuCQ";	
 	 private String accesstokensecret = "DYTINSWrKwjoelp3nmBRUlzuD0EDloauLX1HGyXOtYDvT";	
-//	 private MyDB db;
 	 private List<User> userList;
 	 
 	 
@@ -35,8 +34,9 @@ public class TwitterStreaming {
 	 
 	 public TwitterStreaming(){
 		 userList = new ArrayList<User>();
-//		 db=new MyDB();
 	 }
+	 
+	 
 	 TwitterStream getTwitterStream(final String filePath) throws Exception {
 		final TwitterStream twitterStream = initTwitterStream(consumerkey,
 				consumersecret, accesstoken, accesstokensecret);
@@ -75,7 +75,6 @@ public class TwitterStreaming {
 				modelMain.add(person.getModel());
 				modelMain.write(System.out);
 				tweetRDF.saveModel(filePath, modelMain);
-//					db.insert(user.getName(), user.getScreenName(),user.getLocation(),user.getDescription(),user.getProfileImageURL());
 				
 				System.out.println("@" + status.getUser().getScreenName()
 						+ " - " + status.getText()+" id: "+status.getId());
@@ -127,32 +126,5 @@ public class TwitterStreaming {
 			 .setOAuthAccessTokenSecret(accessTokenSecret)
 			 .setJSONStoreEnabled(true);
 			 return (new TwitterStreamFactory(cb.build()).getInstance());
-	}
-	
-	public static void main(String[] args) throws Exception {
-		TwitterStreaming tt = new TwitterStreaming();
-		String filePath ="";
-		
-		try {
-			TwitterStream tws = tt.getTwitterStream(filePath);
-			int range=1;
-			int count = 0;
-			long[] idToFollow = new long[0];
-			//query
-			String[] stringsToTrack = new String[0];
-			//date
-			double[][] locationsToTrack ={{(-1.4782666-1*range), (53.3737444-1*range)}, {(-1.4782666+1*range), (53.3737444+1*range)}}; 
-		
-			FilterQuery myFilterQuery = new FilterQuery(count, idToFollow, stringsToTrack,
-					locationsToTrack);
-			myFilterQuery.track(stringsToTrack);
-			tws.filter(myFilterQuery);
-			
-			
-		} catch (Exception e) {
-			System.out.println("Cannot initialise Twitter");
-			e.printStackTrace();
-
-		}
 	}
 }

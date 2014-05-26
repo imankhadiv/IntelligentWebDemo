@@ -101,7 +101,13 @@ public class SearchTweetsByUserServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.write(json);
 	}
-	
+	/**
+	 * 
+	 * @param username
+	 * @param daysbefore
+	 * @param status
+	 * @return
+	 */
 	public String normalSearch(String username, int daysbefore, int status)
 	{
 		
@@ -126,6 +132,11 @@ public class SearchTweetsByUserServlet extends HttpServlet {
 		return jsonString;
 	}
 	
+	/**
+	 * 
+	 * @param _username
+	 * @return
+	 */
 	public TwitterStreamingForUser startStreaming(String _username)
 	{
 		//get id of user by username

@@ -68,6 +68,11 @@ public class BaseModel {
 		}
 
 	}
+	/**
+	 * use to filter the name 
+	 * @param input
+	 * @return
+	 */
 
 	public String filter(String input) {
 		String content = input.replaceAll("RT +@[^ :]+:?;", "");
@@ -190,7 +195,12 @@ public class BaseModel {
 
 	}
 	
-	
+	/**
+	 * use screen name to get back all the models
+	 * @param screenName
+	 * @param fileName
+	 * @return
+	 */
 	public List<TweetWithURL> getTweetWithURLRecordsByScreenName(String screenName, String fileName) {
 
 		Model model = getModelFromFile(fileName);
@@ -215,7 +225,6 @@ public class BaseModel {
 		try {
 			// simple select
 			if (results.hasNext()) {
-//				ResultSetFormatter.out(System.out, results, query) ;
 				QuerySolution qs = results.next();
 				userId = qs.getLiteral("?userId").getString();
 				currentTweet = getTweetsRecordByAccountId(fileName,userId);
@@ -223,12 +232,14 @@ public class BaseModel {
 		} finally {
 			qe.close();
 		}
-
-//		System.out.println(currentTweet.size());
 		return currentTweet;
-
 	}
-	
+	/**
+	 * use twitter account id to get records
+	 * @param fileName
+	 * @param userId
+	 * @return
+	 */
 	public List<TweetWithURL> getTweetsRecordByAccountId(String fileName, String userId)
 	{
 		Model model = getModelFromFile(fileName);
@@ -254,7 +265,6 @@ public class BaseModel {
 		try {
 			// simple select
 			if (results.hasNext()) {
-//				ResultSetFormatter.out(System.out, results, query) ;
 				QuerySolution qs = results.next();
 				System.out.println(qs.getLiteral("?content"));
 				String content = "";
@@ -284,7 +294,12 @@ public class BaseModel {
 		return list;
 	}
 	
-
+	/**
+	 * to see if there is exist tweet with same id
+	 * @param tweetIdStr
+	 * @param fileName
+	 * @return
+	 */
 	public boolean hasTweetRecord(String tweetIdStr, String fileName) {
 		Model model = getModelFromFile(fileName);
 		String queryString = "PREFIX tweet: <http://somewhere/tweet#> "
@@ -346,7 +361,12 @@ public class BaseModel {
 		return person;
 
 	}
-
+	/**
+	 * use tweet id to get the user model from rdf file
+	 * @param tweetIdString
+	 * @param fileName
+	 * @return
+	 */
 	public Models.User getUserFromRecordsByTweetId(String tweetIdString,
 			String fileName) {
 
@@ -406,19 +426,6 @@ public class BaseModel {
 		Models.User currentUser = new Models.User(name, "@" + sceenName,
 				liveInCity, description, photoUrl, userId);
 		return currentUser;
-	}
-
-	public static void main(String[] args) {
-		String workpathString = "/Users/nijianyue/Documents/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/IntelligentWebDemo/WEB-INF/RDF.rdf";
-		BaseModel base = new BaseModel();
-
-//		System.out.println(base.hasTweetRecord("470664099454783488", workpathString));
-//		Models.User user = base.getUserFromRecordsByTweetId("470664099454783488", workpathString);
-//		System.out.println(user.getName());
-		base.getTweetWithURLRecordsByScreenName("njy0612", workpathString);
-//		base.getallTweets(workpathString);
-//		base.getTweetsRecordByAccountId(workpathString, "21203769");
-
 	}
 
 }

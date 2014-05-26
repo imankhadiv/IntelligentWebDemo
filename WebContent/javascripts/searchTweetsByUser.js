@@ -144,7 +144,7 @@ function displayTable(jsonArray, divIndex) {
 			+ '<th>URL</th>' + '<th>Create Date</th>' + '</tr>';
 	$.each(jsonArray, function(i, tweet) {
 		html += '<tr about="http://somewhere/tweet#'+tweet.idString+'">' + '<td property="tweet:content">' + tweet.text + '</td><td>';
-		html += '<a href="foursquareIndex.html?shorturl=' + tweet.expandedURL
+		html += '<a target="_blank" href="foursquareIndex.html?shorturl=' + tweet.expandedURL
 				+ '" property="tweet:shortUrl">' + tweet.expandedURL + '</a>';
 		html += '</td><td property="tweet:date">' + tweet.createdAt + '</td>' + ' </tr>';
 	});

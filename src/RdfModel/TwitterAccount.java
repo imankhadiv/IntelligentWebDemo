@@ -28,25 +28,23 @@ public class TwitterAccount extends BaseModel{
 		propOwnedByPerson = model.createProperty(twitterAccountURI, "ownedByPerson");
 
 	}
-	
+	/**
+	 * 
+	 * @param name
+	 * @param userId
+	 * @param ScreenName
+	 * @param description
+	 * @param userPhotoUrl
+	 */
 	public void saveTwitterAccount(String name, String userId, String ScreenName, String description, String userPhotoUrl){
 		String twitterAccountURL =  URI+"/twitterAccount#" + userId;
 		// get source for person
 		String personURI = URI+"/person#" + this.filter(name);
 		Resource person = model.createResource(personURI);
-//		if(model.getResource(personURI)!=null)
-//		{
-//			model.getResource(personURI).addProperty(propUserId, userId)
-//			.addProperty(propScreenName, ScreenName)
-//			.addProperty(propDescription, description).addProperty(propUserPhotoUrl, userPhotoUrl).addProperty(propOwnedByPerson, person);
-//
-//		}
-//		else{
 			model.createResource(twitterAccountURL)
 			.addProperty(propUserId, userId)
 			.addProperty(propScreenName, ScreenName)
 			.addProperty(propDescription, description).addProperty(propUserPhotoUrl, userPhotoUrl).addProperty(propOwnedByPerson, person);
-//		}
 		
 
 	}
@@ -55,33 +53,4 @@ public class TwitterAccount extends BaseModel{
 		return model;
 	}
 	
-	public static void main(String[] args)
-	{
-		String workingDir = System.getProperty("user.dir");
-		System.out.println(workingDir);
-		String fileName = workingDir + "/WebContent/WEB-INF/test.rdf";
-		//InputStream in = FileManager.get().open(fileName);
-//		Model modelMain = ModelFactory.createDefaultModel();
-//		// comment this line for the first time
-//		modelMain.read(in, null);
-//		modelMain.write(System.out);
-		TwitterAccount twitterAccount = new TwitterAccount();
-		
-		Model modelMain = twitterAccount.getModelFromFile(fileName);
-		System.out.println("..............///////");
-		modelMain.write(System.out);
-		
-		twitterAccount.saveTwitterAccount("Jianyue Ni", "111", "njjy0612", "", "xxxx");
-		modelMain.add(twitterAccount.getModel());
-		Person personrdf = new Person();
-//		personrdf.savePerson("Jianyue NI2", "1988-06-21", "sheffield", "male", 111,"");
-//		personrdf.savePerson("Jianyue NI3", "1988-06-21", "sheffield", "male", 111,"");
-//		personrdf.savePerson("Jianyue NI4", "1988-06-21", "sheffield", "male", 111,"");
-//		personrdf.savePerson("Amir", "111", "sheffield", "male", 111,"");
-		modelMain.add(personrdf.getModel());
-		
-		twitterAccount.saveModel(fileName, modelMain);
-		
-		
-	}
 }
