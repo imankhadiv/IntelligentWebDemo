@@ -174,7 +174,7 @@ public class TwitterStreamingForUser {
 					else {
 						System.out.println("text "+status.getText());
 					}
-					TweetWithURL tweetWithURL = new TweetWithURL(status.getText(), URLlist, expandedURLlist, status.getCreatedAt());
+					TweetWithURL tweetWithURL = new TweetWithURL(status.getText(), URLlist, expandedURLlist, status.getCreatedAt().toString());
 					uRLList.add(tweetWithURL);
 					System.out.println("list:");
 					for(int j = 0;j<uRLList.size();j++)

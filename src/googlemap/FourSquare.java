@@ -10,10 +10,8 @@ import fi.foyt.foursquare.api.entities.Checkin;
 import fi.foyt.foursquare.api.entities.CompactUser;
 import fi.foyt.foursquare.api.entities.CompactVenue;
 import fi.foyt.foursquare.api.entities.CompleteVenue;
-import fi.foyt.foursquare.api.entities.Location;
 import fi.foyt.foursquare.api.entities.Photo;
 import fi.foyt.foursquare.api.entities.PhotoGroup;
-import fi.foyt.foursquare.api.entities.Photos;
 //http://4sq.com/1qezcsR
 public class FourSquare {
 	static String CLIENT_ID="KBG4IHZCCEPFXDBBRGS5NZAE45VHUBVXY1K22W2F1C3CCH3Y";

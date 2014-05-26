@@ -3,6 +3,8 @@ package RdfModel;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import Models.TweetWithURL;
 
@@ -111,6 +113,7 @@ public class BaseModel {
 				+ "WHERE { ?tweet tweet:content ?content . "
 				+ "?tweet tweet:content ?content . "
 				+ "}";
+		System.out.println(queryString);
 		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
 		// Execute the query and obtain results
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
@@ -127,55 +130,87 @@ public class BaseModel {
 	}
 	
 	
-	public TweetWithURL getTweetWithURLRecordsByScreenName(String screenName, String fileName) {
+	public List<TweetWithURL> getTweetWithURLRecordsByScreenName(String screenName, String fileName) {
 
 		Model model = getModelFromFile(fileName);
 
 		String queryString = "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "
-//				+ "PREFIX tweet: <http://somewhere/tweet#> "
 				+ "SELECT ?twitterAccount ?userId "
 				+ "WHERE { ?twitterAccount twitterAccount:sceenName \""
 				+ screenName
 				+ "\" ."
 				+ "?twitterAccount twitterAccount:userId ?userId . "
-//				+ "?tweet tweet:postedByTwitterAccount \"http://somewhere/twitterAccount#?userId\" . "
-//				+ "?twitterAccount twitterAccount:ownedByPerson ?person . "
 				+ "}";
-
 		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
 		// Execute the query and obtain results
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 		ResultSet results = qe.execSelect();
-		String sceenName = "";
 		String userId = "";
-		String photoUrl = "";
-		String name = "";
-		String liveInCity = "";
-		String description = "";
-
+		List<TweetWithURL> currentTweet = null;
 		try {
 			// simple select
 			if (results.hasNext()) {
-				
+//				ResultSetFormatter.out(System.out, results, query) ;
 				QuerySolution qs = results.next();
 				userId = qs.getLiteral("?userId").getString();
-				queryString =  "PREFIX tweet: <http://somewhere/tweet#> "
-						+ "SELECT ?twitterAccount ?userId "
-						+ "WHERE { ?twitterAccount twitterAccount:sceenName \""
-						+ screenName
-						+ "\" ."
-						+ "?twitterAccount twitterAccount:userId ?userId . "
-						+ "?tweet tweet:postedByTwitterAccount \"http://somewhere/twitterAccount#?"+userId+"\" . "
-//						+ "?twitterAccount twitterAccount:ownedByPerson ?person . "
-						+ "}";
+				currentTweet = getTweetsRecordByAccountId(fileName,userId);
 			}
 		} finally {
 			qe.close();
 		}
 
-		TweetWithURL currentTweet = null;// new TweetWithURL(_text, _displayURL, _expandedURL, _createdAt)
+//		System.out.println(currentTweet.size());
 		return currentTweet;
 
+	}
+	
+	public List<TweetWithURL> getTweetsRecordByAccountId(String fileName, String userId)
+	{
+		Model model = getModelFromFile(fileName);
+		List<TweetWithURL> list = new ArrayList<TweetWithURL>();
+		String queryString = "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "
+				+ "PREFIX tweet: <http://somewhere/tweet#> "
+				+ "SELECT ?content ?date ?shortUrl "// ?tweet ?content "
+				+ "WHERE { "
+				+ "?twitterAccount twitterAccount:userId \""
+						+ userId
+						+ "\" . "
+				+ "?tweet tweet:postedByTwitterAccount <http://somewhere/twitterAccount#2365765400> . "
+				+ "?tweet tweet:content ?content . "
+				+ "?tweet tweet:date ?date . "
+				+ "?tweet tweet:shortUrl ?shortUrl . "
+				+ "}";
+		System.out.println(queryString);
+		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
+		// Execute the query and obtain results
+		QueryExecution qe = QueryExecutionFactory.create(query, model);
+		ResultSet results = qe.execSelect();
+		try {
+			// simple select
+			if (results.hasNext()) {
+//				ResultSetFormatter.out(System.out, results, query) ;
+				QuerySolution qs = results.next();
+				System.out.println(qs.getLiteral("?content"));
+				String content = "";
+				content = qs.getLiteral("?content").getString();
+				
+				System.out.println(qs.getLiteral("?date"));
+				String date = "";
+				date = qs.getLiteral("?date").getString();
+				
+				System.out.println(qs.getLiteral("?shortUrl"));
+				String shortUrl = "";
+				shortUrl = qs.getLiteral("?shortUrl").getString();
+				List<String> urlList = new ArrayList<String>();
+				urlList.add(shortUrl);
+				TweetWithURL currentTweet = new TweetWithURL(content, urlList, urlList, date);
+				list.add(currentTweet);
+			}
+		} finally {
+			qe.close();
+		}
+		
+		return list;
 	}
 	
 
@@ -183,7 +218,7 @@ public class BaseModel {
 		Model model = getModelFromFile(fileName);
 		String queryString = "PREFIX tweet: <http://somewhere/tweet#> "
 				+ "SELECT ?tweet  " + "WHERE { ?tweet tweet:tweetId \""
-				+ tweetIdStr + "\" ." + "}";
+				+ tweetIdStr + "\" . " + "}";
 
 		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
 		// Execute the query and obtain results
@@ -320,8 +355,9 @@ public class BaseModel {
 //		System.out.println(base.hasTweetRecord("470664099454783488", workpathString));
 //		Models.User user = base.getUserFromRecordsByTweetId("470664099454783488", workpathString);
 //		System.out.println(user.getName());
-//		base.getTweetWithURLRecordsByScreenName("njy0612", workpathString);
-		base.getallTweets(workpathString);
+		base.getTweetWithURLRecordsByScreenName("njy0612", workpathString);
+//		base.getallTweets(workpathString);
+//		base.getTweetsRecordByAccountId(workpathString, "21203769");
 	}
 
 

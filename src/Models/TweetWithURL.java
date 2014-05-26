@@ -7,9 +7,9 @@ public class TweetWithURL {
 	private String text;
 	private List<String> displayURL;
 	private List<String> expandedURL;
-	private Date createdAt;
+	private String createdAt;
 	
-	public TweetWithURL(String _text,List<String> _displayURL, List<String> _expandedURL, Date _createdAt)
+	public TweetWithURL(String _text,List<String> _displayURL, List<String> _expandedURL, String _createdAt)
 	{
 		this.text = _text;
 		this.displayURL = _displayURL;
@@ -41,11 +41,11 @@ public class TweetWithURL {
 		this.expandedURL = expandedURL;
 	}
 
-	public Date getCreatedAt() {
+	public String getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
 

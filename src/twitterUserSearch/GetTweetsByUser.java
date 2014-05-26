@@ -112,20 +112,24 @@ public class GetTweetsByUser {
 							Tweet tweetRDF = new Tweet();
 							Model modelMain = tweetRDF
 									.getModelFromFile(filePath);
+							System.out.println("string value"+String.valueOf(tweet.getCreatedAt()));
+							System.out.println("to string"+tweet.getCreatedAt().toString());
+							System.out.println("to string2"+tweet.getCreatedAt().toGMTString());
 							if (tweet.getRetweetedStatus() != null) {
 								tweetRDF.saveTweet(
 										String.valueOf(tweet.getId()), tweet
 												.getText(),
-										url.getDisplayURL(), tweet
-												.getCreatedAt().toString(),
+										url.getExpandedURL(), String.valueOf(tweet
+												.getCreatedAt()),
 										String.valueOf(tweet
 												.getRetweetedStatus().getId()),
 										String.valueOf(tweet.getUser().getId()));
 							} else {
 								tweetRDF.saveTweet(
 										String.valueOf(tweet.getId()),
-										tweet.getText(), url.getDisplayURL(),
-										tweet.getCreatedAt().toString(), null,
+										tweet.getText(), url.getExpandedURL(),
+										String.valueOf(tweet
+												.getCreatedAt()), null,
 										String.valueOf(tweet.getUser().getId()));
 							}
 							modelMain.add(tweetRDF.getModel());
@@ -171,18 +175,32 @@ public class GetTweetsByUser {
 
 							TweetWithURL tweetWithURL = new TweetWithURL(
 									tweet.getText(), URLlist, expandedURLlist,
-									tweet.getCreatedAt());
+									tweet.getCreatedAt().toString());
 							tweetsList.add(tweetWithURL);
 						}
 					}
 				} else {
 					// TODO read from rdf
-					List<String> URLlist = new ArrayList<String>();
-					List<String> expandedURLlist = new ArrayList<String>();
-					TweetWithURL tweetWithURL = new TweetWithURL(
-							tweet.getText(), URLlist, expandedURLlist,
-							tweet.getCreatedAt());
-					tweetsList.add(tweetWithURL);
+					List<TweetWithURL> list = baseModel.getTweetWithURLRecordsByScreenName(username, filePath);
+					System.out.println("size is : "+list.size());
+					System.out.println("url is : "+ list.get(0).getDisplayURL());
+					for (TweetWithURL tweetWithURL2 : list) {
+						String shortString = tweetWithURL2.getDisplayURL().get(0);
+						System.out.println(shortString);
+						String expandURL = expandUrl(shortString);
+						System.out.println("expandURL is " + expandURL);
+						if (((expandURL.startsWith("https://foursquare.com/"))
+								&& (expandURL.contains("checkin")) && (expandURL
+									.contains("s="))) && expandURL != null) {
+							tweetsList.add(tweetWithURL2);
+						}
+						else {
+							System.out.println(expandURL);
+						}
+						
+					}
+					System.out.println("successfully read from rdf");
+					
 				}
 			}
 		} catch (Exception te) {
