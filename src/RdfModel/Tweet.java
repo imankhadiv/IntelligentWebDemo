@@ -17,7 +17,7 @@ public class Tweet extends BaseModel {
 	private Property postedByTwitterAccount;
 	private Property hasOriginTweet;
 	private Property retweetPeople;
-
+	
 	public Tweet() {
 		String tweetURI = URI + "/tweet#";
 		model = ModelFactory.createDefaultModel();
@@ -32,7 +32,16 @@ public class Tweet extends BaseModel {
 		hasOriginTweet = model.createProperty(tweetURI, "hasOriginTweet");
 		retweetPeople = model.createProperty(tweetURI, "retweetPeople");
 	}
-
+	/**
+	 * 
+	 * @param tweetIdStr
+	 * @param contentStr
+	 * @param shortUrlStr
+	 * @param dateStr
+	 * @param venueName
+	 * @param retweetId
+	 * @param userId
+	 */
 	public void saveTweet(String tweetIdStr, String contentStr,
 			String shortUrlStr, String dateStr, String venueName,
 			String retweetId, String userId) {

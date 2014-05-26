@@ -11,9 +11,7 @@ import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.util.FileManager;
-import com.sun.xml.internal.rngom.parse.host.Base;
 
 public class BaseModel {
 
@@ -202,33 +200,40 @@ public class BaseModel {
 	}
 
 
-	public ResultSet getTweetsByAccountId(String userId, String fileName) {
-		Model model = getModelFromFile(fileName);
-		String postedByTwitterAccount = "http://somewhere/twitterAaccount#"
-				+ userId;
+//	public ResultSet getTweetsByAccountId(String userId, String fileName) {
+//		Model model = getModelFromFile(fileName);
+////		String postedByTwitterAccount = "http://somewhere/twitterAaccount#"
+////				+ userId;
+////
+//		String queryString = "PREFIX tweet: <http://somewhere/tweet#> "
+////				 +
+////				 "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "
+//				//+ "SELECT ?tweetId ?content ?shortURL ?hasOriginTweet ?date ?hasVenue ?postedByTwitterAccount ?retweetPeople  "
+//				+ "SELECT * "
+//				+ "WEHERE {"
+//				//+"?tweet tweet:tweetId ?tweetId . "
+//
+////				+ "WHERE { ?tweet tweet:tweetId \""
+////				+ userId
+////				+ "\" ."
+//				//?tweet tweet:tweetId ?tweetId . "
+//				+ " ?tweet ."
+//				//+ "?tweet tweet:content ?content . "
+////				+ "?tweet tweet:shortURL ?shortURL . "
+////				+ "?tweet tweet:hasOriginTweet ?hasOriginTweet . "
+////				+ "?tweet tweet:date ?date . "
+////				+ "?tweet tweet:hasVenue ?hasVenue . "
+////				+ "?tweet tweet:retweetPeople ?retweetPeople . "
+////				+ "?tweet tweet:postedByTwitterAccount ?postedByTwitterAccount . "
+//				+ "}";
+//		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
+//		// Execute the query and obtain results
+//		QueryExecution qe = QueryExecutionFactory.create(query, model);
+//		return qe.execSelect();
+//	}
 
-		String queryString = "PREFIX tweet: <http://somewhere/tweet#> "
-				// +
-				// "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "
-				+ "SELECT ?tweetId ?content ?shortURL ?hasOriginTweet ?date ?hasVenue ?postedByTwitterAccount ?retweetPeople  "
-				+
-
-				"WHERE { ?tweet tweet:tweetId ?tweetId . "
-				+ "?tweet tweet:content ?content . "
-				+ "?tweet tweet:shortURL ?shortURL . "
-				+ "?tweet tweet:hasOriginTweet ?hasOriginTweet . "
-				+ "?tweet tweet:date ?date . "
-				+ "?tweet tweet:hasVenue ?hasVenue . "
-				+ "?tweet tweet:retweetPeople ?retweetPeople . "
-				+ "?tweet tweet:postedByTwitterAccount ?postedByTwitterAccount . "
-				+ "}";
-		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
-		// Execute the query and obtain results
-		QueryExecution qe = QueryExecutionFactory.create(query, model);
-		return qe.execSelect();
-	}
-	public static void main(String[] args)
-	{
+	
+	public static void main(String[] args) {
 		String workpathString = "/Users/nijianyue/Documents/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/IntelligentWebDemo/WEB-INF/RDF.rdf";
 		BaseModel base = new BaseModel();
 		System.out.println(base.hasTweetRecord("470664099454783488", workpathString));
