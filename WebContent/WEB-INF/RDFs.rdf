@@ -1,0 +1,52 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+	
+ 	<rdfs:Class rdf:ID="person"
+ 		rdfs:comment="Individuals and have personal information like first name, second name, gender etc.">
+ 		<rdfs:hasTwitterAccount rdf:resource="http://localhost:8080/testJena/RDFs#twitterAccount"/>
+ 	</rdfs:Class>
+
+
+	<rdfs:Property rdf:ID="hasTwitterAccount">
+ 	<rdfs:domain rdf:resource="http://localhost:8080/testJena/RDFs#person"/>
+ 	<rdfs:range rdf:resource="http://localhost:8080/testJena/RDFs#account"/>
+ 	</rdfs:Property>
+ 	
+ 	<rdfs:Property rdf:ID="isOwnedBy">
+ 	<rdfs:domain rdf:resource="http://localhost:8080/testJena/RDFs#twitterAccount"/>
+ 	<rdfs:range rdf:resource="http://localhost:8080/testJena/RDFs#person"/>
+ 	</rdfs:Property>
+
+ 	<rdfs:Class rdf:ID="twitterAccount" 
+ 	rdfs:comment="twitter account details" >
+
+ 	<rdfs:Class rdf:ID="foursquareAccount" 
+ 	rdfs:comment="foursquare account details" >
+ 	</rdfs:Class>
+
+	<rdfs:Property rdf:ID="isOwnedBy">
+ 	<rdfs:domain rdf:resource="http://localhost:8080/testJena/RDFs#foursquareAccount"/>
+ 	<rdfs:range rdf:resource="http://localhost:8080/testJena/RDFs#person"/>
+ 	</rdfs:Property>
+ 	
+ 	<rdfs:Class rdf:ID="venue"
+	rdfs:comment="venue details" >
+	</rdfs:Class>
+	
+	<rdfs:Class rdf:ID="tweet"
+	rdfs:comment="venue details" >
+	<rdfs:isPostBy rdf:resource="http://localhost:8080/testJena/RDFs#twitterAccount"/>
+	</rdfs:Class>
+	
+	<rdfs:Property rdf:ID="isPostBy">
+ 	<rdfs:domain rdf:resource="http://localhost:8080/testJena/RDFs#tweet"/>
+ 	<rdfs:range rdf:resource="http://localhost:8080/testJena/RDFs#twitterAccount"/>
+ 	</rdfs:Property>
+
+ 	<rdfs:Class rdf:ID="comment" 
+ 		rdfs:comment="Use for description">
+ 		<rdfs:domain rdf:resource="#Resource"/>
+ 		<rdfs:range rdf:resource="#Literal"/>
+ 	</rdfs:Class>
+</rdf:RDF>
