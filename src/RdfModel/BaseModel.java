@@ -9,6 +9,7 @@ import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
@@ -151,18 +152,18 @@ public class BaseModel {
 		String queryString = "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "
 				+ "PREFIX person: <http://somewhere/person#> "
 				+ "PREFIX tweet: <http://somewhere/tweet#> "
-				+ "SELECT ?name ?userId ?sceenName ?photoUrl ?liveInCity ?description "
-				+ "WHERE { ?tweet tweet:tweetId \""
-				+ tweetIdString
-				+ "\" ."
+				+ "SELECT ?tweet ?twitterAccount ?person ?name ?userId ?sceenName ?photoUrl ?liveInCity ?description "
+//				+ "SELECT ?tweet ?twitterAccount ?person ?name ?userId ?sceenName ?photoUrl ?liveInCity ?description "
+				+ "WHERE { ?tweet  tweet:tweetId \""+ tweetIdString+ "\" ."
 				+ "?tweet tweet:postedByTwitterAccount ?twitterAccount . "
 				+ "?twitterAccount twitterAccount:sceenName ?sceenName . "
 				+ "?twitterAccount twitterAccount:userId ?userId . "
 				+ "?twitterAccount twitterAccount:photoUrl ?photoUrl . "
-				+ "?twitterAccount twitterAccount:liveInCity ?liveInCity . "
 				+ "?twitterAccount twitterAccount:description ?description . "
 				+ "?twitterAccount twitterAccount:ownedByPerson ?person . "
-				+ "?person person:name ?name . " + "}";
+				+ "?person person:name ?name . " 
+				+ "?person person:liveInCity ?liveInCity . "
+				+ "}";
 
 		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
 		// Execute the query and obtain results
@@ -178,6 +179,7 @@ public class BaseModel {
 		try {
 			// simple select
 			if (results.hasNext()) {
+//				ResultSetFormatter.out(System.out, results, query) ;
 				QuerySolution qs = results.next();
 				System.out.println(qs.getLiteral("?sceenName"));
 				sceenName = qs.getLiteral("?sceenName").getString();
