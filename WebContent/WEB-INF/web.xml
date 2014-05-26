@@ -79,5 +79,13 @@
     <servlet-name>SearchTweetsByUserServlet</servlet-name>
     <url-pattern>/SearchTweetsByUserServlet</url-pattern>
   </servlet-mapping>
+   <error-page>
+    <exception-type> java.lang.Exception </exception-type>
+    <location>/error.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error.jsp</location>
+  </error-page>
  
 </web-app>

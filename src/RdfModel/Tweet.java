@@ -64,6 +64,7 @@ public class Tweet extends BaseModel {
 					.addProperty(hasOriginTweet, originTweet);
 		}
 
+
 	}
 	
 	public void saveTweet(String tweetIdStr, String contentStr,
@@ -107,10 +108,10 @@ public class Tweet extends BaseModel {
 			}
 		}
 
+
 	}
 	
-	public void saveTweet(String tweetIdStr, String contentStr,
-			 String dateStr,
+	public void saveTweet(String tweetIdStr, String contentStr, String dateStr,
 			String retweetId, String userId) {
 		String tweetURL = URI + "/tweet#" + tweetIdStr;
 		// source for twitterAccount
@@ -132,6 +133,51 @@ public class Tweet extends BaseModel {
 					.addProperty(hasOriginTweet, originTweet);
 		}
 	}
+	/**
+	 * 
+	 * @param accountId
+	 * @param tweetId
+	 * @param text
+	 * @param date
+	 * @param shortURL
+	 */
+	public void saveTweet2(String accountId, String tweetId, String text,
+			String date,String shortURL) {
+		String tweetURI = URI + "/tweet#" + tweetId;
+		String twitterAccountURI = URI + "/twitterAaccount#"+accountId;
+		Resource twitterAcccount = model.createResource(twitterAccountURI);
+
+		model.createResource(tweetURI)
+				.addProperty(this.tweetId, tweetId)
+				.addProperty(this.content, text)
+				.addProperty(this.date, date)
+				.addProperty(this.shortUrl, shortURL)
+				.addProperty(this.postedByTwitterAccount, twitterAcccount);
+	}
+	/**
+	 * 
+	 * @param accountId
+	 * @param tweetId
+	 * @param text
+	 * @param date
+	 * @param shortURL
+	 * @param retweetPeople
+	 */
+	public void saveTweet2(String accountId, String tweetId, String text,
+			String date,String shortURL,String retweetPeople) {
+		String tweetURI = URI + "/tweet#" + tweetId;
+		String twitterAccountURI = URI + "/twitterAaccount#"+accountId;
+		Resource twitterAcccount = model.createResource(twitterAccountURI);
+
+		model.createResource(tweetURI)
+		.addProperty(this.tweetId, tweetId)
+		.addProperty(this.content, text)
+		.addProperty(this.date, date)
+		.addProperty(this.shortUrl, shortURL)
+		.addProperty(this.postedByTwitterAccount, twitterAcccount)
+		.addProperty(this.retweetPeople,retweetPeople);
+
+	}
 
 	public Model getModel() {
 		return model;
@@ -139,7 +185,7 @@ public class Tweet extends BaseModel {
 	public static void main(String[] args)
 	{
 		String workingDir = System.getProperty("user.dir");
-		String fileName = workingDir + "/WebContent/WEB-INF/test.rdf";
+		String fileName = workingDir + "/WebContent/WEB-INF/RDF.rdf";
 		Tweet tweet = new Tweet();
 		Model modelMain = tweet.getModelFromFile(fileName);
 		System.out.println("..............///////");

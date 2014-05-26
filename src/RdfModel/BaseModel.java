@@ -141,16 +141,39 @@ public class BaseModel {
 
 	}
 
-	public ResultSet getTweetsByAccountId(String sreenName) {
-		return null;
 
-	}
 	
 	public static void main(String[] args)
 	{
 		String workpathString = "/Users/nijianyue/Documents/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/IntelligentWebDemo/WEB-INF/RDF.rdf";
 		BaseModel base = new BaseModel();
 		System.out.println(base.hasTweetRecord("470817397809893377", workpathString));
+	}
+
+	public ResultSet getTweetsByAccountId(String userId,String fileName) {
+		Model model = getModelFromFile(fileName);
+		String postedByTwitterAccount = "http://somewhere/twitterAaccount#"+userId;
+		System.out.println(postedByTwitterAccount);
+		String queryString = "PREFIX tweet: <http://somewhere/tweet#> "+
+				"PREFIX person: <http://somewhere/person#> "+
+				"PREFIX twitterAccount: <http://somewhere/twitterAccount#> "+
+				"SELECT ?tweetId ?content ?shortURL ?hasOriginTweet ?date ?hasVenue ?postedByTwitterAccount ?retweetPeople  "+
+				//"WHERE { ?tweet tweet:postedByTwitterAccount \""+postedByTwitterAccount+"\" ."+
+				"WHERE { ?tweet tweet:date \""+"Sat Mar 08 22:47:53 GMT 2014"+"\" ."+
+				"?tweet tweet:tweetId ?tweetId . "+
+				"?tweet tweet:content ?content . " +
+				"?tweet tweet:shortURL ?shortURL . " +
+				"?tweet tweet:hasOriginTweet ?hasOriginTweet . " +
+				"?tweet tweet:date ?date . " +
+				"?tweet tweet:hasVenue ?hasVenue . " +
+				"?tweet tweet:postedByTwitterAccount ?postedByTwitterAccount . " +
+				"?tweet tweet:retweetPeople ?retweetPeople . " +
+				"?person person:name ?name . " +
+				"}";
+		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
+		// Execute the query and obtain results
+		QueryExecution qe = QueryExecutionFactory.create(query, model);
+		return qe.execSelect();
 	}
 
 }

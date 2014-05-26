@@ -140,7 +140,7 @@ public class TrackDiscussions extends HttpServlet {
 				}
 			}
 			Tweet tweet = new Tweet();
-			tweet.saveTweet(String.valueOf(p.getTwitterId()),
+			tweet.saveTweet2(String.valueOf(p.getTwitterId()),
 					String.valueOf(p.getTweetId()),
 					track.getTweetText(p.getTwittText()), p.getDate(),
 					track.getShortURL(p.getTwittText()), rtpeople);
