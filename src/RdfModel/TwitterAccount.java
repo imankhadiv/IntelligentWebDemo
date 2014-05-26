@@ -34,21 +34,19 @@ public class TwitterAccount extends BaseModel{
 		// get source for person
 		String personURI = URI+"/person#" + name;
 		Resource person = model.createResource(personURI);
-		if(model.getResource(personURI)!=null)
-		{
-			System.out.println("exist");
-			model.getResource(personURI).addProperty(propUserId, userId)
-			.addProperty(propScreenName, ScreenName)
-			.addProperty(propDescription, description).addProperty(propUserPhotoUrl, userPhotoUrl).addProperty(propOwnedByPerson, person);
-
-		}
-		else{
-			System.out.println("not exist");
+//		if(model.getResource(personURI)!=null)
+//		{
+//			model.getResource(personURI).addProperty(propUserId, userId)
+//			.addProperty(propScreenName, ScreenName)
+//			.addProperty(propDescription, description).addProperty(propUserPhotoUrl, userPhotoUrl).addProperty(propOwnedByPerson, person);
+//
+//		}
+//		else{
 			model.createResource(twitterAccountURL)
 			.addProperty(propUserId, userId)
 			.addProperty(propScreenName, ScreenName)
 			.addProperty(propDescription, description).addProperty(propUserPhotoUrl, userPhotoUrl).addProperty(propOwnedByPerson, person);
-		}
+//		}
 		
 
 	}

@@ -27,7 +27,7 @@ import twitter4j.TwitterStream;
 public class SearchUserWithVenueServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	TwitterStream tws ;
-	TwitterStreaming tt;
+	TwitterStreaming ts;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -82,8 +82,8 @@ public class SearchUserWithVenueServlet extends HttpServlet {
 				// TODO streaming
 				System.out.println("start streaming");
 				try {
-					 tt = new TwitterStreaming();
-					tws = tt.getTwitterStream(workingDir);
+					 ts = new TwitterStreaming();
+					tws = ts.getTwitterStream(workingDir);
 					int count = 0;
 					long[] idToFollow = new long[0];
 					// query
@@ -145,9 +145,8 @@ public class SearchUserWithVenueServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		Gson gson = new Gson();
-		String jsonString = gson.toJson(tt.getUserList());
+		String jsonString = gson.toJson(ts.getUserList());
 		System.out.println(jsonString);
 		PrintWriter out = response.getWriter();
     	out.write(jsonString);

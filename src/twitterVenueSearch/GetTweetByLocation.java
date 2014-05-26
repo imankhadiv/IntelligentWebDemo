@@ -12,6 +12,7 @@ import RdfModel.TwitterAccount;
 import com.google.gson.Gson;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.ModelSource;
 
 import twitter4j.GeoLocation;
 import twitter4j.Query;
@@ -53,6 +54,7 @@ public class GetTweetByLocation {
 			List<Status> tweets = result.getTweets();
 			HashSet<String> idSet = new HashSet<String>();
 			BaseModel baseModel = new BaseModel();
+			
 			for (Status tweet : tweets) { // /gets the user
 				boolean hasTweet = baseModel.hasTweetRecord(
 						String.valueOf(tweet.getId()), filePath);
@@ -87,6 +89,7 @@ public class GetTweetByLocation {
 					person.savePerson(user.getName(), user.getLocation(),
 							user.getId());
 					modelMain.add(person.getModel());
+					modelMain.write(System.out);
 					tweetRDF.saveModel(filePath, modelMain);
 
 					if (!idSet.contains(currentUser.getId())) {
@@ -95,7 +98,7 @@ public class GetTweetByLocation {
 					}
 				} else {
 					// TODO read from RDF file
-					
+//					Models.User currentUser = new Models.User(name, id, location, description, photoURL, userId)
 				}
 			}
 		} catch (Exception te) {

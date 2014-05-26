@@ -74,7 +74,7 @@ public class Tweet extends BaseModel {
 		String tweetURL = URI + "/tweet#" + tweetIdStr;
 		// source for twitterAccount
 		String twitterAccountURL = URI + "/twitterAccount#" + userId;
-		Resource twitterAccount = model.createResource(tweetURL);
+		Resource twitterAccount = model.createResource(twitterAccountURL);
 		// source for originTweet
 		String originTweetURL = URI + "/tweet#" + retweetId;
 		Resource originTweet = model.createResource(originTweetURL);
@@ -116,7 +116,7 @@ public class Tweet extends BaseModel {
 		String tweetURL = URI + "/tweet#" + tweetIdStr;
 		// source for twitterAccount
 		String twitterAccountURL = URI + "/twitterAccount#" + userId;
-		Resource twitterAccount = model.createResource(tweetURL);
+		Resource twitterAccount = model.createResource(twitterAccountURL);
 		// source for originTweet
 		String originTweetURL = URI + "/tweet#" + retweetId;
 		Resource originTweet = model.createResource(originTweetURL);

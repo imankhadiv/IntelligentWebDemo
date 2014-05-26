@@ -32,7 +32,7 @@ public class BaseModel {
 					+ "Not found");
 		} else {
 			Model model = ModelFactory.createDefaultModel();
-			model.read(in, null);
+//			model.read(in, null);
 			//model.write(System.out);
 			return model;
 		}
@@ -207,7 +207,9 @@ public class BaseModel {
 	{
 		String workpathString = "/Users/nijianyue/Documents/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/IntelligentWebDemo/WEB-INF/RDF.rdf";
 		BaseModel base = new BaseModel();
-		System.out.println(base.hasTweetRecord("470817397809893377", workpathString));
+		System.out.println(base.hasTweetRecord("470844047595409408", workpathString));
+		Models.User user = base.getUserFromRecordsByTweetId("470844047595409408", workpathString);
+		System.out.println(user.getName());
 	}
 
 	public ResultSet getTweetsByAccountId(String userId,String fileName) {
