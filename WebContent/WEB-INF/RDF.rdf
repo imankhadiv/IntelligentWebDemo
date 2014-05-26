@@ -4,6 +4,11 @@
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:j.1="http://somewhere/4sqAccount#"
     xmlns:j.2="http://somewhere/person#"
+<<<<<<< HEAD
+    xmlns:j.3="http://somewhere/venue#"
+    xmlns:j.4="http://somewhere/twitterAccount#" > 
+
+=======
     xmlns:j.3="http://somewhere/twitterAccount#" > 
   <rdf:Description rdf:about="http://somewhere/tweet#446690152686321664">
     <j.0:tweetId>446690152686321664</j.0:tweetId>
@@ -1016,4 +1021,5 @@ Excited But Not Ready :)</j.0:content>
     <j.0:hasOriginTweet>N/A</j.0:hasOriginTweet>
     <j.0:retweetPeople>N/A</j.0:retweetPeople>
   </rdf:Description>
+>>>>>>> FETCH_HEAD
 </rdf:RDF>

@@ -1,5 +1,16 @@
 package twitterVenueSearch;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import Models.TweetWithURL;
+import Models.User;
+import RdfModel.Person;
+import RdfModel.Tweet;
+import RdfModel.TwitterAccount;
+
+import com.hp.hpl.jena.rdf.model.Model;
+
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
 
@@ -9,28 +20,67 @@ public class TwitterStreaming {
 	 private String consumersecret = "17Ze1q8mYSRFPgFGV6sBJrybYUrjpMYR6JmP29xvNKE";	
 	 private String accesstoken = "2365765400-PzPlz6uUcHZsDdDwbozJpvfl4CxkC4mKSzyfuCQ";	
 	 private String accesstokensecret = "DYTINSWrKwjoelp3nmBRUlzuD0EDloauLX1HGyXOtYDvT";	
-	 private MyDB db;
+//	 private MyDB db;
+	 private List<User> userList;
+	 
+	 
+	 public List<User> getUserList() {
+		return userList;
+	}
+
+
+	public void setuRLList(List<User> uRLList) {
+		this.userList = uRLList;
+	}
 	 
 	 public TwitterStreaming(){
-		 db=new MyDB();
+		 userList = new ArrayList<User>();
+//		 db=new MyDB();
 	 }
-	 TwitterStream getTwitterStream( ) throws Exception {
+	 TwitterStream getTwitterStream(final String filePath) throws Exception {
 		final TwitterStream twitterStream = initTwitterStream(consumerkey,
 				consumersecret, accesstoken, accesstokensecret);
 		StatusListener listener = new StatusListener() {
 			@Override
 			public void onStatus(Status status) {
-				User user=status.getUser();
-				try {
-					db.insert(user.getName(), user.getScreenName(),user.getLocation(),user.getDescription(),user.getProfileImageURL());
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				twitter4j.User user=status.getUser();
+				Tweet tweetRDF = new Tweet();
+				Model modelMain = tweetRDF.getModelFromFile(filePath);
+				if(status.getRetweetedStatus()!=null)
+				{
+					tweetRDF.saveTweet(String.valueOf(status.getId()), status
+							.getText(), status
+							.getCreatedAt().toString(), String
+							.valueOf(status.getRetweetedStatus().getId()),
+							String.valueOf(status.getUser().getId()));
 				}
+				else {
+					tweetRDF.saveTweet(String.valueOf(status.getId()), status
+							.getText(), status
+							.getCreatedAt().toString(), null,
+							String.valueOf(status));
+				}
+				modelMain.add(tweetRDF.getModel());
+				// save twitter user to rdf
+				TwitterAccount twitterAccount = new TwitterAccount();
+				twitterAccount.saveTwitterAccount(user.getName(),
+						String.valueOf(user.getId()),
+						user.getScreenName(), user.getDescription(),
+						user.getProfileImageURL());
+				modelMain.add(twitterAccount.getModel());
+				// save person to rdf
+				Person person = new Person();
+				person.savePerson(user.getName(), user.getLocation(),
+						user.getId());
+				modelMain.add(person.getModel());
+				modelMain.write(System.out);
+				tweetRDF.saveModel(filePath, modelMain);
+//					db.insert(user.getName(), user.getScreenName(),user.getLocation(),user.getDescription(),user.getProfileImageURL());
 				
 				System.out.println("@" + status.getUser().getScreenName()
 						+ " - " + status.getText()+" id: "+status.getId());
-				
+				User userToSave = new User(user.getName(), "@"+user.getScreenName() , user.getLocation(), user.getDescription(), user.getProfileImageURL(), String.valueOf(user.getId()));
+				userList.add(userToSave);
 			}
 
 			@Override
@@ -42,12 +92,7 @@ public class TwitterStreaming {
 
 			@Override
 			public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
-				try {
-					db.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
 				twitterStream.cleanUp();
 				twitterStream.shutdown();
 			}
@@ -86,9 +131,10 @@ public class TwitterStreaming {
 	
 	public static void main(String[] args) throws Exception {
 		TwitterStreaming tt = new TwitterStreaming();
+		String filePath ="";
 		
 		try {
-			TwitterStream tws = tt.getTwitterStream();
+			TwitterStream tws = tt.getTwitterStream(filePath);
 			int range=1;
 			int count = 0;
 			long[] idToFollow = new long[0];

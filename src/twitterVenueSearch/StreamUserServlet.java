@@ -35,14 +35,9 @@ public class StreamUserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//TODO get data from database
-		MyDB db = new MyDB();
+//		MyDB db = new MyDB();
 		List<User> userlist = new ArrayList<User>();
-		try {
-			userlist = db.selectall();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		Gson gson = new Gson();
 		String jsonString = gson.toJson(userlist);
 		System.out.println(jsonString);

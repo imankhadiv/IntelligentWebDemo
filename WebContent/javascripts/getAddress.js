@@ -36,7 +36,7 @@ function searchloop() {
 				}
 			}
 			// do something special
-			http_request.open("GET", "StreamUserServlet", true);
+			http_request.open("POST", "SearchUserWithVenueServlet", true);
 			http_request.send();
 			http_request.onreadystatechange = function() {
 				if (http_request.readyState == 4) {
@@ -62,6 +62,12 @@ function codeAddress() {
 	var daysbefore = $('#daysbefore').val();
 	var lat;
 	var lng;
+	var venue_name;
+	var country;
+	var city;
+	var address;
+	var postcode;
+	var photoURL;
 
 	var http_request;
 	if (address == null || address == "") {
@@ -85,6 +91,23 @@ function codeAddress() {
 							if (status == google.maps.GeocoderStatus.OK) {
 								lat = results[0].geometry.location.lat();
 								lng = results[0].geometry.location.lng();
+								venue_name = results[0].address_components[0].long_name;
+								var temp = results[0].address_components;
+								var length = temp.length;
+								for (var i = 0; i < length; i++) {
+									if (results[0].address_components[i].types[0] == "postal_code") {
+										postcode = results[0].address_components[i].long_name;
+									}
+									if (results[0].address_components[i].types[0] == "country") {
+										country = results[0].address_components[i].long_name;
+									}
+									if (results[0].address_components[i].types[0] == "administrative_area_level_1") {
+										city = results[0].address_components[i].long_name;
+									}
+								}
+//								postcode=results[0].address_components[1].types;
+								 address=results[0].formatted_address;
+//								 photoURL="http://maps.googleapis.com/maps/api/streetview?size=200x200&location="+lng+","+lat;
 								try {
 									// Opera 8.0+, Firefox, Chrome, Safari
 									http_request = new XMLHttpRequest();
@@ -104,12 +127,19 @@ function codeAddress() {
 										}
 									}
 								}
-
+								
 								http_request.open("GET",
 										"SearchUserWithVenueServlet?lat=" + lat
 												+ "&lng=" + lng + "&r=" + range
 												+ "&days=" + daysbefore
-												+ "&start=" + start, true);
+												+ "&start=" + start
+												+ "&venue_name="+venue_name
+												+ "&country="+country
+												+ "&city="+city
+												+ "&address="+address
+												+ "&postcode="+postcode
+//												+ "&photoURL="+photoURL
+												, true);
 								http_request.send();
 								http_request.onreadystatechange = function() {
 									if (http_request.readyState == 4

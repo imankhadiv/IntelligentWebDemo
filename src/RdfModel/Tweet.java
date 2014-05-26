@@ -36,7 +36,7 @@ public class Tweet extends BaseModel {
 	public void saveTweet(String tweetIdStr, String contentStr,
 			String shortUrlStr, String dateStr, String venueName,
 			String retweetId, String userId) {
-		String tweetURL = URI + "/tweet#" + tweetId;
+		String tweetURL = URI + "/tweet#" + tweetIdStr;
 		// source for twitterAccount
 		String twitterAccountURL = URI + "/twitterAccount#" + userId;
 		// Resource twitterAccount = model.createResource(tweetURL);
@@ -135,7 +135,7 @@ public class Tweet extends BaseModel {
 	 */
 	public void saveTweet(String tweetIdStr, String contentStr, String dateStr,
 			String retweetId, String userId) {
-		String tweetURL = URI + "/tweet#" + tweetId;
+		String tweetURL = URI + "/tweet#" + tweetIdStr;
 		// source for twitterAccount
 		String twitterAccountURL = URI + "/twitterAccount#" + userId;
 		Resource twitterAccount = model.createResource(tweetURL);

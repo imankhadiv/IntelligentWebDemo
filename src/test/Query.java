@@ -49,10 +49,9 @@ public class Query {
 				System.out.println(qs.getLiteral("?userId"));
 				System.out.println(qs.getLiteral("?photoUrl"));
 				System.out.println(qs.getLiteral("?name"));
-
 			}
 		} finally {
-			// qe.close();
+//			 qe.close();
 		}
 		ResultSet results2 = base.getTweetsByAccountId("21203769", fileName);
 

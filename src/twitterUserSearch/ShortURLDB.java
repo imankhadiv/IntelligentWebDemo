@@ -108,7 +108,7 @@ public class ShortURLDB {
 			String picURLVal = setString(rs.getString("picURL"));
 
 			User user = new User(nameVal, scrnameVal, locationVal,
-					decriptionVal, picURLVal);
+					decriptionVal, picURLVal,String.valueOf(idVal));// TODO change this id to tweetId
 			userlist.add(user);
 			System.out.println("id = " + idVal + ", name = " + nameVal
 					+ ", screen_name = " + scrnameVal);

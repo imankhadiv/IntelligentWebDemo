@@ -24,7 +24,7 @@ public class SearchTweetsByUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	TwitterStreamingForUser tForUser;
 	TwitterStream tws;
-	private final String workingDir =getServletContext().getRealPath("/WEB-INF/RDF.rdf");
+	 String workingDir;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -39,6 +39,7 @@ public class SearchTweetsByUserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		System.out.println(request);
+		workingDir =getServletContext().getRealPath("/WEB-INF/RDF.rdf");
 		int status = Integer.parseInt(request.getParameter("status"));
 		System.out.println(status);
 		String userScreenName="";
