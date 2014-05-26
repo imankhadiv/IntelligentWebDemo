@@ -13,7 +13,7 @@
           <br />
           <p>The page you requested could not be found</p>
           
-          <a href="${pageContext.request.contextPath}/home.jsp" class="btn btn-large btn-info"><i class="icon-home icon-white"></i> Take Me Home</a>
+          <a href="${pageContext.request.contextPath}/queryInterface.jsp" class="btn btn-large btn-info"><i class="icon-home icon-white"></i> Take Me Home</a>
         </div>
         <br />
      

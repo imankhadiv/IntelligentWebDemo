@@ -7,7 +7,7 @@
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
-    <welcome-file>home.jsp</welcome-file>
+    <welcome-file>queryInterface.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>

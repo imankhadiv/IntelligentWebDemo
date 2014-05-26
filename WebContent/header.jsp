@@ -28,7 +28,7 @@
 <div id="header">
     <nav class="navbar navbar-default navbar-top">
         <div class="navbar-inner navbar-content-center">
-        <a class="brand" href="${pageContext.request.contextPath}/home.jsp">Home Page</a>
+        <a class="brand" href="${pageContext.request.contextPath}/queryInterface.jsp">Home Page</a>
             <p class="text-muted credit"></p>
         </div>
     </nav>
