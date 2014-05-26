@@ -52,7 +52,6 @@ public class Query {
 				System.out.println(qs.getLiteral("?userId"));
 				System.out.println(qs.getLiteral("?photoUrl"));
 				System.out.println(qs.getLiteral("?name"));
-				
 			}
 		} finally {
 			//qe.close();

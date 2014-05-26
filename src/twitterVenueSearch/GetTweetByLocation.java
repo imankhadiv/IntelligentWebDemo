@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import RdfModel.Person;
+import RdfModel.Tweet;
+import RdfModel.TwitterAccount;
+
 import com.google.gson.Gson;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -18,7 +22,7 @@ import twitter4j.User;
 import twitter4j.conf.ConfigurationBuilder;
 
 public class GetTweetByLocation {
-	public List<Models.User> getSimpleTimeLine(Twitter twitter,double latitude,double longitude,int range,String sinceString){	
+	public List<Models.User> getSimpleTimeLine(Twitter twitter,double latitude,double longitude,int range,String sinceString, String filePath){	
 		List<Models.User> userlist = new ArrayList<Models.User>();
 	 try {	
 	 // it creates a query and sets the geocode	
@@ -39,6 +43,37 @@ public class GetTweetByLocation {
 				User user = tweet.getUser();
 				Models.User currentUser = new Models.User(user.getName(), "@"+user.getScreenName(),
 						user.getLocation(), user.getDescription(), user.getProfileImageURL()); 
+				
+				Tweet tweetRDF = new Tweet();
+				Model modelMain = tweetRDF.getModelFromFile(filePath);
+				if(tweet.getRetweetedStatus()!=null)
+				{
+					tweetRDF.saveTweet(String.valueOf(tweet.getId()), tweet
+							.getText(), tweet
+							.getCreatedAt().toString(), String
+							.valueOf(tweet.getRetweetedStatus().getId()),
+							String.valueOf(tweet.getUser().getId()));
+				}
+				else {
+					tweetRDF.saveTweet(String.valueOf(tweet.getId()), tweet
+							.getText(), tweet
+							.getCreatedAt().toString(), null,
+							String.valueOf(tweet.getUser().getId()));
+				}
+				modelMain.add(tweetRDF.getModel());
+				// save twitter user to rdf
+				TwitterAccount twitterAccount = new TwitterAccount();
+				twitterAccount.saveTwitterAccount(user.getName(),
+						String.valueOf(user.getId()),
+						user.getScreenName(), user.getDescription(),
+						user.getProfileImageURL());
+				modelMain.add(twitterAccount.getModel());
+				// save person to rdf
+				Person person = new Person();
+				person.savePerson(user.getName(), user.getLocation(),
+						user.getId());
+				modelMain.add(person.getModel());
+				tweetRDF.saveModel(filePath, modelMain);
 				
 				if(!idSet.contains(currentUser.getId()))
 				{

@@ -48,7 +48,7 @@ public class Person extends BaseModel {
 		String twitterAccountURI =URI+"/twitterAccount#";
 		Resource twitterAccount = model.createResource(twitterAccountURI
 				+ twitterAccountId);
-		String personalURI = URI+"/person#" + name;
+		String personalURI = URI+"/person#" + this.filter(name);
 		model.createResource(personalURI).addProperty(Name, name)
 				//.addProperty(Birthday, birthday)
 				.addProperty(LiveInCity, liveInCity)

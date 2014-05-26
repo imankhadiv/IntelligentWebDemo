@@ -10,7 +10,9 @@ import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.util.FileManager;
+import com.sun.xml.internal.rngom.parse.host.Base;
 
 public class BaseModel {
 
@@ -63,6 +65,10 @@ public class BaseModel {
 		}
 
 	}
+	public String filter(String input)
+	{
+		return input.replace("#", "").trim();
+	}
 	/**
 	 * 
 	 * @param sreenName
@@ -91,6 +97,22 @@ public class BaseModel {
 		return qe.execSelect();
 
 	}
+	
+	public boolean hasTweetRecord(String tweetIdStr, String fileName)
+	{
+		Model model = getModelFromFile(fileName);
+		String queryString = "PREFIX tweet: <http://somewhere/tweet#> "+
+				"SELECT ?tweet  "+
+				"WHERE { ?tweet tweet:tweetId \""+tweetIdStr+"\" ."+
+				"}";
+
+		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
+		// Execute the query and obtain results
+		QueryExecution qe = QueryExecutionFactory.create(query, model);
+		ResultSet rs = qe.execSelect();
+		return rs.hasNext();
+	}
+	
 	/**
 	 * 
 	 * @param userId
@@ -122,6 +144,13 @@ public class BaseModel {
 	public ResultSet getTweetsByAccountId(String sreenName) {
 		return null;
 
+	}
+	
+	public static void main(String[] args)
+	{
+		String workpathString = "/Users/nijianyue/Documents/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/IntelligentWebDemo/WEB-INF/RDF.rdf";
+		BaseModel base = new BaseModel();
+		System.out.println(base.hasTweetRecord("470817397809893377", workpathString));
 	}
 
 }

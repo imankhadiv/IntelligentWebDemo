@@ -41,7 +41,7 @@ function searchloop() {
 					var response = http_request.responseText;
 					var jsonArray = $.parseJSON(response);
 					if (jsonArray == null || jsonArray == "") {
-						alert("No result,please input again");
+//						alert("No result,please input again");
 					} else {
 						// alert(jsonArray.length);
 						// alert(jsonArray[0].name);

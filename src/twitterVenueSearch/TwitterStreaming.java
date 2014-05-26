@@ -1,5 +1,12 @@
 package twitterVenueSearch;
 import java.sql.SQLException;
+
+import RdfModel.Person;
+import RdfModel.Tweet;
+import RdfModel.TwitterAccount;
+
+import com.hp.hpl.jena.rdf.model.Model;
+
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
 
@@ -14,7 +21,7 @@ public class TwitterStreaming {
 	 public TwitterStreaming(){
 		 db=new MyDB();
 	 }
-	 TwitterStream getTwitterStream( ) throws Exception {
+	 TwitterStream getTwitterStream(final String filePath) throws Exception {
 		final TwitterStream twitterStream = initTwitterStream(consumerkey,
 				consumersecret, accesstoken, accesstokensecret);
 		StatusListener listener = new StatusListener() {
@@ -22,6 +29,37 @@ public class TwitterStreaming {
 			public void onStatus(Status status) {
 				User user=status.getUser();
 				try {
+					Tweet tweetRDF = new Tweet();
+					Model modelMain = tweetRDF.getModelFromFile(filePath);
+					if(status.getRetweetedStatus()!=null)
+					{
+						tweetRDF.saveTweet(String.valueOf(status.getId()), status
+								.getText(), status
+								.getCreatedAt().toString(), String
+								.valueOf(status.getRetweetedStatus().getId()),
+								String.valueOf(status.getUser().getId()));
+					}
+					else {
+						tweetRDF.saveTweet(String.valueOf(status.getId()), status
+								.getText(), status
+								.getCreatedAt().toString(), null,
+								String.valueOf(status));
+					}
+					modelMain.add(tweetRDF.getModel());
+					// save twitter user to rdf
+					TwitterAccount twitterAccount = new TwitterAccount();
+					twitterAccount.saveTwitterAccount(user.getName(),
+							String.valueOf(user.getId()),
+							user.getScreenName(), user.getDescription(),
+							user.getProfileImageURL());
+					modelMain.add(twitterAccount.getModel());
+					// save person to rdf
+					Person person = new Person();
+					person.savePerson(user.getName(), user.getLocation(),
+							user.getId());
+					modelMain.add(person.getModel());
+					modelMain.write(System.out);
+					tweetRDF.saveModel(filePath, modelMain);
 					db.insert(user.getName(), user.getScreenName(),user.getLocation(),user.getDescription(),user.getProfileImageURL());
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -86,9 +124,10 @@ public class TwitterStreaming {
 	
 	public static void main(String[] args) throws Exception {
 		TwitterStreaming tt = new TwitterStreaming();
+		String filePath ="";
 		
 		try {
-			TwitterStream tws = tt.getTwitterStream();
+			TwitterStream tws = tt.getTwitterStream(filePath);
 			int range=1;
 			int count = 0;
 			long[] idToFollow = new long[0];

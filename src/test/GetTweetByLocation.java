@@ -60,19 +60,6 @@ public class GetTweetByLocation {
 				resultString += "@" + user.getScreenName() + " name"
 						+ user.getName() + "\n";
 				System.out.println(resultString);
-				// /////////////////InputStream in =
-				// FileManager.get().open(fileName);
-				// model.read(in, null);
-
-<<<<<<< HEAD
-					
-
-				//////////////////if (in == null) {
-					/////////////////throw new IllegalArgumentException("File: " + fileName
-							/////////////+ " not found");
-				////////////} else {
-					//////////model.read(in, null);
-
 
 					RdfModel.Person person = new RdfModel.Person();
 					Model model = person.getModelFromFile(fileName);
@@ -87,98 +74,11 @@ public class GetTweetByLocation {
 					
 					model.add(twitterAccount.getModel());
 					
-//					FileWriter out = null;
-//					try {
-//						out = new FileWriter(fileName);
-//						model.write(out);
-//						out.close();
-//					} catch (IOException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					} 
-//					finally {
-//						if (out != null)
-//							try {
-//								out.close();
-//							} catch (IOException e) {
-//								// TODO Auto-generated catch block
-//								e.printStackTrace();
-//							}
-//						if (in != null)
-//							try {
-//								in.close();
-//							} catch (IOException e) {
-//								// TODO Auto-generated catch block
-//								e.printStackTrace();
-//							}
-//					}
-//=======
 					
 			person.saveModel(fileName, model);//// you can see the result is the same but this way you do not need to hard code reading and writing to rdf file in each class
 					
-
-				}
-			//}
-=======
-				// ////////////////if (in == null) {
-				// ///////////////throw new IllegalArgumentException("File: " +
-				// fileName
-				// ///////////+ " not found");
-				// //////////} else {
-				// ////////model.read(in, null);
-
-				Person person = new Person();
-				Model model = person.getModelFromFile(fileName);
-				person.savePerson(filter(user.getName()).trim(), "",
-						user.getLocation(), "", user.getId(), "");
-				model.add(person.getModel());
-
-				TwitterAccount twitterAccount = new TwitterAccount();
-				twitterAccount.saveTwitterAccount(
-						filter(user.getName()).trim(),
-						String.valueOf(user.getId()),
-						filter(user.getScreenName()),
-						filter(user.getDescription()),
-						user.getProfileImageURL());
-
-				model.add(twitterAccount.getModel());
-
-				// FileWriter out = null;
-				// try {
-				// out = new FileWriter(fileName);
-				// model.write(out);
-				// out.close();
-				// } catch (IOException e) {
-				// // TODO Auto-generated catch block
-				// e.printStackTrace();
-				// }
-				// finally {
-				// if (out != null)
-				// try {
-				// out.close();
-				// } catch (IOException e) {
-				// // TODO Auto-generated catch block
-				// e.printStackTrace();
-				// }
-				// if (in != null)
-				// try {
-				// in.close();
-				// } catch (IOException e) {
-				// // TODO Auto-generated catch block
-				// e.printStackTrace();
-				// }
-				// }
-				// =======
-
-				person.saveModel(fileName, model);// // you can see the result
-													// is the same but this way
-													// you do not need to hard
-													// code reading and writing
-													// to rdf file in each class
-
 			}
-			// }
->>>>>>> FETCH_HEAD
+
 		} catch (Exception te) {
 			te.printStackTrace();
 			System.out.println("Failed to search tweets:" + te.getMessage());
