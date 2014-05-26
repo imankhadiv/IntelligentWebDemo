@@ -32,7 +32,7 @@ public class TwitterAccount extends BaseModel{
 	public void saveTwitterAccount(String name, String userId, String ScreenName, String description, String userPhotoUrl){
 		String twitterAccountURL =  URI+"/twitterAccount#" + userId;
 		// get source for person
-		String personURI = URI+"/person#" + name;
+		String personURI = URI+"/person#" + this.filter(name);
 		Resource person = model.createResource(personURI);
 //		if(model.getResource(personURI)!=null)
 //		{

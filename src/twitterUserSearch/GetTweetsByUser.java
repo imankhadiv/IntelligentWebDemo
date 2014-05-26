@@ -175,7 +175,7 @@ public class GetTweetsByUser {
 
 							TweetWithURL tweetWithURL = new TweetWithURL(
 									tweet.getText(), URLlist, expandedURLlist,
-									tweet.getCreatedAt().toString());
+									tweet.getCreatedAt().toString(),String.valueOf(tweet.getId()));
 							tweetsList.add(tweetWithURL);
 						}
 					}

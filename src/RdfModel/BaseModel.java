@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
 import twitter.FrequentKeywords;
 import Models.TweetWithURL;
 
@@ -69,7 +70,11 @@ public class BaseModel {
 	}
 
 	public String filter(String input) {
-		return input.replace("#", "").trim();
+		String content = input.replaceAll("RT +@[^ :]+:?;", "");
+		content = content.replaceAll("[-+.^:!?#=<>$,']", " ");
+		content = content.replaceAll("[^a-zA-Z0-9]", " ");
+		content = content.replaceAll("\\w*\\d\\w*", " ");
+		return content.trim();
 	}
 
 	/**
@@ -230,13 +235,14 @@ public class BaseModel {
 		List<TweetWithURL> list = new ArrayList<TweetWithURL>();
 		String queryString = "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "
 				+ "PREFIX tweet: <http://somewhere/tweet#> "
-				+ "SELECT ?content ?date ?shortUrl "// ?tweet ?content "
+				+ "SELECT ?content ?date ?shortUrl ?tweetId "// ?tweet ?content "
 				+ "WHERE { "
 				+ "?twitterAccount twitterAccount:userId \""
 						+ userId
 						+ "\" . "
-				+ "?tweet tweet:postedByTwitterAccount <http://somewhere/twitterAccount#2365765400> . "
+				+ "?tweet tweet:postedByTwitterAccount <http://somewhere/twitterAccount#"+userId+"> . "
 				+ "?tweet tweet:content ?content . "
+				+ "?tweet tweet:tweetId ?tweetId . "
 				+ "?tweet tweet:date ?date . "
 				+ "?tweet tweet:shortUrl ?shortUrl . "
 				+ "}";
@@ -261,9 +267,14 @@ public class BaseModel {
 				System.out.println(qs.getLiteral("?shortUrl"));
 				String shortUrl = "";
 				shortUrl = qs.getLiteral("?shortUrl").getString();
+				
+				System.out.println(qs.getLiteral("?tweetId"));
+				String tweetId = "";
+				tweetId = qs.getLiteral("?tweetId").getString();
+				
 				List<String> urlList = new ArrayList<String>();
 				urlList.add(shortUrl);
-				TweetWithURL currentTweet = new TweetWithURL(content, urlList, urlList, date);
+				TweetWithURL currentTweet = new TweetWithURL(content, urlList, urlList, date,tweetId);
 				list.add(currentTweet);
 			}
 		} finally {

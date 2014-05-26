@@ -2,17 +2,27 @@ package Models;
 
 public class User {
 	
-	public User(String name,String id,String location,String description,String photoURL,String userId)
+	public User(String name,String userId,String location,String description,String photoURL,String id)
 	{
 		this.setName(name);
 		this.setId(id);
 		this.setLocation(location);
 		this.setPhotoURL(photoURL);
 		this.setDescription(description);
-		this.setId(userId);
+		this.setScreenName(userId);
 	}
 	
 	
+	public String getScreenName() {
+		return screenName;
+	}
+
+
+	public void setScreenName(String screenName) {
+		this.screenName = screenName;
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -48,6 +58,7 @@ public class User {
 	private String location;
 	private String description;
 	private String photoURL;
+	private String screenName;
 	
 
 }

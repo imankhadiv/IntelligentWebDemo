@@ -92,7 +92,7 @@ function initialize(lat,lng,mzoom,type,venueJson) {
       title: venueJson.venue_name
   });
   google.maps.event.addListener(mymarker, 'click', function() {
-	  infoWindow.setContent('<div style="height:250px; width: 250px;">'+venueJson.venue_name+'<br/><img src="'+venueJson.photoURL+'" width="80" height="80"/>'
+	  infoWindow.setContent('<div class="table table-striped table-hover">'+venueJson.venue_name+'<br/><img src="'+venueJson.photoURL+'" width="80" height="80"/>'
 			  +'<br />Address: ' + venueJson.address + '<br />'+'Category: ' + venueJson.category+'</div>');
 //	  infoWindow.setContent('<img src="' + venueJson.photoURL + '" /><br/><font style="color:#000;">' + venueJson.name + 
 //	          '<br />Address: ' + venueJson.address + '<br />Category: ' + //venueJson.category + 

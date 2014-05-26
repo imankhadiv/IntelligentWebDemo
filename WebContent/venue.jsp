@@ -4,7 +4,7 @@
 </c:import>
 
 
-
+<div class="hero-unit " id="container" >
 	<table class="table table-borderd table-hover" id="venuetable">
  		<tr>
  		<th>Location key word(eg. Sheffield) : </th>
@@ -26,7 +26,6 @@
  		</td>
  		</tr>
  	</table>
- <a>*if the day is 0, it would start streaming for 50seconds</a>
       
      
      
@@ -34,5 +33,5 @@
       
       <div id="listdisplay"></div>
       <div id="streamdisplay"></div>
-
+</div>
 <c:import url="footer.jsp"></c:import>
