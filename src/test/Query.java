@@ -52,7 +52,7 @@ public class Query {
 				System.out.println(qs.getLiteral("?name"));
 			}
 		} finally {
-			// qe.close();
+//			 qe.close();
 		}
 		
 	}

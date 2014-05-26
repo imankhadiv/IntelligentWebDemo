@@ -36,7 +36,7 @@ function searchloop() {
 				}
 			}
 			// do something special
-			http_request.open("GET", "StreamUserServlet", true);
+			http_request.open("POST", "SearchUserWithVenueServlet", true);
 			http_request.send();
 			http_request.onreadystatechange = function() {
 				if (http_request.readyState == 4) {

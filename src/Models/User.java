@@ -2,14 +2,16 @@ package Models;
 
 public class User {
 	
-	public User(String name,String id,String location,String description,String photoURL)
+	public User(String name,String id,String location,String description,String photoURL,String userId)
 	{
 		this.setName(name);
 		this.setId(id);
 		this.setLocation(location);
 		this.setPhotoURL(photoURL);
 		this.setDescription(description);
+		this.setId(userId);
 	}
+	
 	
 	public String getName() {
 		return name;

@@ -7,6 +7,7 @@ import java.io.InputStream;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -139,6 +140,65 @@ public class BaseModel {
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 		return qe.execSelect();
 
+	}
+	
+	public Models.User getUserFromRecordsByTweetId(String tweetIdString, String fileName){
+		
+		Model model = getModelFromFile(fileName);
+
+		String queryString = "PREFIX twitterAccount: <http://somewhere/twitterAccount#> "+
+				"PREFIX person: <http://somewhere/person#> "+
+				"PREFIX tweet: <http://somewhere/tweet#> "+
+				"SELECT ?name ?userId ?sceenName ?photoUrl ?liveInCity ?description "+
+				"WHERE { ?tweet tweet:tweetId \""+tweetIdString+"\" ."+
+				"?tweet tweet:postedByTwitterAccount ?twitterAccount . "+
+				"?twitterAccount twitterAccount:sceenName ?sceenName . "+
+				"?twitterAccount twitterAccount:userId ?userId . " +
+				"?twitterAccount twitterAccount:photoUrl ?photoUrl . " +
+				"?twitterAccount twitterAccount:liveInCity ?liveInCity . " +
+				"?twitterAccount twitterAccount:description ?description . " +
+				"?twitterAccount twitterAccount:ownedByPerson ?person . " +
+				"?person person:name ?name . " +
+				"}";
+
+		com.hp.hpl.jena.query.Query query = QueryFactory.create(queryString);
+		// Execute the query and obtain results
+		QueryExecution qe = QueryExecutionFactory.create(query, model);
+		ResultSet results = qe.execSelect();
+		String sceenName = "";
+		String userId= "";
+		String photoUrl= "";
+		String name= "";
+		String liveInCity= "";
+		String description= "";
+		
+		try {
+			// simple select
+			if (results.hasNext()) {
+				QuerySolution qs = results.next();
+				System.out.println(qs.getLiteral("?sceenName"));
+				sceenName = qs.getLiteral("?sceenName").getString();
+				System.out.println(qs.getLiteral("?userId"));
+				userId = qs.getLiteral("?userId").getString();
+				System.out.println(qs.getLiteral("?photoUrl"));
+				photoUrl = qs.getLiteral("?photoUrl").getString();
+				System.out.println(qs.getLiteral("?name"));
+				name = qs.getLiteral("?name").getString();
+				System.out.println(qs.getLiteral("?liveInCity"));
+				liveInCity = qs.getLiteral("?liveInCity").getString();
+				System.out.println(qs.getLiteral("?description"));
+				description = qs.getLiteral("?description").getString();
+			}
+		} finally {
+			 qe.close();
+		}
+		
+		
+		Models.User currentUser = new Models.User(name,
+				"@" + sceenName, liveInCity,
+				description, photoUrl,userId);
+		
+		return currentUser;
 	}
 
 

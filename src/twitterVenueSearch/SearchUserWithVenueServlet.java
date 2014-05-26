@@ -27,6 +27,7 @@ import twitter4j.TwitterStream;
 public class SearchUserWithVenueServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	TwitterStream tws ;
+	TwitterStreaming tt;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -81,7 +82,7 @@ public class SearchUserWithVenueServlet extends HttpServlet {
 				// TODO streaming
 				System.out.println("start streaming");
 				try {
-					TwitterStreaming tt = new TwitterStreaming();
+					 tt = new TwitterStreaming();
 					tws = tt.getTwitterStream(workingDir);
 					int count = 0;
 					long[] idToFollow = new long[0];
@@ -130,21 +131,8 @@ public class SearchUserWithVenueServlet extends HttpServlet {
 			}
 		} else if (streamstopString.equals("stop")) {
 			System.out.println("123123");
-			MyDB db = new MyDB();
-			try {
-				db.droptable("new_table");
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 				tws.cleanUp();
 				tws.shutdown();
-			try {
-				db.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			
 		}
 		
@@ -157,6 +145,12 @@ public class SearchUserWithVenueServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		Gson gson = new Gson();
+		String jsonString = gson.toJson(tt.getUserList());
+		System.out.println(jsonString);
+		PrintWriter out = response.getWriter();
+    	out.write(jsonString);
 	}
 
 }

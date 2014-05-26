@@ -80,7 +80,6 @@ public class TwitterStreamingForUser {
 			return uRLList;
 		}
 
-
 		public void setuRLList(List<TweetWithURL> uRLList) {
 			this.uRLList = uRLList;
 		}
@@ -88,7 +87,6 @@ public class TwitterStreamingForUser {
 
 		public TwitterStreamingForUser(){
 			 uRLList = new ArrayList<TweetWithURL>();
-			 //TODO database
 		 }
 		 
 		 
