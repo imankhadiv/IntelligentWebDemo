@@ -7,24 +7,24 @@
     xmlns:j.3="http://somewhere/venue#"
     xmlns:j.4="http://somewhere/twitterAccount#" > 
   <rdf:Description rdf:about="http://somewhere/tweet#446690152686321664">
-    <j.0:tweetId>446690152686321664</j.0:tweetId>
-    <j.0:content>Happy Persian new year :) so happy !!#Persian #new year #7sin #eyd </j.0:content>
-    <j.0:date>Thu Mar 20 16:50:06 GMT 2014</j.0:date>
-    <j.0:shortUrl>http://t.co/R9Z4tXXFzv</j.0:shortUrl>
-    <j.0:postedByTwitterAccount rdf:resource="http://somewhere/twitterAaccount#21203769"/>
-    <j.0:hasVenue>N/A</j.0:hasVenue>
-    <j.0:hasOriginTweet>N/A</j.0:hasOriginTweet>
     <j.0:retweetPeople>N/A</j.0:retweetPeople>
+    <j.0:hasOriginTweet>N/A</j.0:hasOriginTweet>
+    <j.0:hasVenue>N/A</j.0:hasVenue>
+    <j.0:postedByTwitterAccount rdf:resource="http://somewhere/twitterAaccount#21203769"/>
+    <j.0:shortUrl>http://t.co/R9Z4tXXFzv</j.0:shortUrl>
+    <j.0:date>Thu Mar 20 16:50:06 GMT 2014</j.0:date>
+    <j.0:content>Happy Persian new year :) so happy !!#Persian #new year #7sin #eyd </j.0:content>
+    <j.0:tweetId>446690152686321664</j.0:tweetId>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#436265955715342337">
-    <j.0:tweetId>436265955715342337</j.0:tweetId>
-    <j.0:content>Facebook Is Buying Whatsapp For $19 Billion! </j.0:content>
-    <j.0:date>Wed Feb 19 22:28:03 GMT 2014</j.0:date>
-    <j.0:shortUrl>http://t.co/4kaY7lO9kI</j.0:shortUrl>
-    <j.0:postedByTwitterAccount rdf:resource="http://somewhere/twitterAaccount#21203769"/>
-    <j.0:hasVenue>N/A</j.0:hasVenue>
-    <j.0:hasOriginTweet>N/A</j.0:hasOriginTweet>
     <j.0:retweetPeople>N/A</j.0:retweetPeople>
+    <j.0:hasOriginTweet>N/A</j.0:hasOriginTweet>
+    <j.0:hasVenue>N/A</j.0:hasVenue>
+    <j.0:postedByTwitterAccount rdf:resource="http://somewhere/twitterAaccount#21203769"/>
+    <j.0:shortUrl>http://t.co/4kaY7lO9kI</j.0:shortUrl>
+    <j.0:date>Wed Feb 19 22:28:03 GMT 2014</j.0:date>
+    <j.0:content>Facebook Is Buying Whatsapp For $19 Billion! </j.0:content>
+    <j.0:tweetId>436265955715342337</j.0:tweetId>
   </rdf:Description>
   <rdf:Description rdf:about="http://somewhere/tweet#416522358568927232">
     <j.0:tweetId>416522358568927232</j.0:tweetId>

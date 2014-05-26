@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import RdfModel.BaseModel;
 
+import beans.Tweet;
+
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 
@@ -38,38 +40,33 @@ public class Query {
 		// QueryExecution qe = QueryExecutionFactory.create(query, model);
 		// ResultSet results = qe.execSelect();
 		BaseModel base = new BaseModel();
-		ResultSet results = base.getRecordsByScreenName("Rastkhadiv", fileName);
+		//ResultSet results = base.getRecordsByScreenName("Rastkhadiv", fileName);
 		// ResultSet results = base.getRecordsByAccountId("31714483", fileName);
-
-		try {
-			// simple select
-			if (results.hasNext()) {
-				QuerySolution qs = results.next();
-				System.out.println(qs.getLiteral("?sceenName"));
-				System.out.println(qs.getLiteral("?userId"));
-				System.out.println(qs.getLiteral("?photoUrl"));
-				System.out.println(qs.getLiteral("?name"));
-			}
-		} finally {
-//			 qe.close();
-		}
-//		ResultSet results2 = base.getTweetsByAccountId("446690152686321664", fileName);
 //
 //		try {
 //			// simple select
-//			while (results2.hasNext()) {
-//				
-//				System.out.println("kk");
-//				QuerySolution qs = results2.next();
-//				
-//				System.out.println(qs.getLiteral("?tweetId"));
-//				System.out.println(qs.getLiteral("?date"));
-//				System.out.println(qs.getResource("?postedByTwitterAccount"));
-//
+//			if (results.hasNext()) {
+//				QuerySolution qs = results.next();
+////				System.out.println(qs.getLiteral("?sceenName"));
+////				System.out.println(qs.getLiteral("?userId"));
+////				System.out.println(qs.getLiteral("?content"));
+////				System.out.println(qs.getLiteral("?name"));
 //			}
 //		} finally {
-//			// qe.close();
+////			 qe.close();
 //		}
+		//beans.Person p = base.getRecordsByAccountId("21203769", fileName);
+		beans.Person p = base.getRecordsByScreenName("Rastkhadiv", fileName);
+		System.out.println(p.getUsrId());
+		beans.Person pp = base.getallTweets(String.valueOf(p.getUsrId()), fileName);
+		System.out.println(pp.getTweets().size());
+		for(Tweet item:pp.getTweets()) {
+			System.out.println(item.getContent());
+		}
+		System.out.println(pp.getMap());
+		//System.out.println(p.getProfilePicture());
+		//ResultSet results2 = base.getallTweets("21203769",fileName);
+
 
 	}
 }

@@ -42,7 +42,10 @@ public class FrequentKeywords {
 		this.userId = userId;
 
 	}
-
+	/**
+	 * 
+	 * @param twitter
+	 */
 	public void getFrequentKeywords(Twitter twitter) {
 		StringBuilder resultString = new StringBuilder();
 		map = new TreeMap<String, Integer>();
@@ -85,6 +88,10 @@ public class FrequentKeywords {
 	public Map<String, Integer> getMap() {
 		return map;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 
 	public List<Person> getUsers() {
 
@@ -106,6 +113,11 @@ public class FrequentKeywords {
 
 		}
 	}
+	/**
+	 * 
+	 * @param text
+	 * @return
+	 */
 
 	public static Map<String, Integer> getKeywords(String text) {
 		String[] keywords = StopWord.stopWords(text);
@@ -122,28 +134,17 @@ public class FrequentKeywords {
 
 		return sortByValue(map);
 	}
-
-//	static Map<String, Integer> sortByValue(Map<String, Integer> map) {
-//		List list = new LinkedList<>(map.entrySet());
-//		Collections.sort(list, new Comparator() {
-//			public int compare(Object o1, Object o2) {
-//				return -((Comparable) ((Map.Entry) (o1)).getValue())
-//						.compareTo(((Map.Entry) (o2)).getValue());
-//			}
-//		});
-//
-//		Map result = new LinkedHashMap();
-//		for (Iterator it = list.iterator(); it.hasNext();) {
-//			Map.Entry entry = (Map.Entry) it.next();
-//			result.put(entry.getKey(), entry.getValue());
-//		}
-//		return result;
-//	}
+	/**
+	 * 
+	 * @param map
+	 * @return
+	 */
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static Map<String, Integer> sortByValue(Map<String, Integer> map) {
-		LinkedList<Entry<String,Integer>> list = new LinkedList<Entry<String,Integer>>();
-		for(Entry<String, Integer> item:map.entrySet()){
-			
+		LinkedList<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>();
+		for (Entry<String, Integer> item : map.entrySet()) {
+
 			list.add(item);
 		}
 		Collections.sort(list, new Comparator() {
@@ -161,6 +162,11 @@ public class FrequentKeywords {
 		}
 		return result;
 	}
+	/**
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 
 	private Twitter init() throws Exception {
 		String consumerkey = "u7F2NWTzyd3t6YCCy1uEw";
@@ -194,6 +200,7 @@ public class FrequentKeywords {
 
 		return userTimeline;
 	}
+
 	/**
 	 * 
 	 * @param userTimeline
@@ -201,35 +208,35 @@ public class FrequentKeywords {
 	public void setUserTimeline(ResponseList<Status> userTimeline) {
 		this.userTimeline = userTimeline;
 	}
+
 	/**
 	 * This method is implemented to extract shorturl from tweet text
+	 * 
 	 * @param txt
 	 * @return
 	 */
 	public String getShortURL(String txt) {
 		int index = txt.indexOf("http://");
-		if(index == -1)
+		if (index == -1)
 			return "";
 		String shortURL = txt.substring(index);
 		String s[] = shortURL.split(" ");
 		return s[0];
 
 	}
+
 	/**
 	 * This method is implemented to get tweet text
+	 * 
 	 * @param txt
 	 * @return
 	 */
-	public String getTweetText(String txt){
+	public String getTweetText(String txt) {
 		int index = txt.indexOf("http://");
-		if(index == -1)
+		if (index == -1)
 			return txt;
 		return txt.replaceAll(getShortURL(txt), "");
-		
+
 	}
-//	public static void main(String[] args) {
-//		String s = "hello world from iman rastkhadiv masouleh hello world";
-//		System.out.println(FrequentKeywords.getKeywords(s));
-//	}
 
 }

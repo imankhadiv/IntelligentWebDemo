@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class Person {
@@ -14,6 +15,9 @@ public class Person {
 	private int twittCount;
 	private long tweetId;
 	private String date;
+	private String usrId;
+	private ArrayList<Tweet> tweets;
+	
 	
 	private Map<String, Integer> map;
 
@@ -112,6 +116,23 @@ public class Person {
 	public void setDate(String date) {
 		this.date = date;
 	}
+
+	public String getUsrId() {
+		return usrId;
+	}
+
+	public void setUsrId(String usrId) {
+		this.usrId = usrId;
+	}
+
+	public ArrayList<Tweet> getTweets() {
+		return tweets;
+	}
+
+	public void setTweets(ArrayList<Tweet> tweets) {
+		this.tweets = tweets;
+	}
+	
 	
 	
 
