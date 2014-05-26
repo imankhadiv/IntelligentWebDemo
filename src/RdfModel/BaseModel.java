@@ -198,19 +198,7 @@ public class BaseModel {
 
 		Models.User currentUser = new Models.User(name, "@" + sceenName,
 				liveInCity, description, photoUrl, userId);
-
-<<<<<<< HEAD
-	
-	public static void main(String[] args)
-	{
-		String workpathString = "/Users/nijianyue/Documents/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/IntelligentWebDemo/WEB-INF/RDF.rdf";
-		BaseModel base = new BaseModel();
-		System.out.println(base.hasTweetRecord("470844047595409408", workpathString));
-		Models.User user = base.getUserFromRecordsByTweetId("470844047595409408", workpathString);
-		System.out.println(user.getName());
-=======
 		return currentUser;
->>>>>>> FETCH_HEAD
 	}
 
 
@@ -239,11 +227,13 @@ public class BaseModel {
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 		return qe.execSelect();
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		String workpathString = "/Users/nijianyue/Documents/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/IntelligentWebDemo/WEB-INF/RDF.rdf";
 		BaseModel base = new BaseModel();
-		System.out.println(base.hasTweetRecord("470817397809893377",
-				workpathString));
+		System.out.println(base.hasTweetRecord("470664099454783488", workpathString));
+		Models.User user = base.getUserFromRecordsByTweetId("470664099454783488", workpathString);
+		System.out.println(user.getName());
 	}
 
 
