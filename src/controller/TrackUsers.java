@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -42,13 +43,8 @@ public class TrackUsers extends HttpServlet {
 		String userId = request.getParameter("userId");
 		FrequentKeywords fr = new FrequentKeywords(userId);
 		fr.getUsers();
-		// String rdfFile = getServletContext().getRealPath("") + File.separator
-		// + "WEB-INF" + File.separator + "RDF.rdf";
-		String rdfFile = "/Users/Iman/Documents/workspace/web2014/IntelligentWebDemo/WebContent/WEB-INF/RDF.rdf";
-		// this file path is temporary because we run the program in eclipse
-		// we can not see the real file if we use getRealPath
-		// for deploying the above rdfFile should be uncommented.
-		System.out.println(rdfFile);
+		String rdfFile = getServletContext().getRealPath("") + File.separator
+				+ "WEB-INF" + File.separator + "RDF.rdf";
 		ResponseList<Status> statuses = fr.getUserTimeline();
 
 		RdfModel.Person person = new RdfModel.Person();
@@ -133,17 +129,12 @@ public class TrackUsers extends HttpServlet {
 					Integer.valueOf(daysAGo));
 			List<Person> people = word.getUsers();
 			Map<String, Integer> map = word.getMap();
-			System.out.println(people);
 
 			request.setAttribute("number", number);
 			request.setAttribute("people", people);
 			request.setAttribute("map", map);
 			request.getRequestDispatcher("/Tracking/query-users.jsp").forward(
 					request, response);
-			System.out.println(map);
-			for (Person item : people) {
-				System.out.println("...." + item.getMap());
-			}
 
 		}
 
