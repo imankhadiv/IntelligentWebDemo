@@ -15,6 +15,7 @@
 <a class="btn btn-primary btn-large" href="venue.jsp">Venue</a><br/>
 <a class="btn btn-primary btn-large" href="foursquareIndex.html">Venue Information</a><br/>
 <a class="btn btn-primary btn-large" href="Tracking/mixqueries.jsp">Mixed Queries</a><br/>
+<a class="btn btn-primary btn-large" href="Tracking/profile.jsp">Recent Tweets</a><br/>
 <a class="btn btn-primary btn-large" href="${pageContext.request.contextPath}/TrackDiscussions?action=history">History</a></br>
 
 </div>

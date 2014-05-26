@@ -38,8 +38,7 @@ public class Query {
 		// QueryExecution qe = QueryExecutionFactory.create(query, model);
 		// ResultSet results = qe.execSelect();
 		BaseModel base = new BaseModel();
-		ResultSet results = base.getRecordsByScreenName("ImanKhadiv",
-				fileName);
+		ResultSet results = base.getRecordsByScreenName("ImanKhadiv", fileName);
 		// ResultSet results = base.getRecordsByAccountId("31714483", fileName);
 
 		try {
@@ -54,6 +53,23 @@ public class Query {
 		} finally {
 //			 qe.close();
 		}
-		
+		ResultSet results2 = base.getTweetsByAccountId("21203769", fileName);
+
+		try {
+			// simple select
+			if (results2.hasNext()) {
+				
+				System.out.println("kk");
+				QuerySolution qs = results2.next();
+				
+				System.out.println(qs.getLiteral("?tweetId"));
+				System.out.println(qs.getLiteral("?date"));
+				System.out.println(qs.getResource("?postedByTwitterAccount"));
+
+			}
+		} finally {
+			// qe.close();
+		}
+
 	}
 }

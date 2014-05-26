@@ -9,50 +9,53 @@ public class Person extends BaseModel {
 	private final String URI = "http://somewhere";
 	private Model model;
 	private Property Name;
-	//private Property Birthday;
+	// private Property Birthday;
 	private Property LiveInCity;
-	//private Property Gender;
+	// private Property Gender;
 	private Property hasTwitterAccount;
 
 	// Resource propFoursquareAccout;
 
 	public Person() {
-		String personURI = URI+"/person#";
+		String personURI = URI + "/person#";
 		model = ModelFactory.createDefaultModel();
 		// create schema
 		Name = model.createProperty(personURI, "name");
-		//Birthday = model.createProperty(personURI, "birthday");
+		// Birthday = model.createProperty(personURI, "birthday");
 		LiveInCity = model.createProperty(personURI, "liveInCity");
-		//Gender = model.createProperty(personURI, "gender");
+		// Gender = model.createProperty(personURI, "gender");
 		hasTwitterAccount = model.createProperty(personURI,
 				"has_twitterAccount");
 		// propFoursquareAccout= model.createProperty(personURI,
 		// "foursquareAccout");
 	}
 
-	public void savePerson(String name,String liveInCity, long twitterAccountId, String foursquareAccout) {
+	public void savePerson(String name, String liveInCity,
+			long twitterAccountId, String foursquareAccout) {
 		// create instance
-		String twitterAccountURI =URI+"/twitterAccount#";
+		String twitterAccountURI = URI + "/twitterAccount#";
 		Resource twitterAccount = model.createResource(twitterAccountURI
 				+ twitterAccountId);
-		String personalURI = URI+"/person#" + name;
+		String personalURI = URI + "/person#" + name;
 		model.createResource(personalURI).addProperty(Name, name)
-				//.addProperty(Birthday, birthday)
+		// .addProperty(Birthday, birthday)
 				.addProperty(LiveInCity, liveInCity)
-				//.addProperty(Gender, gender)
+				// .addProperty(Gender, gender)
 				.addProperty(hasTwitterAccount, twitterAccount);// addProperty(propFoursquareAccout,
 																// foursquareAccout);
 	}
-	public void savePerson(String name,String liveInCity, long twitterAccountId) {
+
+	public void savePerson(String name, String liveInCity, long twitterAccountId) {
 		// create instance
-		String twitterAccountURI =URI+"/twitterAccount#";
+		String twitterAccountURI = URI + "/twitterAccount#";
 		Resource twitterAccount = model.createResource(twitterAccountURI
 				+ twitterAccountId);
+
 		String personalURI = URI+"/person#" + this.filter(name);
 		model.createResource(personalURI).addProperty(Name, name)
-				//.addProperty(Birthday, birthday)
+		// .addProperty(Birthday, birthday)
 				.addProperty(LiveInCity, liveInCity)
-				//.addProperty(Gender, gender)
+				// .addProperty(Gender, gender)
 				.addProperty(hasTwitterAccount, twitterAccount);// addProperty(propFoursquareAccout,
 																// foursquareAccout);
 	}
@@ -60,13 +63,12 @@ public class Person extends BaseModel {
 	public Model getModel() {
 		return model;
 	}
-	
 
 	public static void main(String[] args) {
 		Model modelMain = ModelFactory.createDefaultModel();
 		Person personrdf = new Person();
-//		personrdf.savePerson("Ni Jianyue", "1988-06-21", "sheffield", "male",
-//				111, "");
+		// personrdf.savePerson("Ni Jianyue", "1988-06-21", "sheffield", "male",
+		// 111, "");
 		modelMain.add(personrdf.getModel());
 		modelMain.write(System.out);
 	}
