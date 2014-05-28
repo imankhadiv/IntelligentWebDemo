@@ -40,6 +40,7 @@ public class SearchTweetsByUserServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 //		System.out.println(request);
 		workingDir =getServletContext().getRealPath("/WEB-INF/RDF.rdf");
+//		response.getWriter().println("workingDir is " + workingDir);
 		int status = Integer.parseInt(request.getParameter("status"));
 		System.out.println(status);
 		String userScreenName="";
@@ -100,6 +101,7 @@ public class SearchTweetsByUserServlet extends HttpServlet {
 		}
 		PrintWriter out = response.getWriter();
 		out.write(json);
+//		out.write("<a>"+workingDir+"</a>");
 	}
 	/**
 	 * 
